@@ -4,9 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import './styles/styles.scss';
 
 import App from './containers/App';
-import * as serviceWorker from './serviceWorker';
-import IntlProviderWrapper from "./hoc/IntlProviderWrapper";
-
+import * as serviceWorker from './serviceWorker'; // Nhúng thành phần IntlProviderWrapper từ thư mục hoc, 
+//để cung cấp hỗ trợ đa ngôn ngữ (internationalization).
+import IntlProviderWrapper from "./hoc/IntlProviderWrapper"; //Nhúng thành phần IntlProviderWrapper từ thư mục hoc,
+// để cung cấp hỗ trợ đa ngôn ngữ (internationalization).
 
 import { Provider } from 'react-redux';
 import reduxStore, { persistor } from './redux';
@@ -15,7 +16,7 @@ const renderApp = () => {
     ReactDOM.render(
         <Provider store={reduxStore}>
             <IntlProviderWrapper>
-                <App persistor={persistor}/>
+                <App persistor={persistor} />
             </IntlProviderWrapper>
         </Provider>,
         document.getElementById('root')
