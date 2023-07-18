@@ -1,0 +1,244 @@
+ul {
+    padding: 0 0px 0px 25px;
+}
+
+// reset css bootstrap
+.my-carousel {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+
+    .carousel-one {
+        border-bottom: 5px solid #EFEEF5;
+
+        .slick-slider {
+            .slick-arrow {
+                display: none !important;
+            }
+        }
+
+    }
+
+    .carousel-two {
+        background-color: #F5F5F5;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 330px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        box-sizing: content-box;
+        border-bottom: 5px solid #EFEEF5;
+
+        .speciality {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                text-indent: 25px;
+                font-size: 30px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            button {
+                background-color: #EBEBEB;
+                margin-right: 30px;
+                padding: 18px 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    background-color: #F7D800;
+                    color: #ffffff;
+                }
+            }
+        }
+
+
+        .slick-slider {
+            height: 72% !important;
+
+            .slick-list {
+                height: 100% !important;
+
+                .slick-track {
+                    height: 100% !important;
+
+                    .slick-slide {
+                        padding: 10px;
+
+                        .slider-item {
+
+                            .slider-item-image {
+                                width: 100% !important;
+
+                                img {
+                                    border-radius: 0;
+                                    width: 100% !important;
+                                    height: 160px !important;
+                                }
+                            }
+
+                            .slider-item-text {
+                                p {
+                                    text-indent: 10px;
+                                    color: #888 !important;
+                                    font-weight: 400 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .slick-arrow {
+                transform: translate(10px, -58px) !important
+            }
+
+            .slick-prev {}
+
+            .slick-next {
+                transform: translate(-10px, -58px) !important
+            }
+        }
+
+    }
+
+    .slick-slider {
+        margin: 0px auto 0 auto !important;
+        width: 80% !important;
+        margin: auto;
+        height: 380px;
+
+        .slick-arrow {
+            border: 1px solid grey;
+            background-color: #EEF0F0 !important;
+            width: 50px;
+            height: 50px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            // display: none !important;
+            &::before {
+                content: '';
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px !important;
+                height: 30px !important;
+                color: #333;
+                font-size: 25px;
+
+            }
+        }
+
+        .slick-prev {
+            transform: translate(15px, -110px);
+
+            &::before {
+                content: '←';
+            }
+        }
+
+        .slick-next {
+            &::before {
+                content: '→';
+
+            }
+
+            transform: translate(-15px, -110px);
+        }
+
+        .slick-list {
+            height: inherit;
+
+            .slick-track {
+                height: inherit !important;
+
+                .slick-slide {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    padding: 0px 20px;
+                    cursor: pointer;
+
+                    div {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .slider-item {
+                            // padding: 20px 0px;
+                            height: 100%;
+                            width: 100%;
+                            margin: auto;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            // border: 1px solid grey;
+
+                            .slider-item-image {
+                                width: inherit;
+                                // border-radius: 10px;
+
+                                img {
+                                    width: 100%;
+                                    height: 140px;
+                                    border-radius: 10px;
+
+                                }
+                            }
+
+
+
+                            .slider-item-text {
+                                display: block;
+
+                                .item-text-list {
+                                    display: block;
+                                    height: fit-content;
+                                }
+
+                                p {
+                                    &:first-child {
+                                        font-weight: 680;
+                                        font-size: 17px;
+                                        margin-bottom: 10px;
+                                    }
+
+                                    &:last-child {
+                                        font-size: 15px;
+                                        color: #45C3D2;
+                                        font-weight: 580;
+                                        margin-top: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    .slick-slider:first-child {
+        padding-bottom: 90px;
+        box-sizing: content-box;
+    }
+
+}

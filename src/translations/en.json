@@ -1,4 +1,30 @@
 {
+    "home-header": {
+        "speciality": "Speciality",
+        "healthFacilities": "Health Facilities",
+        "doctor": "Doctor",
+        "CheckupPackage": "Checkup Package",
+        "support": "Support",
+        "SearchBySpecialist": "Search By Specialist",
+        "ChooseHospitalClinic": "Choose Hospital Clinic",
+        "ChooseAGoodDoctor": "Choose A Good Doctor",
+        "GeneralHealthCheck": "General Health Check"
+    },
+    "home-baner": {
+        "MEDICALBACKGROUND": "MEDICAL BACKGROUND",
+        "COMPREHENSIVEHEALTHCARE": "COMPREHENSIVE HEALTH CARE",
+        "findASpecialist": "Find A Specialist",
+        "SpecializingInFacultyExamination": "Specializing In Faculty Examination",
+        "RemoteExamination": "Remote Examination",
+        "GeneralExamination": "General Examination",
+        "MedicalTest": "Medical Test",
+        "MentalHealth": "Mental Health",
+        "DentalCourse": "Dental Course",
+        "HealthTest": "Health Test",
+        "healthCheckPackage": "health Check Package",
+        "medical": "Medical",
+        "medicalNearYou": "Medical Near You"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
