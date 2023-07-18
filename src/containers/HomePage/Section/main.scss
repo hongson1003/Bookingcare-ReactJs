@@ -74,6 +74,9 @@ ul {
                         padding: 10px;
 
                         .slider-item {
+                            &:hover .slider-item-text_title {
+                                color: #45C3D2 !important;
+                            }
 
                             .slider-item-image {
                                 width: 100% !important;
