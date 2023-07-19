@@ -1,5 +1,5 @@
 import React from "react";
-import './main.scss';
+import './HeaderHomePage.scss';
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../../utils/constant";

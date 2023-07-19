@@ -1,0 +1,130 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    padding: 0 0px 0px 25px;
+}
+
+.slick-arrow {
+    border: 1px solid grey;
+    background-color: #EEF0F0 !important;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px !important;
+        height: 30px !important;
+        color: #333;
+        font-size: 25px;
+
+    }
+}
+
+.slick-prev {
+    &::before {
+        content: '←';
+    }
+
+    transform: translate(0, -110%);
+}
+
+.slick-next {
+    &::before {
+        content: '→';
+    }
+
+    transform: translate(0, -110%);
+}
+
+
+.slider-item-image {
+    img {
+        width: 100%;
+        height: 140px;
+    }
+}
+
+.my-carousel {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+
+    .envelope {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+.my-carousel {
+    .section-home {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        box-sizing: content-box;
+        border-bottom: 5px solid #EFEEF5;
+
+        .section-share {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            margin-bottom: 28px;
+
+            p {
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            button {
+                background-color: #EBEBEB;
+                margin-right: 30px;
+                padding: 18px 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    background-color: #F7D800;
+                    color: #ffffff;
+                }
+            }
+
+        }
+
+        .slider-item {
+            position: relative;
+            cursor: pointer;
+            padding: 0px 5px;
+
+
+            .slider-item-image {
+                width: 100%;
+                margin-bottom: 10px;
+
+                img {
+                    width: 100%;
+                    height: 160px;
+                }
+            }
+
+            &:hover .slider-item-text_title {
+                color: #52C6D4;
+            }
+
+        }
+    }
+}

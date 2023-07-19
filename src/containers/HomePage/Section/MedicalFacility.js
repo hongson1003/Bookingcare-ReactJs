@@ -7,11 +7,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-    coxuongkhop, thankinh, tieuhoa, timmach, taimuihong, cotsong
-    , yhoccotruyen, chamcuu
+    tuvan1, tuvan2, tuvan3, tuvan4, tuvan5, tuvan6, tuvan7, tuvan8,
+    hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
 } from '../../../assets/images';
-import './Speciality.scss';
-class Speciality extends React.Component {
+import './MedicalFacility.scss';
+class Telemedicine extends React.Component {
     constructor(props) {
         super(props);
 
@@ -20,49 +20,51 @@ class Speciality extends React.Component {
     render() {
         let { settings } = this.props;
         return (
-            <div className="section-home speciality">
+            <div className="section-home medicalfacility">
                 <div className="envelope">
 
                     <div className="section-share">
-                        <p>Chuyên gia phổ biến</p>
+                        <p>Cơ sở y tế nổi bật</p>
                         <button className="btn">XEM THÊM</button>
                     </div>
                     <Slider {...settings}>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={coxuongkhop} />
+                                    <img src={vietduc} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Cơ xương khớp
+                                        Bệnh viện Hữu Nghị Việt Đức
                                     </p>
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={thankinh} />
+                                    <img src={choray} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Thần kinh
+                                        Bệnh viện chợ rẫy
                                     </p>
-
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tieuhoa} />
+                                    <img src={daihocyduoc} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Tiêu hóa
+                                        Phòng khám bệnh viện đại học y dược 1
                                     </p>
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
 
@@ -71,56 +73,44 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={timmach} />
+                                    <img src={trunguongquandoi} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Tim mạch
+                                        Trung tâm khám sức khỏe định kỳ. Bệnh viện trung ương Quân Đội 108
                                     </p>
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={taimuihong} />
+                                    <img src={hungviet} />
                                 </div>
                                 <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Tai mũi họng</p>
+                                    <p className="slider-item-text_title">
+                                        Bệnh viện Ung Bứu Hưng Việt
+                                    </p>
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
 
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={cotsong} />
+                                    <img src={congnghecao} />
                                 </div>
                                 <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Cột sống</p>
+                                    <p className="slider-item-text_title">
+                                        Hệ thống y tế MEDLATEC
+                                    </p>
                                 </div>
+                                <div className="video-icon"></div>
                             </div>
                         </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={yhoccotruyen} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Y học cổ truyền</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={chamcuu} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Châm cứu</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </Slider>
                 </div>
             </div>
@@ -144,4 +134,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Speciality);
+export default connect(mapStateToProps, mapDispatchToProps)(Telemedicine);
