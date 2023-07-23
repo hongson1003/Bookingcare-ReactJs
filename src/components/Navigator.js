@@ -6,11 +6,21 @@ import { connect } from 'react-redux';
 import './Navigator.scss';
 
 class MenuGroup extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: ''
+        }
+    }
+    handleOnClick = () => {
+        this.setState({
+            isActive: 'active'
+        })
+    }
     render() {
         const { name, children } = this.props;
         return (
-            <li className="menu-group">
+            <li className={this.state.isActive + ' menu-group'} onClick={() => this.handleOnClick()}>
                 <div className="menu-group-name">
                     <FormattedMessage id={name} />
                 </div>
@@ -183,6 +193,7 @@ class Navigator extends Component {
             this.checkActiveMenu();
         };
     };
+
 
     render() {
         const { menus, location, onLinkClick } = this.props;

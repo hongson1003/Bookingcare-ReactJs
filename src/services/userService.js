@@ -25,4 +25,8 @@ let editUser = (item) => {
     return axios.put('/api/update-user', item);
 }
 
-export { handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser };
+let getAllCode = async (type) => {
+    return await axios.get(`/api/getAllCode?type=${type}`);
+}
+
+export { handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode };

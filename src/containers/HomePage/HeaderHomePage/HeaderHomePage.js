@@ -10,6 +10,9 @@ class HeaderHomePage extends React.Component {
         this.props.changeLanguageRedux(e.target.value);
     }
     render() {
+        let a = <FormattedMessage id="home-baner.SpecializingInFacultyExamination" />;
+        console.log('fo mat', a)
+        console.log(a.EN)
         return (
             <React.Fragment>
                 <div className="container-header">
@@ -82,7 +85,11 @@ class HeaderHomePage extends React.Component {
                             </p>
                             <div className="baner-search">
                                 <i className="fas fa-search"></i>
-                                <input placeholder="Tìm chuyên khoa" />
+                                {
+                                    this.props.language == 'vi' ?
+                                        <input placeholder="Tìm chuyên khoa" /> :
+                                        <input placeholder="Find a Specialist" />
+                                }
                             </div>
                             <div className="baner-services">
                                 <div className="baner-item">
