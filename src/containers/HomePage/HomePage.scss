@@ -60,7 +60,6 @@ ul {
 }
 
 .my-carousel {
-    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
 
@@ -72,8 +71,7 @@ ul {
 
 .my-carousel {
     .section-home {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        padding: 20px 0px 40px 0px;
         box-sizing: content-box;
         border-bottom: 5px solid #EFEEF5;
 
@@ -92,7 +90,7 @@ ul {
             button {
                 background-color: #EBEBEB;
                 margin-right: 30px;
-                padding: 18px 18px;
+                padding: 10px 18px;
                 display: flex;
                 justify-content: center;
                 align-items: center;

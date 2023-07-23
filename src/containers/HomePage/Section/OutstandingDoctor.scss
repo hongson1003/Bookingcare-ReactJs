@@ -1,0 +1,33 @@
+.my-carousel {
+    .outstandingdoctor {
+        background-color: #ffffff;
+
+        padding-bottom: 70px;
+
+        .slider-item {
+
+
+            .slider-item-image {
+                background-color: #ffffff;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                    margin: auto;
+                    border-radius: 50%;
+                }
+            }
+
+            .slider-item-text {
+                p {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    text-align: center;
+                }
+            }
+
+
+        }
+
+    }
+}

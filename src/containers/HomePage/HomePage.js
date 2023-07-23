@@ -7,6 +7,10 @@ import "slick-carousel/slick/slick-theme.css";
 import './HomePage.scss';
 import MedicalFacility from "./Section/MedicalFacility";
 import Telemedicine from "./Section/Telemedicine";
+import OutstandingDoctor from "./Section/OutstandingDoctor";
+import HandBook from "./Section/HandBook";
+import Media from "./Section/Media";
+import Footer from "./FooterHomePage/Footer";
 class HomePage extends React.Component {
     render() {
         let settings = {
@@ -24,7 +28,15 @@ class HomePage extends React.Component {
                     <Speciality settings={settings} />
                     <Telemedicine settings={settings} />
                     <MedicalFacility settings={settings} />
+                    <OutstandingDoctor settings={settings} />
+                    <HandBook settings={{
+                        ...settings,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }} />
+                    <Media />
                 </div>
+                <Footer />
             </div>
         )
     }

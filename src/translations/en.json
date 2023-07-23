@@ -8,7 +8,8 @@
         "SearchBySpecialist": "Search By Specialist",
         "ChooseHospitalClinic": "Choose Hospital Clinic",
         "ChooseAGoodDoctor": "Choose A Good Doctor",
-        "GeneralHealthCheck": "General Health Check"
+        "GeneralHealthCheck": "General Health Check",
+        "welcome": "Welcome"
     },
     "home-baner": {
         "MEDICALBACKGROUND": "MEDICAL BACKGROUND",
@@ -21,7 +22,7 @@
         "MentalHealth": "Mental Health",
         "DentalCourse": "Dental Course",
         "HealthTest": "Health Test",
-        "healthCheckPackage": "health Check Package",
+        "healthCheckPackage": "Health Check Package",
         "medical": "Medical",
         "medicalNearYou": "Medical Near You"
     },
@@ -57,8 +58,7 @@
             "system-administrator": {
                 "header": "System Administrator",
                 "user-manage": "User manage",
-                "product-manage": "Package manage",
-                "register-package-group-or-account": "Register service package for group/account"
+                "user-redux": "Manage user using redux"
             },
             "system-parameter": {
                 "header": "System-parameter"

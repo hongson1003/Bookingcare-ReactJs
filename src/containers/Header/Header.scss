@@ -8,16 +8,67 @@
     color: $common-text-color;
     height: 40px;
     position: relative;
+
     .btn-logout {
         color: $common-text-color;
         line-height: 40px;
         height: 40px;
         padding: 0 10px;
+
         &:hover {
             background-color: darken($colormain, 5);
         }
+
         i {
             font-size: $base-size + 1px;
         }
+    }
+
+    .btn-logout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .welcome {
+            margin-right: 10px;
+        }
+
+        .languages-img {
+            display: flex;
+            justify-content: center;
+
+            .baner-vi {
+                background: url('../../assets/images/vi.png');
+            }
+
+            .baner-en {
+                background: url('../../assets/images/en.png');
+            }
+
+            .baner-language {
+                padding: 0;
+                width: 20px;
+                height: 20px;
+                // background-position: center;
+                background-repeat: no-repeat;
+                background-size: 20px 20px;
+                margin-right: 7px;
+
+            }
+
+            select {
+                border: none;
+                background-color: transparent;
+                color: #ffffff;
+                outline: none;
+                cursor: pointer;
+
+                option {
+                    color: blue;
+                    font-weight: bold;
+                }
+            }
+        }
+
     }
 }

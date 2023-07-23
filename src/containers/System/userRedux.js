@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-class ProductManage extends Component {
+class userReduxManage extends Component {
 
-    state = {
-
-    }
 
     componentDidMount() {
     }
@@ -13,7 +10,9 @@ class ProductManage extends Component {
 
     render() {
         return (
-            <div className="text-center" >Manage products</div>
+            <div className="class-redux-body">
+                <h2 className='title'>Quản lý người dùng với Redux</h2>
+            </div>
         )
     }
 
@@ -29,4 +28,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductManage);
+export default connect(mapStateToProps, mapDispatchToProps)(userReduxManage);

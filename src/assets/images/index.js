@@ -23,12 +23,18 @@ import daihocyduoc from './HomePage/daihocyduoc.jpg';
 import trunguongquandoi from './HomePage/trunguocquandoi.jpg';
 import hungviet from './HomePage/hungviet.jpg';
 import congnghecao from './HomePage/congnghecao.png';
-
-
+import letanloi from './HomePage/letanloi.jpg';
+import bacsituan from './HomePage/bacsituan.png';
+import bacsihavanquyet from './HomePage/bacsihavanquyet.jpg';
+import nguyenthihoaian from './HomePage/nguyenthihoaian.jpg';
+import donhuhon from './HomePage/donhuhon.jpg';
+import bsanhdaidien from './HomePage/bsanhdaidien.jpg';
+import nguyenthihuong from './HomePage/nguyenthihuong.jpg';
+import bsnga from './HomePage/bsnga.jpg';
 
 export {
     goichamsocsuckhoetainha, chuyendoiso, banana, coxuongkhop, thankinh, tieuhoa, timmach, taimuihong, cotsong, yhoccotruyen, chamcuu,
     tuvan1, tuvan2, tuvan3, tuvan4, tuvan5, tuvan6, tuvan7, tuvan8, vietduc, choray, daihocyduoc, trunguongquandoi, hungviet, congnghecao,
-
+    letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga
 
 };

@@ -1,0 +1,49 @@
+.my-carousel {
+    .handbook {
+        background-color: #F5F5F5;
+
+        padding-bottom: 40px;
+
+        .slider-item {
+            display: flex;
+
+            .slider-item-image {
+                --width: 285px;
+                padding-bottom: calc(0.6 * var(--width));
+                background-repeat: no-repeat;
+                background-position-x: center;
+                width: var(--width);
+
+                &.daulung {
+                    background-image: url('../../../assets/images/HomePage/daulungbentrai.png');
+                }
+
+                &.noitiet {
+                    background-image: url('../../../assets/images/HomePage/noitiet.jpg');
+                }
+
+                &.khopgoi {
+                    background-image: url('../../../assets/images/HomePage/khopgoi.png');
+                }
+
+                &.viemkhopgoi {
+                    background-image: url('../../../assets/images/HomePage/viemkhopgoi.jpg');
+
+                }
+            }
+
+            .slider-item-text {
+                width: 50%;
+
+                p {
+                    padding-left: 15px;
+                    font-size: 19px;
+                    font-weight: 750;
+                }
+            }
+
+
+        }
+
+    }
+}

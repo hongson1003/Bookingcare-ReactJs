@@ -69,7 +69,7 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div className='login-backGround'>
+            <div className='login-backGround' >
                 <div className='login-container'>
                     <div className='login-content'>
                         <div className='row'>

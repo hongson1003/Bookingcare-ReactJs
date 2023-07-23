@@ -6,17 +6,8 @@ import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 
 class HeaderHomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            language: 'vi',
-        }
-    }
-    handleOnChangeLanguage = async (languageInput) => {
-        await this.setState({
-            language: languageInput.target.value,
-        });
-        this.props.changeLanguageRedux(this.state.language);
+    handleOnChangeLanguage = async (e) => {
+        this.props.changeLanguageRedux(e.target.value);
     }
     render() {
         return (
@@ -57,7 +48,7 @@ class HeaderHomePage extends React.Component {
                                 <p className="header-phone">024-7301-2468</p>
                             </div>
                             <div>
-                                {this.state.language === LANGUAGES.VI
+                                {this.props.language === LANGUAGES.VI
                                     ?
                                     <div className="baner-language baner-vi"></div>
                                     :
@@ -67,12 +58,14 @@ class HeaderHomePage extends React.Component {
                                 <select onChange={
                                     (e) => this.handleOnChangeLanguage(e)}
                                 >
-                                    <option value={LANGUAGES.VI}>
-                                        VN
-                                    </option>
-                                    <option value={LANGUAGES.EN}>
-                                        ENG
-                                    </option>
+                                    <option value={LANGUAGES.VI}>VN </option>
+                                    {
+                                        this.props.language === LANGUAGES.EN
+                                            ?
+                                            <option selected value={LANGUAGES.EN}>EN</option>
+                                            :
+                                            <option value={LANGUAGES.EN}>EN</option>
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -174,7 +167,7 @@ class HeaderHomePage extends React.Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        lang: state.app.language,
+        language: state.app.language,
     }
 }
 

@@ -5,6 +5,7 @@ import './UserManage.scss'
 import ModalUser from './ModalUser';
 import { createNewAUser, editUser, deleteUser } from '../../services/userService';
 import { emitter } from '../../utils/emitter';
+import Header from '../Header/Header';
 class UserManage extends Component {
     constructor(props) {
         super(props);
@@ -133,6 +134,7 @@ class UserManage extends Component {
 
         return (
             <div className='userManage'>
+                {/* {this.props.isLoggedIn && <Header />} */}
                 <ModalUser
                     isOpenModal={this.state.isOpenModal}
                     toggle={this.toggle}

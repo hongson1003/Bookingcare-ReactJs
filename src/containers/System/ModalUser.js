@@ -25,7 +25,7 @@ class ModalUser extends Component {
 
         return (
             <>
-                <Button color="danger" onClick={() => this.toggle()}>{this.props.buttonLabel}</Button>
+                {/* <Button color="danger" onClick={() => this.toggle()}>{this.props.buttonLabel}</Button> */}
                 <Modal
                     isOpen={this.props.isOpenModal}
                     toggle={() => this.toggle()}

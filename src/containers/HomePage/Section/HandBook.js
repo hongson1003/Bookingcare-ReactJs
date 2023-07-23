@@ -8,57 +8,52 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
     hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
+    letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga,
 } from '../../../assets/images';
-import './MedicalFacility.scss';
-class MedicalFacility extends React.Component {
+import './HandBook.scss';
+class HandBook extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {
         let { settings } = this.props;
         return (
-            <div className="section-home medicalfacility">
+            <div className="section-home handbook">
                 <div className="envelope">
 
                     <div className="section-share">
-                        <p>Cơ sở y tế nổi bật</p>
-                        <button className="btn">TÌM KIẾM</button>
+                        <p>Cẩm Nang</p>
+                        <button className="btn">TẤT CẢ BÀI VIẾT</button>
                     </div>
                     <Slider {...settings}>
                         <div>
                             <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={vietduc} />
+                                <div className="slider-item-image daulung">
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Bệnh viện Hữu Nghị Việt Đức
+                                        Đau lưng bên trái: Triệu chứng, nguyên nhân, chăm sóc tại nhà
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={choray} />
-                                </div>
+                                <div className="slider-item-image noitiet"></div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Bệnh viện chợ rẫy
+                                        Top 6 địa chỉ xét nghiệm nội tiết Hà Nội đáng tin cậy
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={daihocyduoc} />
-                                </div>
+                                <div className="slider-item-image khopgoi"></div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Phòng khám bệnh viện đại học y dược 1
+                                        Tràn dịch khớp gối có nguy hiểm không ? Bao lâu thì khỏi ?
                                     </p>
                                 </div>
                             </div>
@@ -66,41 +61,16 @@ class MedicalFacility extends React.Component {
 
                         <div>
                             <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={trunguongquandoi} />
-                                </div>
+                                <div className="slider-item-image viemkhopgoi"></div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Trung tâm khám sức khỏe định kỳ. Bệnh viện trung ương Quân Đội 108
+                                        Viêm khớp: Các loại viêm khớp thường gặp, triệu chứng và cách điều trị
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={hungviet} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Bệnh viện Ung Bứu Hưng Việt
-                                    </p>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={congnghecao} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Hệ thống y tế MEDLATEC
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
                     </Slider>
                 </div>
@@ -125,4 +95,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default connect(mapStateToProps, mapDispatchToProps)(HandBook);

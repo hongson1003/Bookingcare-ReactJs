@@ -8,9 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
     hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
+    letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga,
 } from '../../../assets/images';
-import './MedicalFacility.scss';
-class MedicalFacility extends React.Component {
+import './OutstandingDoctor.scss';
+class OutstadingDoctor extends React.Component {
     constructor(props) {
         super(props);
 
@@ -19,46 +20,89 @@ class MedicalFacility extends React.Component {
     render() {
         let { settings } = this.props;
         return (
-            <div className="section-home medicalfacility">
+            <div className="section-home outstandingdoctor">
                 <div className="envelope">
 
                     <div className="section-share">
-                        <p>Cơ sở y tế nổi bật</p>
+                        <p>Bác sĩ nổi bật tuần qua</p>
                         <button className="btn">TÌM KIẾM</button>
                     </div>
                     <Slider {...settings}>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={vietduc} />
+                                    <img src={letanloi} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Bệnh viện Hữu Nghị Việt Đức
+                                        Thạc sĩ, Bác sĩ Lê Tấn Lợi
                                     </p>
+                                    <p>Thần Kinh</p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={choray} />
+                                    <img src={bacsituan} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Bệnh viện chợ rẫy
+                                        Bác Sĩ chuyên khoa | Nguyễn Trọng Tuân
                                     </p>
+                                    <p>Sức khỏe tâm thần</p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={daihocyduoc} />
+                                    <img src={bacsihavanquyet} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Phòng khám bệnh viện đại học y dược 1
+                                        Giáo sư, Tiến sĩ Hà Văn Quyết
+                                    </p>
+                                    <p>Tiêu hóa - Bệnh viêm gan</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="slider-item">
+                                <div className="slider-item-image">
+                                    <img src={nguyenthihoaian} />
+                                </div>
+                                <div className="slider-item-text">
+                                    <p className="slider-item-text_title">
+                                        Phó Giáo Sư, Tiến Sĩ, Bác Sĩ Nguyễn Thị Hoài An
+                                    </p>
+                                    <p>Tai Mũi Họng - Nhi Khoa</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="slider-item">
+                                <div className="slider-item-image">
+                                    <img src={donhuhon} />
+                                </div>
+                                <div className="slider-item-text">
+                                    <p className="slider-item-text_title">
+                                        Giáo sư, Thầy thuốc nhân dân Đỗ Như Hơn
+                                    </p>
+                                    <p>Chuyên khoa mắt</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="slider-item">
+                                <div className="slider-item-image">
+                                    <img src={bsanhdaidien} />
+                                </div>
+                                <div className="slider-item-text">
+                                    <p className="slider-item-text_title">
+                                        Khám Nam Học, Bệnh viện Nam Học và hiếm muộn Hà Nội Nam Học
                                     </p>
                                 </div>
                             </div>
@@ -67,37 +111,26 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={trunguongquandoi} />
+                                    <img src={nguyenthihuong} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Trung tâm khám sức khỏe định kỳ. Bệnh viện trung ương Quân Đội 108
+                                        Bác sĩ chuyên khoa II | Nguyễn Thị Hương
                                     </p>
+                                    <p>Cơ xương khớp - Thận - Tiết niệu - Nội khoa</p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={hungviet} />
+                                    <img src={bsnga} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
-                                        Bệnh viện Ung Bứu Hưng Việt
+                                        Tiến Sĩ Bác Sĩ Bùi Thị Phương Nga
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img src={congnghecao} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Hệ thống y tế MEDLATEC
-                                    </p>
+                                    <p>Sản Phụ Khoa</p>
                                 </div>
                             </div>
                         </div>
@@ -125,4 +158,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default connect(mapStateToProps, mapDispatchToProps)(OutstadingDoctor);

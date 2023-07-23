@@ -1,0 +1,114 @@
+.my-carousel {
+    .media {
+        background-color: #F5F5F5;
+        padding-bottom: 40px;
+        border: none;
+
+        .slider-item {
+            position: relative;
+            padding-bottom: 30%;
+            float: left;
+            width: 45%;
+            margin: 0 20px;
+
+            &:last-child {
+                cursor: auto;
+            }
+
+            .slider-item-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 25px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 100% 316px;
+                margin: 0;
+
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                & div {
+                    cursor: pointer;
+                }
+
+                &.khoinghiep {
+                    background-image: url('../../../assets/images/HomePage/khoinghiep.jpg');
+                }
+
+                .media-item {
+                    width: 150px;
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    padding-bottom: 50px;
+                    margin: 8px;
+
+                    &.suckhoedoisong {
+                        margin-left: 40px;
+                        background-image: url('../../../assets/images/HomePage/suckhoedoisong.png');
+                    }
+
+                    &.vtv1 {
+                        padding-bottom: 40px;
+                        width: 115px;
+                        background-image: url('../../../assets/images/HomePage/vtv1.png');
+                    }
+
+                    &.ict {
+                        width: 138px;
+                        background-image: url('../../../assets/images/HomePage/ictnews.png');
+                    }
+
+                    &.vnexpress {
+                        background-image: url('../../../assets/images/HomePage/vnexpress.png');
+                    }
+
+                    &.vtc1 {
+                        width: 153px;
+                        border-radius: 8px;
+                        background-color: #A3171E;
+                        background-image: url('../../../assets/images/HomePage/vtcnews.png');
+                    }
+
+                    &.yte2 {
+                        background-image: url('../../../assets/images/HomePage/yte2.png');
+                    }
+
+                    &.infonet {
+                        width: 120px;
+                        background-image: url('../../../assets/images/HomePage/infornet.png');
+                    }
+
+                    &.vtc2 {
+                        background-color: #16325C;
+                        position: relative;
+                        padding-bottom: 50px;
+                        width: 140px;
+
+                        div {
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            position: absolute;
+                            padding-bottom: 30px;
+                            background-image: url('../../../assets/images/HomePage//vtc.png');
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            display: inline-block;
+                            width: 70%;
+                        }
+                    }
+                }
+            }
+
+
+
+        }
+
+    }
+}

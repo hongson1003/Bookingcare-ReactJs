@@ -5,18 +5,16 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 import HomePage from './HomePage/HomePage';
-import CustomScrollbars from '../components/CustomScrollbars';
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 import './App.scss';
 import { path } from '../utils'
 
 import Home from '../routes/Home';
 import Login from './Auth/Login';
-import Header from './Header/Header';
 import System from '../routes/System';
-
+import Header from './Header/Header';
 import { CustomToastCloseButton } from '../components/CustomToast';
-
+import NotFoundComponent from './NotFoundComponent';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -42,19 +40,14 @@ class App extends Component {
             <Fragment>
                 <Router history={history}>
                     <div className="main-container">
-                        {this.props.isLoggedIn && <Header />}
-
                         <div className="content-container">
-                            {/* <CustomScrollbars style={{ height: '100vh', width: '100%' }}> */}
                             <Switch>
                                 <Route path={path.HOME} exact component={(Home)} />
                                 <Route path={path.HOMEPAGE} exact component={(HomePage)} />
-
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                <Route component={NotFoundComponent} />
                             </Switch>
-                            {/* </CustomScrollbars> */}
-
                         </div>
 
                         <ToastContainer

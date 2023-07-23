@@ -1,6 +1,8 @@
 .my-carousel {
     .medicalfacility {
         background-color: #F5F5F5;
+        padding-bottom: 70px;
+        // box-sizing: content-box;
 
         .slider-item {
             .video-icon {
@@ -16,6 +18,9 @@
             .slider-item-image {
                 background-color: #ffffff;
 
+                padding: 20px;
+                box-sizing: border-box;
+
                 img {
                     display: block !important;
                     width: 100% !important;
@@ -25,5 +30,6 @@
 
 
         }
+
     }
 }
