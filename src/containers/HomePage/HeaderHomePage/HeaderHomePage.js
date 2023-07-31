@@ -11,8 +11,6 @@ class HeaderHomePage extends React.Component {
     }
     render() {
         let a = <FormattedMessage id="home-baner.SpecializingInFacultyExamination" />;
-        console.log('fo mat', a)
-        console.log(a.EN)
         return (
             <React.Fragment>
                 <div className="container-header">

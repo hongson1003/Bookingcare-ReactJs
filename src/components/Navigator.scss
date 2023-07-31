@@ -16,9 +16,9 @@
             // background-color: darken($colormain, 5);
         }
 
-        // &.active {
-        //     background-color: orange !important;
-        // }
+        &.active {
+            background-color: orange;
+        }
 
 
         .menu-group-name {

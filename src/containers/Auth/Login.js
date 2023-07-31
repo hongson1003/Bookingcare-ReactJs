@@ -4,7 +4,7 @@ import { push } from "connected-react-router";
 
 import * as actions from "../../store/actions";
 
-import './Login.css';
+import './Login.scss';
 import { handleCheckLogin } from '../../services/userService';
 
 class Login extends React.Component {
@@ -78,7 +78,7 @@ class Login extends React.Component {
                             </div>
                         </div>
                         <div className='row'>
-                            <form>
+                            <form className='form-login'>
                                 <div className='col-12 form-group'>
                                     <div className='login-label-input'>
                                         <label htmlFor='email'>Username:</label>
@@ -126,7 +126,7 @@ class Login extends React.Component {
                             </div>
                         </div>
 
-                        <div className='row'>
+                        <div className='col-12'>
                             <p className='text-center'>Or sign in with:</p>
                         </div>
                         <div className='row'>

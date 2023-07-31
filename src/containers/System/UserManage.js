@@ -5,7 +5,6 @@ import './UserManage.scss'
 import ModalUser from './ModalUser';
 import { createNewAUser, editUser, deleteUser } from '../../services/userService';
 import { emitter } from '../../utils/emitter';
-import Header from '../Header/Header';
 class UserManage extends Component {
     constructor(props) {
         super(props);

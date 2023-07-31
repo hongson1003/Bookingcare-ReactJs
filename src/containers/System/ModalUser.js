@@ -32,9 +32,7 @@ class ModalUser extends Component {
                     className={this.props.className}
                     c="true"
                     size='lg'
-
                 >
-
                     <ModalHeader toggle={() => this.toggle()}>Create New User</ModalHeader>
                     <ModalBody>
                         <form action="/post-crud" method="POST">

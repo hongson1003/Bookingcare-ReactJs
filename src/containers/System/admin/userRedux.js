@@ -3,33 +3,110 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './userRedux.scss';
 import * as actions from '../../../store/actions'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+
 class userReduxManage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             genders: [],
+            positions: [],
+            roles: [],
+            image: '',
+            isOpen: false,
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            address: '',
+            gender: '',
+            position: '',
+            role: '',
+            avatar: '',
+            isSuccess: false,
         }
     }
 
     async componentDidMount() {
-        // try {
-        //     let data = await getAllCode('gender');
-        //     this.setState({
-        //         genders: data.data,
-        //     })
-        // } catch (e) {
-        //     console.log(e)
-        // }
         await this.props.getGendersStart();
-        console.log('props', this.props)
+        await this.props.getPositionStart();
+        await this.props.getRoleStart();
+        let genderTemp = this.props.genders && this.props.genders.length > 0 && this.props.genders[0].key || '';
+        let positionTemp = this.props.positions && this.props.positions.length > 0 && this.props.positions[0].key || '';
+        let roleTemp = this.props.roles && this.props.roles.length > 0 && this.props.roles[0].key || '';
+        this.setState({
+            gender: genderTemp,
+            position: positionTemp,
+            role: roleTemp,
+        })
     }
 
     componentDidUpdate(prevProps, prevState, next) {
+
         // luôn luôn phải có điều kiện vì nó update liên tục
-        if (this.props !== prevProps)
+        if (this.props.genders !== prevProps.genders)
             this.setState({
                 genders: this.props.genders,
             })
+        else if (this.props.positions !== prevProps.positions)
+            this.setState({
+                positions: this.props.positions,
+            })
+        else if (this.props.roles !== prevProps.roles)
+            this.setState({
+                roles: this.props.roles,
+            })
+    }
+
+    handleImage = (e) => {
+        let files = e.target.files;
+        if (files) {
+            let data = files[0];
+            var link = URL.createObjectURL(data);
+            this.setState({
+                image: link,
+                avatar: data,
+            })
+        }
+    }
+
+    hanndleInput = async (e, input) => {
+        let copyState = { ...this.state };
+        copyState[input] = e.target.value;
+        this.setState({
+            ...copyState
+        })
+    }
+
+    clearState = () => {
+        this.setState({
+            image: '',
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            address: '',
+            avatar: '',
+        })
+    }
+
+    handleOnOnSubmit = () => {
+        let data = this.state;
+        let user = {
+            email: data.email,
+            password: data.password,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            address: data.address,
+            phoneNumber: data.phoneNumber,
+            gender: data.gender,
+            role: data.role,
+            position: data.position
+        }
+        this.props.createNewUser(user);
     }
 
 
@@ -37,39 +114,58 @@ class userReduxManage extends Component {
         let genders = this.state.genders;
         return (
             <div className="className-redux-body">
+                {
+                    this.props.isLoading &&
+                    <div className='loading'>
+                        <div className='loading-item'></div>
+                    </div>
+                }
                 <h2 className='title'><FormattedMessage id="manage-user.title" /></h2>
                 <p className='add'><FormattedMessage id="manage-user.add" /></p>
                 <div className='container  d-flex justify-content-center'>
                     <div className='col-10'>
+
                         <form>
                             <div className="row">
                                 <div className="form-group col-md-3">
                                     <label htmlFor="email"><FormattedMessage id="manage-user.email" /></label>
-                                    <input type="email" className="form-control" id="email" placeholder="Email" />
+                                    <input value={this.state.email} type="email" className="form-control" id="email" placeholder="Email"
+                                        onChange={(e) => this.hanndleInput(e, 'email')}
+                                    />
                                 </div>
                                 <div className="form-group col-md-3">
                                     <label htmlFor="password"><FormattedMessage id="manage-user.password" /></label>
-                                    <input type="password" className="form-control" id="password" placeholder="Password" />
+                                    <input value={this.state.password} type="password" className="form-control" id="password" placeholder="Password"
+                                        onChange={(e) => this.hanndleInput(e, 'password')}
+                                    />
                                 </div>
                                 <div className="form-group col-3">
                                     <label htmlFor="firstName"><FormattedMessage id="manage-user.firstName" /></label>
-                                    <input type="text" className="form-control" id="firstName" placeholder="Nguyễn" />
+                                    <input value={this.state.firstName} type="text" className="form-control" id="firstName" placeholder="Nguyễn"
+                                        onChange={(e) => this.hanndleInput(e, 'firstName')}
+                                    />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="lastName"><FormattedMessage id="manage-user.lastName" /></label>
-                                    <input type="text" className="form-control" id="lastName" placeholder="Văn A" />
+                                    <input value={this.state.lastName} type="text" className="form-control" id="lastName" placeholder="Văn A"
+                                        onChange={(e) => this.hanndleInput(e, 'lastName')}
+                                    />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="form-group col-md-3">
                                     <label htmlFor="phoneNumber"><FormattedMessage id="manage-user.phone" /></label>
-                                    <input type="phone" className="form-control" id="phoneNumber" />
+                                    <input value={this.state.phoneNumber} type="phone" className="form-control" id="phoneNumber"
+                                        onChange={(e) => this.hanndleInput(e, 'phoneNumber')}
+                                    />
                                 </div>
 
                                 <div className="form-group col-md-9">
                                     <label htmlFor="address"><FormattedMessage id="manage-user.address" /></label>
-                                    <input type="address" className="form-control" id="address" />
+                                    <input value={this.state.address} type="address" className="form-control" id="address"
+                                        onChange={(e) => this.hanndleInput(e, 'address')}
+                                    />
                                 </div>
 
                             </div>
@@ -77,12 +173,14 @@ class userReduxManage extends Component {
                             <div className='row'>
                                 <div className="form-group col-md-3">
                                     <label htmlFor="gender"><FormattedMessage id="manage-user.gender.name" /></label>
-                                    <select id="gender" className="form-control">
+                                    <select id="gender" className="form-control"
+                                        onChange={(e) => this.hanndleInput(e, 'gender')}
+                                    >
                                         {
                                             genders && genders.length > 0 &&
                                             genders.map(item => {
                                                 return (
-                                                    <option key={item.id}>{this.props.language == 'vi' ?
+                                                    <option key={item.id} value={item.key}>{this.props.language == 'vi' ?
                                                         item.valueVi :
                                                         item.valueEn
                                                     }</option>
@@ -95,24 +193,53 @@ class userReduxManage extends Component {
 
                                 <div className="form-group col-md-3">
                                     <label htmlFor="position"><FormattedMessage id="manage-user.position.name" /></label>
-                                    <select id="position" className="form-control">
-                                        <option></option>
-                                        <option></option>
+                                    <select id="position" className="form-control"
+                                        onChange={(e) => this.hanndleInput(e, 'position')}
+                                    >
+                                        {
+                                            this.state.positions && this.state.positions.length > 0 &&
+                                            this.state.positions.map(item => {
+                                                return (
+                                                    <option key={item.id} value={item.key}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
 
                                 <div className="form-group col-md-3">
                                     <label htmlFor="role"><FormattedMessage id="manage-user.role.name" /></label>
-                                    <select id="role" className="form-control">
-                                        <option>R1</option>
-                                        <option>R2</option>
-                                        <option>R3</option>
+                                    <select id="role" className="form-control"
+                                        onChange={(e) => this.hanndleInput(e, 'role')}
+                                    >
+                                        {
+                                            this.state.roles && this.state.roles.length > 0 &&
+                                            this.state.roles.map(item => {
+                                                return (
+                                                    <option key={item.id} value={item.key}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
                                 <div className="form-group col-md-3">
-                                    <label htmlFor="image"><FormattedMessage id="manage-user.image" /></label>
-                                    <input type="text" className="form-control" id="image" />
-
+                                    <label><FormattedMessage id="manage-user.image" /></label>
+                                    <div className='preview-img'>
+                                        <div>
+                                            <input type="file" id="image" hidden onChange={(e) => this.handleImage(e)} />
+                                            <label htmlFor='image'>
+                                                <i className="fas fa-upload mr-3"></i>
+                                                <span>Upload</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            {this.state.image && <img alt='' className='view-img' src={this.state.image}
+                                                onClick={() => this.setState({
+                                                    isOpen: true,
+                                                })}
+                                            ></img>}
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -124,28 +251,60 @@ class userReduxManage extends Component {
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-primary"><FormattedMessage id="manage-user.save" /></button>
+                            <button type='button' className="btn btn-primary" onClick={this.handleOnOnSubmit}><FormattedMessage id="manage-user.save" /></button>
                         </form>
                     </div>
 
                 </div>
+                {this.state.isOpen && (
+                    <Lightbox
+                        mainSrc={this.state.image}
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                    />
+                )}
             </div>
         )
     }
-
 }
+
 
 const mapStateToProps = state => {
     return {
         language: state.app.language,
         genders: state.admin.genders,
+        positions: state.admin.positions,
+        roles: state.admin.roles,
+        isLoading: state.admin.isLoading,
+        user: state.admin.user,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getGendersStart: async () => dispatch(await actions.fetchGenderStart()),
+        getGendersStart: async () => {
+            dispatch({
+                type: 'FIRE_FETCH'
+            })
+            dispatch(await actions.fetchGenderStart());
+        },
+        getPositionStart: async () => {
+            dispatch({
+                type: 'FIRE_FETCH'
+            })
+            dispatch(await actions.fetchPositionStart());
+        },
+        getRoleStart: async () => {
+            dispatch({
+                type: 'FIRE_FETCH'
+            })
+            dispatch(await actions.fetchRoleStart());
+        },
+        createNewUser: async (user) => {
+            dispatch({
+                type: 'FIRE_FETCH'
+            });
+            dispatch(await actions.createUserStart(user));
+        }
     };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(userReduxManage);

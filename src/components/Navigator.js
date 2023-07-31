@@ -8,19 +8,15 @@ import './Navigator.scss';
 class MenuGroup extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isActive: ''
-        }
     }
     handleOnClick = () => {
-        this.setState({
-            isActive: 'active'
-        })
+        console.log(this.props)
+        this.props.handleOnCliCkActive(this.props.name);
     }
     render() {
         const { name, children } = this.props;
         return (
-            <li className={this.state.isActive + ' menu-group'} onClick={() => this.handleOnClick()}>
+            <li className={this.props.activeName !== name ? 'menu-group' : 'menu-group active'} onClick={() => this.handleOnClick()}>
                 <div className="menu-group-name">
                     <FormattedMessage id={name} />
                 </div>
@@ -107,8 +103,15 @@ const withRouterInnerRef = (WrappedComponent) => {
 
 class Navigator extends Component {
     state = {
-        expandedMenu: {}
+        expandedMenu: {},
+        activeName: '',
     };
+    handleOnCliCkActive = (name) => {
+        console.log('active', name)
+        this.setState({
+            activeName: name
+        })
+    }
 
     toggle = (groupIndex, menuIndex) => {
         const expandedMenu = {};
@@ -204,7 +207,10 @@ class Navigator extends Component {
                         menus.map((group, groupIndex) => {
                             return (
                                 <Fragment key={groupIndex}>
-                                    <MenuGroupWithRouter name={group.name}>
+                                    <MenuGroupWithRouter name={group.name}
+                                        handleOnCliCkActive={this.handleOnCliCkActive}
+                                        activeName={this.state.activeName}
+                                    >
                                         {group.menus ? (
                                             group.menus.map((menu, menuIndex) => {
                                                 const isMenuHasSubMenuActive = this.isMenuHasSubMenuActive(location, menu.subMenus, menu.link);
