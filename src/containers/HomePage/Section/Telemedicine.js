@@ -1,22 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-    goichamsocsuckhoetainha, chuyendoiso, banana, coxuongkhop, thankinh, tieuhoa, timmach, taimuihong, cotsong
-    , yhoccotruyen, chamcuu
-    , tuvan1, tuvan2, tuvan3, tuvan4, tuvan5, tuvan6, tuvan7, tuvan8
+    tuvan1, tuvan2, tuvan3, tuvan4, tuvan5, tuvan6, tuvan7, tuvan8
 } from '../../../assets/images';
 import './Telemedicine.scss';
 class Telemedicine extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
 
     render() {
         let { settings } = this.props;
@@ -32,7 +25,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan1} />
+                                    <img alt="" src={tuvan1} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -45,7 +38,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan2} />
+                                    <img alt="" src={tuvan2} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -58,7 +51,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan3} />
+                                    <img alt="" src={tuvan3} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -74,7 +67,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan4} />
+                                    <img alt="" src={tuvan4} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -87,7 +80,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan5} />
+                                    <img alt="" src={tuvan5} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -101,7 +94,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan6} />
+                                    <img alt="" src={tuvan6} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -114,7 +107,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan7} />
+                                    <img alt="" src={tuvan7} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -127,7 +120,7 @@ class Telemedicine extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tuvan8} />
+                                    <img alt="" src={tuvan8} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">

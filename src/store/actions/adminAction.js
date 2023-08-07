@@ -1,16 +1,15 @@
 import actionTypes from "./actionTypes";
-import { getAllCode, createNewAUser } from '../../services/userService';
+import { getAllCode, createNewAUser, getUsers, deleteUser } from '../../services/userService';
 export const fetchGenderStart = async () => {
     try {
-
-        let pyload = await getAllCode('gender');
-        if (pyload.errCode) {
+        let payload = await getAllCode('gender');
+        if (payload.errCode) {
             return fetchGenderFail();
         }
-        if (pyload)
+        if (payload)
             return {
                 ...fetchGenderSuccess(),
-                pyload: pyload,
+                payload: payload,
             }
         else
             return fetchGenderFail();
@@ -94,10 +93,10 @@ export const createUserStart = async (data) => {
     else {
         try {
             let response = await createNewAUser(data);
-            if (response.errCode == 0)
+            if (response.errCode === 0)
                 return {
                     ...createUserSuccess(),
-                    pyload: data
+                    pyload: data,
                 }
             else
                 return createUserFail()
@@ -117,3 +116,57 @@ export const createUserFail = () => {
         type: 'CREATE_USER_FAIL',
     }
 }
+
+export const getAllUserStart = async () => {
+    try {
+        let response = await getUsers('ALL');
+        if (response.errCode === 0) {
+            return {
+                ...getAllUserSuccess(),
+                payload: response.users
+            }
+        }
+        else
+            return getAllUserFail();
+    } catch (e) {
+        return getAllUserFail();
+
+    }
+}
+export const getAllUserSuccess = () => {
+    return {
+        type: actionTypes.GET_ALL_USER_SUCCESS,
+    };
+}
+export const getAllUserFail = () => {
+    return {
+        type: actionTypes.GET_ALL_USER_FAIL,
+    };
+}
+// delete user
+export const delUserStart = async (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response = await deleteUser(id);
+            if (response.errCode === 0) {
+                resolve(delUserSuccess());
+            }
+            else
+                resolve(delUserFail());
+        } catch (e) {
+            resolve(delUserFail());
+        }
+    })
+}
+export const delUserSuccess = async () => {
+
+    return {
+        type: actionTypes.DELETE_USER_SUCCESS,
+    };
+}
+export const delUserFail = () => {
+    return {
+        type: actionTypes.DELETE_USER_FAIL,
+    };
+}
+

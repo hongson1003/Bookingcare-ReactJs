@@ -1,20 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-    hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
-    letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga,
-} from '../../../assets/images';
+// import {
+//     hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
+//     letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga,
+// } from '../../../assets/images';
 import './HandBook.scss';
 class HandBook extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let { settings } = this.props;

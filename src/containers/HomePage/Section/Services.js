@@ -1,21 +1,14 @@
 import React from "react";
 import './Services.scss';
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-    goichamsocsuckhoetainha, chuyendoiso, banana, coxuongkhop, thankinh, tieuhoa, timmach, taimuihong, cotsong
-    , yhoccotruyen, chamcuu
+    goichamsocsuckhoetainha, chuyendoiso, banana,
 } from '../../../assets/images';
 class Speciality extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
         let { settings } = this.props;
@@ -26,7 +19,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={goichamsocsuckhoetainha} />
+                                    <img alt="" src={goichamsocsuckhoetainha} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -44,7 +37,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={chuyendoiso} />
+                                    <img alt="" src={chuyendoiso} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Giải pháp chuyển đổi số toàn diện cho bệnh viện, phòng khám</p>
@@ -60,7 +53,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={banana} />
+                                    <img alt="" src={banana} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -88,7 +81,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={goichamsocsuckhoetainha} />
+                                    <img alt="" src={goichamsocsuckhoetainha} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -106,7 +99,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={chuyendoiso} />
+                                    <img alt="" src={chuyendoiso} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Giải pháp chuyển đổi số toàn diện cho bệnh viện, phòng khám</p>
@@ -122,7 +115,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={banana} />
+                                    <img alt="" src={banana} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">

@@ -54,7 +54,7 @@
         }
     },
     "manage-user": {
-        "title": "TẠO MỚI NGƯỜI DÙNG VỚI 'HỒNG SƠN NGUYỄN'",
+        "title": "TẠO MỚI NGƯỜI DÙNG VỚI",
         "add": "Thêm mới người dùng",
         "email": "Email",
         "password": "Mật khẩu",
@@ -74,6 +74,8 @@
             "name": "Quyền"
         },
         "image": "Ảnh đại diện",
-        "save": "Lưu"
+        "save": "Lưu",
+        "edit": "Lưu thay đổi",
+        "cancel": "Hủy bỏ"
     }
 }

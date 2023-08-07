@@ -54,7 +54,7 @@
         }
     },
     "manage-user": {
-        "title": "CREATE A NEW USER WITH 'HỒNG SƠN NGUYỄN'",
+        "title": "CREATE A NEW USER WITH",
         "add": "Insert a new user",
         "email": "Email",
         "password": "Password",
@@ -74,6 +74,8 @@
             "name": "Role"
         },
         "image": "Avatar",
-        "save": "Save"
+        "save": "Save",
+        "edit": "Save changes",
+        "cancel": "Cancel"
     }
 }

@@ -1,5 +1,5 @@
 import actionTypes from '../actions/actionTypes';
-
+import { toast } from 'react-toastify';
 
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
     roles: [],
     positions: [],
     user: {},
+    users: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -21,10 +22,17 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_GENDER_SUCCESS:
             let copyState1 = state;
-            copyState1.genders = action.pyload.data;
+            copyState1.genders = action.payload.data;
             // copyState1.isLoading = false;
             return {
                 ...copyState1
+            };
+        case actionTypes.FETCH_GENDER_FAIL:
+            let copyState1f = state;
+            copyState1f.isLoading = false;
+            // copyState1.isLoading = false;
+            return {
+                ...copyState1f
             };
         case actionTypes.FETCH_POSITION_SUCCESS:
             let copyState2 = state;
@@ -33,21 +41,32 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...copyState2
             };
+        case actionTypes.FETCH_POSITION_FAIL:
+            let copyState2f = state;
+            copyState2f.isLoading = false;
+            // copyState1.isLoading = false;
+            return {
+                ...copyState2f
+            };
         case actionTypes.FETCH_ROLE_SUCCESS:
             let copyState3 = state;
             copyState3.roles = action.pyload.data;
             copyState3.isLoading = false;
-
             return {
                 ...copyState3
+            };
+        case actionTypes.FETCH_ROLE_FAIL:
+            let copyState3f = state;
+            copyState3f.isLoading = false;
+            return {
+                ...copyState3f
             };
 
         case actionTypes.CREATE_USER_SUCCESS:
             let copyState4 = state;
-            copyState4.user = action.pyload.data;
+            copyState4.user = action.pyload;
             copyState4.isLoading = false;
-            alert('Tạo user thành công!');
-            console.log(action)
+            toast.success('Created User success');
             return {
                 ...copyState4
             };
@@ -55,10 +74,37 @@ const adminReducer = (state = initialState, action) => {
             let copyState5 = state;
             copyState5.isLoading = false;
             copyState5.user = '';
-            alert('Tạo user thất bại, Vui lòng kiểm tra lại!');
+            toast.error('Created User Fail!!');
             return {
                 ...copyState5,
             }
+
+        case actionTypes.GET_ALL_USER_SUCCESS:
+            let copyState6 = state;
+            copyState6.users = action.payload;
+            copyState6.isLoading = false;
+            return {
+                ...copyState6
+            };
+        case actionTypes.GET_ALL_USER_FAIL:
+            let copyState7 = state;
+            copyState7.isLoading = false;
+            return {
+                ...copyState7,
+            }
+        case actionTypes.DELETE_USER_SUCCESS:
+            toast.success('User deleted');
+            return {
+                ...state
+            }
+        case actionTypes.DELETE_USER_FAIL:
+            toast.error('Delete User f=Fail!!!')
+            return {
+                ...state
+            }
+
+
+
         default:
             return state;
     }

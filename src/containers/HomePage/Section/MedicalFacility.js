@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,10 +9,7 @@ import {
 } from '../../../assets/images';
 import './MedicalFacility.scss';
 class MedicalFacility extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
 
     render() {
         let { settings } = this.props;
@@ -30,7 +25,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={vietduc} />
+                                    <img alt="" src={vietduc} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -42,7 +37,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={choray} />
+                                    <img alt="" src={choray} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -54,7 +49,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={daihocyduoc} />
+                                    <img alt="" src={daihocyduoc} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -67,7 +62,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={trunguongquandoi} />
+                                    <img alt="" src={trunguongquandoi} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -79,7 +74,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={hungviet} />
+                                    <img alt="" src={hungviet} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -92,7 +87,7 @@ class MedicalFacility extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={congnghecao} />
+                                    <img alt="" src={congnghecao} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">

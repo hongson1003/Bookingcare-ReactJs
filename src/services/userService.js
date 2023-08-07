@@ -7,18 +7,19 @@ let handleCheckLogin = async (email, password) => {
     return data;
 }
 
-let getUsers = (id) => {
-    return axios.get(`/api/get-users?id=${id}`)
+let getUsers = async (id) => {
+    return await axios.get(`/api/get-users?id=${id}`)
 }
 let createNewAUser = async (user) => {
     return await axios.post('/api/create-newuser', user);
 }
 let deleteUser = async (id) => {
-    return await axios.delete('/api/delete-user', {
+    let response = await axios.delete('/api/delete-user', {
         data: {
             id: id,
         }
     })
+    return response;
 }
 
 let editUser = (item) => {

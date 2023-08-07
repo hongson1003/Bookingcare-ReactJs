@@ -1,21 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-    hungviet, congnghecao, vietduc, choray, daihocyduoc, trunguongquandoi,
     letanloi, bacsituan, bacsihavanquyet, nguyenthihoaian, donhuhon, bsanhdaidien, nguyenthihuong, bsnga,
 } from '../../../assets/images';
 import './OutstandingDoctor.scss';
 class OutstadingDoctor extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
         let { settings } = this.props;
@@ -31,7 +24,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={letanloi} />
+                                    <img alt="" src={letanloi} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -44,7 +37,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={bacsituan} />
+                                    <img alt="" src={bacsituan} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -57,7 +50,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={bacsihavanquyet} />
+                                    <img alt="" src={bacsihavanquyet} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -71,7 +64,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={nguyenthihoaian} />
+                                    <img alt="" src={nguyenthihoaian} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -84,7 +77,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={donhuhon} />
+                                    <img alt="" src={donhuhon} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -98,7 +91,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={bsanhdaidien} />
+                                    <img alt="" src={bsanhdaidien} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -111,7 +104,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={nguyenthihuong} />
+                                    <img alt="" src={nguyenthihuong} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -124,7 +117,7 @@ class OutstadingDoctor extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={bsnga} />
+                                    <img alt="" src={bsnga} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">

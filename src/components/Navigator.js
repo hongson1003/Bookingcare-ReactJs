@@ -6,11 +6,8 @@ import { connect } from 'react-redux';
 import './Navigator.scss';
 
 class MenuGroup extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     handleOnClick = () => {
-        console.log(this.props)
         this.props.handleOnCliCkActive(this.props.name);
     }
     render() {
@@ -107,7 +104,6 @@ class Navigator extends Component {
         activeName: '',
     };
     handleOnCliCkActive = (name) => {
-        console.log('active', name)
         this.setState({
             activeName: name
         })

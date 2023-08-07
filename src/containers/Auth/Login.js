@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
 
@@ -8,9 +8,7 @@ import './Login.scss';
 import { handleCheckLogin } from '../../services/userService';
 
 class Login extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     state = {
         userName: '',
         password: '',
@@ -24,7 +22,7 @@ class Login extends React.Component {
                 message: '',
             })
             let data = await handleCheckLogin(this.state.userName, this.state.password);
-            if (data && data.errCode != 0)
+            if (data && data.errCode !== 0)
                 this.setState({
                     message: data.message,
                 })
@@ -50,7 +48,7 @@ class Login extends React.Component {
         this.setState({
             message: '',
         })
-        if (stateName == 0)
+        if (stateName === 0)
             this.setState({
                 userName: e.target.value,
             })
@@ -60,7 +58,7 @@ class Login extends React.Component {
             })
     }
     handleOnShowPassword = () => {
-        if (this.state.isShow == false) {
+        if (this.state.isShow === false) {
 
         }
         this.setState({
@@ -112,7 +110,7 @@ class Login extends React.Component {
                                     </div>
                                     <span className='span-err'>{this.state.message}</span>
                                     <div className='col-12 login-forgot'>
-                                        <p><a href='#'>Forgot password?</a></p>
+                                        <p><a href='/'>Forgot password?</a></p>
                                     </div>
                                 </div>
                             </form>

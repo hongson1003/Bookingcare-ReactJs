@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../../utils/constant";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,10 +10,7 @@ import {
 } from '../../../assets/images';
 import './Speciality.scss';
 class Speciality extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
 
     render() {
         let { settings } = this.props;
@@ -31,7 +26,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={coxuongkhop} />
+                                    <img alt="" src={coxuongkhop} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -43,7 +38,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={thankinh} />
+                                    <img alt="" src={thankinh} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -56,7 +51,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={tieuhoa} />
+                                    <img alt="" src={tieuhoa} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -71,7 +66,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={timmach} />
+                                    <img alt="" src={timmach} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">
@@ -83,7 +78,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={taimuihong} />
+                                    <img alt="" src={taimuihong} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Tai mũi họng</p>
@@ -94,7 +89,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={cotsong} />
+                                    <img alt="" src={cotsong} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Cột sống</p>
@@ -104,7 +99,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={yhoccotruyen} />
+                                    <img alt="" src={yhoccotruyen} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Y học cổ truyền</p>
@@ -114,7 +109,7 @@ class Speciality extends React.Component {
                         <div>
                             <div className="slider-item">
                                 <div className="slider-item-image">
-                                    <img src={chamcuu} />
+                                    <img alt="" src={chamcuu} />
                                 </div>
                                 <div className="slider-item-text">
                                     <p className="slider-item-text_title">Châm cứu</p>

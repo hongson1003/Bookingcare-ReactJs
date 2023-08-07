@@ -50,7 +50,7 @@ class UserManage extends Component {
             alert('Không thể tạo email');
             return;
         }
-        if (user.errCode != 0)
+        if (user.errCode !== 0)
             alert('Không thể tạo user');
         else {
             alert('Đã tạo thành công');
@@ -75,7 +75,6 @@ class UserManage extends Component {
             firstName: '',
             lastName: '',
             address: '',
-            isEditting: '',
             id: '',
         })
     }
@@ -107,7 +106,6 @@ class UserManage extends Component {
                 firstName: '',
                 lastName: '',
                 address: '',
-                isEditting: '',
                 id: '',
             });
             this.handleGetAllUser();
