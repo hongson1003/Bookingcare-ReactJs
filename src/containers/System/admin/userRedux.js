@@ -6,7 +6,6 @@ import * as actions from '../../../store/actions'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import TableManageUser from './TableManageUser';
-import axios from "../../../axios";
 import { getBase64 } from '../../../utils/CommonUtils';
 class userReduxManage extends Component {
     constructor(props) {
@@ -15,7 +14,6 @@ class userReduxManage extends Component {
             genders: [],
             positions: [],
             roles: [],
-            image: '',
             isOpen: false,
             email: '',
             password: '',
@@ -29,6 +27,7 @@ class userReduxManage extends Component {
             isEditting: false,
             edittingId: '',
             avatar: '',
+            image: '',
         }
     }
 
@@ -36,14 +35,15 @@ class userReduxManage extends Component {
         await this.props.getGendersStart();
         await this.props.getPositionStart();
         await this.props.getRoleStart();
-        let genderTemp = (this.props.genders && this.props.genders.length > 0 && this.props.genders[0].key) || '';
-        let positionTemp = (this.props.positions && this.props.positions.length > 0 && this.props.positions[0].key) || '';
-        let roleTemp = (this.props.roles && this.props.roles.length > 0 && this.props.roles[0].key) || '';
+        let genderTemp = (this.props.genders && this.props.genders.length > 0 && this.props.genders[0].keyMap) || '';
+        let positionTemp = (this.props.positions && this.props.positions.length > 0 && this.props.positions[0].keyMap) || '';
+        let roleTemp = (this.props.roles && this.props.roles.length > 0 && this.props.roles[0].keyMap) || '';
         this.setState({
             gender: genderTemp,
             position: positionTemp,
             role: roleTemp,
         })
+        console.log('state', this.state)
     }
 
     componentDidUpdate(prevProps, prevState, next) {
@@ -68,7 +68,6 @@ class userReduxManage extends Component {
         let file = files[0];
         if (file) {
             let x64 = await getBase64(file);
-            console.log(x64);
             this.setState({
                 avatar: x64,
                 image: x64,
@@ -89,7 +88,7 @@ class userReduxManage extends Component {
         let positionTemp = (this.props.positions && this.props.positions.length > 0 && this.props.positions[0].key) || '';
         let roleTemp = (this.props.roles && this.props.roles.length > 0 && this.props.roles[0].key) || '';
         this.setState({
-            image: '',
+            // image: '',
             email: '',
             password: '',
             firstName: '',
@@ -105,6 +104,7 @@ class userReduxManage extends Component {
 
     handleOnOnSubmit = async () => {
         let data = this.state;
+        console.log('state', this.state)
         let user = {
             id: data.edittingId,
             email: data.email,
@@ -116,12 +116,10 @@ class userReduxManage extends Component {
             gender: data.gender,
             role: data.role,
             position: data.position,
-            image: data.image
+            image: data.image,
         }
         if (this.state.isEditting) {
-            await axios.put('/api/update-user', {
-                ...user
-            })
+            await this.props.updateUser(user);
             this.setState({
                 isEditting: false,
             })
@@ -137,19 +135,12 @@ class userReduxManage extends Component {
     }
 
     handleOnEdit = async (item) => {
-        let imageUrl = ''
+        let imageBase64 = ''
         if (item.image) {
-            const base64Data = item.image.data;
-            const binaryData = atob(base64Data);
-            const byteArray = new Uint8Array(binaryData.length);
-            for (let i = 0; i < binaryData.length; i++) {
-                byteArray[i] = binaryData.charCodeAt(i);
-            }
-            const blob = new Blob([byteArray], { type: 'image/jpeg' });
-            imageUrl = URL.createObjectURL(blob);
-            console.log(imageUrl)
+            imageBase64 = new Buffer(item.image, 'base64'.toString('binary'));
         }
         await this.setState({
+            edittingId: item.id,
             email: item.email,
             password: 'Hardcode',
             firstName: item.firstName,
@@ -160,10 +151,9 @@ class userReduxManage extends Component {
             position: item.positionId,
             role: item.roleId,
             isEditting: true,
+            avatar: imageBase64,
             image: '',
-            avatar: imageUrl,
         });
-
 
     }
 
@@ -255,7 +245,7 @@ class userReduxManage extends Component {
                                             genders && genders.length > 0 &&
                                             genders.map(item => {
                                                 return (
-                                                    <option key={item.id} value={item.key}>{this.props.language === 'vi' ?
+                                                    <option key={item.id} value={item.keyMap}>{this.props.language === 'vi' ?
                                                         item.valueVi :
                                                         item.valueEn
                                                     }</option>
@@ -275,7 +265,7 @@ class userReduxManage extends Component {
                                             this.state.positions && this.state.positions.length > 0 &&
                                             this.state.positions.map(item => {
                                                 return (
-                                                    <option key={item.id} value={item.key}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
+                                                    <option key={item.id} value={item.keyMap}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
                                                 )
                                             })
                                         }
@@ -291,7 +281,7 @@ class userReduxManage extends Component {
                                             this.state.roles && this.state.roles.length > 0 &&
                                             this.state.roles.map(item => {
                                                 return (
-                                                    <option key={item.id} value={item.key}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
+                                                    <option key={item.id} value={item.keyMap}>{this.props.language === 'vi' ? item.valueVi : item.valueEn}</option>
                                                 )
                                             })
                                         }
@@ -407,6 +397,10 @@ const mapDispatchToProps = dispatch => {
         },
         deleteUser: async (id) => {
             await dispatch(await actions.delUserStart(id));
+        },
+        updateUser: async (body) => {
+            await dispatch(await actions.updateUserStart(body));
+            await dispatch(await actions.getAllUserStart());
         }
     };
 };

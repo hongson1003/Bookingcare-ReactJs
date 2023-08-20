@@ -101,7 +101,7 @@ const withRouterInnerRef = (WrappedComponent) => {
 class Navigator extends Component {
     state = {
         expandedMenu: {},
-        activeName: '',
+        activeName: 'menu.admin.user',
     };
     handleOnCliCkActive = (name) => {
         this.setState({

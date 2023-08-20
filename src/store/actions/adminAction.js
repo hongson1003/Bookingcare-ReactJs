@@ -1,5 +1,7 @@
 import actionTypes from "./actionTypes";
-import { getAllCode, createNewAUser, getUsers, deleteUser } from '../../services/userService';
+import { getAllCode, createNewAUser, getUsers, deleteUser, editUser, getTopDoctors } from '../../services/userService';
+
+
 export const fetchGenderStart = async () => {
     try {
         let payload = await getAllCode('gender');
@@ -168,5 +170,44 @@ export const delUserFail = () => {
     return {
         type: actionTypes.DELETE_USER_FAIL,
     };
+}
+
+export const updateUserStart = async (data) => {
+    try {
+        let response = await editUser(data);
+        if (!response.errCode)
+            return {
+                ...updateUserSuccess(),
+                payload: data,
+            }
+        else
+            return updateUserFail();
+    } catch (e) {
+        console.log(e);
+        return updateUserFail();
+    }
+}
+export const updateUserSuccess = () => {
+    return {
+        type: actionTypes.UPDATE_USER_SUCCESS
+    }
+}
+export const updateUserFail = () => {
+    return {
+        type: actionTypes.UPDATE_USER_FAIL
+    }
+}
+export const fetchTopDoctors = async (limit) => {
+    let response = await getTopDoctors(limit);
+    if (!response.errCode)
+        return {
+            type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
+            payload: response.doctors,
+        }
+    else
+        return {
+            type: actionTypes.FETCH_TOP_DOCTOR_FAIL
+        }
+
 }
 

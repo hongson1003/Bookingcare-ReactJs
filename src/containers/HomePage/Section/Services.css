@@ -1,0 +1,25 @@
+.my-carousel .servicesCarousel .slick-arrow {
+  display: none !important;
+}
+.my-carousel .servicesCarousel .slider-item {
+  padding: 0 20px !important;
+}
+.my-carousel .servicesCarousel .slider-item .slider-item-image img {
+  border-radius: 15px;
+}
+.my-carousel .servicesCarousel .slider-item .slider-item-text p {
+  color: #333;
+}
+.my-carousel .servicesCarousel .slider-item .slider-item-text p:last-child {
+  margin-top: 8px;
+  color: #45C3D2;
+  font-weight: 650;
+}
+.my-carousel .servicesCarousel .slider-item .slider-item-text .item-text-list {
+  display: block;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.my-carousel .servicesCarousel .slider-item .slider-item-text .slider-item-text_title {
+  font-weight: 700;
+}/*# sourceMappingURL=Services.css.map */

@@ -29,5 +29,8 @@ let editUser = (item) => {
 let getAllCode = async (type) => {
     return await axios.get(`/api/getAllCode?type=${type}`);
 }
+let getTopDoctors = async (limit) => {
+    return await axios.get('/api/get-top-doctor');
+}
 
-export { handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode };
+export { handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode, getTopDoctors };

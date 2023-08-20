@@ -8,7 +8,8 @@ const initialState = {
     roles: [],
     positions: [],
     user: {},
-    users: []
+    users: [],
+    topDoctors: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -102,7 +103,25 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-
+        case actionTypes.UPDATE_USER_SUCCESS:
+            toast.info('Update User Success');
+            return {
+                ...state
+            }
+        case actionTypes.UPDATE_USER_FAIL:
+            toast.error('Update User Failll!!!')
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_TOP_DOCTOR_SUCCESS:
+            state.topDoctors = action.payload;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_TOP_DOCTOR_FAIL:
+            return {
+                ...state,
+            }
 
 
         default:

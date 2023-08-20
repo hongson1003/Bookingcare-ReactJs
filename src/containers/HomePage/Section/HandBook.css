@@ -1,0 +1,34 @@
+.my-carousel .handbook {
+  background-color: #F5F5F5;
+  padding-bottom: 40px;
+}
+.my-carousel .handbook .slider-item {
+  display: flex;
+}
+.my-carousel .handbook .slider-item .slider-item-image {
+  --width: 285px;
+  padding-bottom: calc(0.6 * var(--width));
+  background-repeat: no-repeat;
+  background-position-x: center;
+  width: var(--width);
+}
+.my-carousel .handbook .slider-item .slider-item-image.daulung {
+  background-image: url("../../../assets/images/HomePage/daulungbentrai.png");
+}
+.my-carousel .handbook .slider-item .slider-item-image.noitiet {
+  background-image: url("../../../assets/images/HomePage/noitiet.jpg");
+}
+.my-carousel .handbook .slider-item .slider-item-image.khopgoi {
+  background-image: url("../../../assets/images/HomePage/khopgoi.png");
+}
+.my-carousel .handbook .slider-item .slider-item-image.viemkhopgoi {
+  background-image: url("../../../assets/images/HomePage/viemkhopgoi.jpg");
+}
+.my-carousel .handbook .slider-item .slider-item-text {
+  width: 50%;
+}
+.my-carousel .handbook .slider-item .slider-item-text p {
+  padding-left: 15px;
+  font-size: 19px;
+  font-weight: 750;
+}/*# sourceMappingURL=HandBook.css.map */
