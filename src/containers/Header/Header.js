@@ -64,7 +64,7 @@ class Header extends Component {
                             {
                                 this.props.language === LANGUAGES.EN
                                     ?
-                                    <option value={LANGUAGES.EN}>EN</option>
+                                    <option selected value={LANGUAGES.EN}>EN</option>
                                     :
                                     <option value={LANGUAGES.EN}>EN</option>
                             }
