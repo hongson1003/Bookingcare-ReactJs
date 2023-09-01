@@ -7,9 +7,11 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        label{
+
+        label {
             font-weight: bold;
         }
+
         .search-doctor {
             width: 30%;
         }
@@ -17,8 +19,9 @@
         .description {
             width: 70%;
             padding-left: 5%;
+
             // display: flex;
-            textarea{
+            textarea {
                 width: 100%;
             }
         }

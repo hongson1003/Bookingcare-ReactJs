@@ -83,6 +83,19 @@
         "edit": "Save changes",
         "cancel": "Cancel"
     },
+    "manage-doctor": {
+        "manage_doctor": "Manage Doctors",
+        "choose-doctor": "Choose a doctor",
+        "description": "Description",
+        "clear": "Make clear",
+        "save": "Save changes"
+    },
+    "manage-schedule": {
+        "manage_schedule": "Manage Doctors",
+        "choose-doctor": "Choose a doctor",
+        "choose-date": "Choose a date",
+        "save": "Save"
+    },
     "home-page": {
         "outstandingdoctor": "Outstanding Doctors",
         "search": "Search"

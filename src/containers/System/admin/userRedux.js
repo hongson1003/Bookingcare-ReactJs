@@ -104,7 +104,6 @@ class userReduxManage extends Component {
 
     handleOnOnSubmit = async () => {
         let data = this.state;
-        console.log('state', this.state)
         let user = {
             id: data.edittingId,
             email: data.email,
@@ -139,6 +138,7 @@ class userReduxManage extends Component {
         if (item.image) {
             imageBase64 = new Buffer(item.image, 'base64'.toString('binary'));
         }
+        console.log(item);
         await this.setState({
             edittingId: item.id,
             email: item.email,
@@ -371,15 +371,9 @@ const mapDispatchToProps = dispatch => {
             dispatch(await actions.fetchGenderStart());
         },
         getPositionStart: async () => {
-            dispatch({
-                type: 'FIRE_FETCH'
-            })
             dispatch(await actions.fetchPositionStart());
         },
         getRoleStart: async () => {
-            dispatch({
-                type: 'FIRE_FETCH'
-            })
             dispatch(await actions.fetchRoleStart());
         },
         createNewUser: async (user) => {

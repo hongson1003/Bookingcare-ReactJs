@@ -41,7 +41,8 @@ class App extends Component {
     componentDidUpdate = async (prevp, prevs) => {
         if (prevp.isLoggedIn !== this.props.isLoggedIn) {
             if (this.props.isLoggedIn === false) {
-                history.push('/login');
+                let path = window.location.pathname;
+                history.push('/login?' + path);
             }
         }
     }

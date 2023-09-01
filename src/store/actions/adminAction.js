@@ -224,7 +224,17 @@ export const fetAllDoctors = async () => {
         }
 }
 
-export const fetchDetailDoctor = async (id) => {
-    
+export const fetAllCodeTime = async () => {
+    let response = await getAllCode('TIME');
+    if (!response.errCode) {
+        return {
+            type: actionTypes.FETCH_TIME_SUCCESS,
+            payload: response.data
+        }
+    } else {
+        return {
+            type: actionTypes.FETCH_TIME_FAIL
+        }
+    }
 }
 

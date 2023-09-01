@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions'
+import './TableManageUser.scss'
+
 class TableManageUser extends React.Component {
     constructor(props) {
         super(props);
@@ -30,7 +32,7 @@ class TableManageUser extends React.Component {
             <React.Fragment>
                 {this.state.users.length > 0 &&
                     <>
-                        <table id="customers" className='mt-5 usermanage-table'>
+                        <table id="customers" className='mt-5 usermanage-table container-fluid'>
                             <thead>
                                 <tr>
                                     <th>STT</th>
@@ -50,11 +52,11 @@ class TableManageUser extends React.Component {
                                         <td>{item.lastName}</td>
                                         <td>{item.address}</td>
                                         <td>
-                                            <button className='user-edit user-btn'>
+                                            <button className='user-edit user-btn btn'>
                                                 <i className="fas fa-pencil-alt" onClick={() => this.handleOnEdit(item)}></i>
                                             </button>
 
-                                            <button className='user-delete user-btn' >
+                                            <button className='user-delete user-btn btn' >
                                                 <i className="fas fa-trash-alt" onClick={() => this.handleOnDelete(item.id)}></i>
                                             </button>
                                         </td>

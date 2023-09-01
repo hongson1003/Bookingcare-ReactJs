@@ -10,7 +10,7 @@ import { LANGUAGES } from '../../../utils'
 import { insertDetailDr } from '../../../services/userService'
 import { toast } from "react-toastify";
 import { getDetailDoctor, updateDetailDoctor } from '../../../services/userService';
-
+import { FormattedMessage } from "react-intl";
 const mdParser = new MarkdownIt(/* Markdown-it this.state.doctors */);
 
 class ManageDoctor extends React.Component {
@@ -30,8 +30,17 @@ class ManageDoctor extends React.Component {
 
 
     componentDidMount = async () => {
+        if (this.props.lang === LANGUAGES.VI) {
+            await this.setState({
+                selectedOption: { label: 'Chọn bác sĩ...' },
+            })
+        } else {
+            await this.setState({
+                selectedOption: { label: 'Choose a doctor...' },
+            })
+        }
         await this.props.getAllDoctors();
-       
+
     }
     componentDidUpdate = async (prevp) => {
         if (prevp.doctors !== this.props.doctors) {
@@ -75,20 +84,36 @@ class ManageDoctor extends React.Component {
                     return temp;
                 })
 
-                let selectLabel = '';
-                let item = this.state.selectedOption.value;
-                console.log(item)
-                if (this.props.lang === LANGUAGES.VI)
-                    selectLabel = `${item.firstName} ${item.lastName}`;
-                else
-                    selectLabel = `${item.lastName} ${item.firstName}`;
-                this.setState({
-                    selectedOption: {
-                        label: selectLabel,
-                        value: item
-                    },
-                    doctors: doctors
-                })
+                if (this.state.selectedOption.value) {
+                    let selectLabel = '';
+                    let item = this.state.selectedOption.value;
+                    if (this.props.lang === LANGUAGES.VI)
+                        selectLabel = `${item.firstName} ${item.lastName}`;
+                    else
+                        selectLabel = `${item.lastName} ${item.firstName}`;
+                    this.setState({
+                        selectedOption: {
+                            label: selectLabel,
+                            value: item
+                        },
+                        doctors: doctors
+                    })
+                } else {
+                    if (this.props.lang === LANGUAGES.VI) {
+                        await this.setState({
+                            selectedOption: { label: 'Chọn bác sĩ...' },
+                            doctors: doctors
+
+                        })
+                    } else {
+                        await this.setState({
+                            selectedOption: { label: 'Choose a doctor...' },
+                            doctors: doctors
+
+                        })
+                    }
+
+                }
 
             }
 
@@ -195,10 +220,14 @@ class ManageDoctor extends React.Component {
         const { selectedOption } = this.state;
         return (
             <div className="manage-doctor">
-                <h2 className="text-center">Quản Lý Bác Sĩ</h2>
+                <h2 className="text-center">
+                    <FormattedMessage id={"manage-doctor.manage_doctor"} />
+                </h2>
                 <div className="choose-doctor">
                     <div className="search-doctor">
-                        <label>Chọn bác sĩ</label>
+                        <label>
+                            <FormattedMessage id={"manage-doctor.choose-doctor"} />
+                        </label>
                         <Select
                             value={selectedOption}
                             onChange={this.handleChange}
@@ -206,7 +235,9 @@ class ManageDoctor extends React.Component {
                         />
                     </div>
                     <div className="description">
-                        <label>Mô tả</label>
+                        <label>
+                            <FormattedMessage id={"manage-doctor.description"} />
+                        </label>
                         <div>
                             <textarea value={this.state.description} name="w3review" rows="4"
                                 onChange={(e) => this.handleTextArea(e)}>
@@ -223,12 +254,16 @@ class ManageDoctor extends React.Component {
                         >Tạo mới chi tiết</button> :
                         <button className="btn btn-primary mt-3"
                             onClick={(e) => this.handleOnUpdate()}
-                        >Lưu thay đổi</button>
+                        >
+                            <FormattedMessage id={"manage-doctor.save"} />
+                        </button>
                 )
                 }
                 <button className="btn btn-warning mt-3 ml-2"
                     onClick={() => this.handleOnClear()}
-                >Làm sạch</button>
+                >
+                    <FormattedMessage id={"manage-doctor.clear"} />
+                </button>
             </div>
         )
     }

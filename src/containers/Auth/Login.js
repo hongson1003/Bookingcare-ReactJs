@@ -17,7 +17,7 @@ class Login extends React.Component {
     }
     handleLogin = async () => {
         try {
-            this.setState({
+            await this.setState({
                 message: '',
             })
             let data = await handleCheckLogin(this.state.userName, this.state.password);
@@ -25,7 +25,7 @@ class Login extends React.Component {
                 this.props.userLoginSuccess(data.user);
             }
             else {
-                this.setState({
+                await this.setState({
                     message: data.message,
                 })
             }
@@ -38,18 +38,19 @@ class Login extends React.Component {
     }
 
 
-    handleOnChangeInput = (stateName, e) => {
+    handleOnChangeInput = async (stateName, e) => {
         this.setState({
             message: '',
         })
         if (stateName === 0)
-            this.setState({
+            await this.setState({
                 userName: e.target.value,
             })
         else
-            this.setState({
+            await this.setState({
                 password: e.target.value,
             })
+
     }
     handleOnShowPassword = () => {
         if (this.state.isShow === false) {
@@ -61,23 +62,15 @@ class Login extends React.Component {
     }
 
     componentDidMount = () => {
-        // console.log('chạy vô login', this.props)
-        // let { isLoggedIn, userInfo } = this.props;
-        // if (!this.props.isLoggedIn) {
-        //     let linkToRedirect = '/home';
-        //     if (isLoggedIn) {
-        //         if (userInfo.roleId === Menu.ADMIN)
-        //             linkToRedirect = '/system/user-manage';
-        //         else if (userInfo.roleId === Menu.DOCTOR)
-        //             linkToRedirect = '/doctor/manage-schedule'
-        //     } else
-        //         linkToRedirect = 'home';
-        //     return (
-        //         <Redirect to={linkToRedirect} />
-        //     );
-        // }
+
     }
     componentDidUpdate = () => {
+    }
+
+    handleKeyPress = async (e) => {
+        if (e.key === 'Enter') {
+            await this.handleLogin();
+        }
     }
     render() {
         return (
@@ -101,6 +94,7 @@ class Login extends React.Component {
                                                     this.handleOnChangeInput(0, e);
                                                 }
                                             }
+                                            onKeyPress={(e) => this.handleKeyPress(e)}
                                         />
                                     </div>
                                     <div className='login-label-input login-password'>
@@ -112,6 +106,7 @@ class Login extends React.Component {
                                                     this.handleOnChangeInput(1, e);
                                                 }
                                             }
+                                            onKeyPress={(e) => this.handleKeyPress(e)}
                                         />
                                         {this.state.isShow ?
                                             <div className='show-password eye-password' onClick={() => this.handleOnShowPassword()}>

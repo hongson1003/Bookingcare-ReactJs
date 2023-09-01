@@ -32,7 +32,6 @@ const appReducer = (state = initialState, action) => {
                 }
             }
         case actionTypes.CHANGE_LANGUAGE_APP:
-            console.log(action.payload)
             return {
                 ...state,
                 language: action.payload,

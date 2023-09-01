@@ -83,6 +83,19 @@
         "edit": "Lưu thay đổi",
         "cancel": "Hủy bỏ"
     },
+    "manage-doctor": {
+        "manage_doctor": "Quản lý bác sĩ",
+        "choose-doctor": "Chọn bác sĩ",
+        "description": "Mô tả",
+        "clear": "Làm sạch",
+        "save": "Lưu thay đổi"
+    },
+    "manage-schedule": {
+        "manage_schedule": "Quản lý lịch khám bệnh",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày",
+        "save": "Lưu"
+    },
     "home-page": {
         "outstandingdoctor": "Bác sĩ nổi bật tuần qua",
         "search": "Tìm kiếm"

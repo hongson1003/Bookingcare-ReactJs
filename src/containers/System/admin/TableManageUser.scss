@@ -1,0 +1,47 @@
+.usermanage-table {
+    width: 98%;
+    margin: 10px auto 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+
+    tr,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+
+        &:last-child {
+            width: 10%;
+        }
+    }
+
+    .user-btn {
+        width: 40px;
+
+
+    }
+
+    .user-edit {
+        &:hover {
+            color: rgb(0, 42, 255)
+        }
+    }
+
+    .user-delete {
+        &:hover {
+            color: orange
+        }
+    }
+}

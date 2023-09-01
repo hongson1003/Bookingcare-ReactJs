@@ -11,6 +11,7 @@ const initialState = {
     users: [],
     topDoctors: [],
     allDoctor: [],
+    allTime: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -133,6 +134,21 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
+
+
+        case actionTypes.FETCH_TIME_SUCCESS:
+            let k = {
+                ...state
+            };
+            k.allTime = action.payload;
+            return {
+                ...k
+            };
+        case actionTypes.FETCH_TIME_FAIL:
+            console.log('Fail');
+            return {
+                ...state
+            };
 
 
         default:
