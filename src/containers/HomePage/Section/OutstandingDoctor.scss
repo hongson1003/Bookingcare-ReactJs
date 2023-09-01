@@ -1,12 +1,13 @@
 .my-carousel {
     .outstandingdoctor {
         background-color: #ffffff;
-
         padding-bottom: 70px;
 
+        .slick-disabled {
+            display: none !important;
+        }
+
         .slider-item {
-
-
             .slider-item-image {
                 background-color: #ffffff;
 

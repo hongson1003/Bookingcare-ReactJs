@@ -50,7 +50,12 @@
             "speciality": "Chuyên khoa",
             "manage-speciality": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "manage-handbook": "Quản lý cẩm nang",
+            "manage-schedule": "Quản lý lịch khám bệnh"
+        },
+        "doctor": {
+            "user": "Người dùng",
+            "manage-schedule": "Quản lý lịch khám bệnh"
         }
     },
     "manage-user": {
@@ -77,5 +82,9 @@
         "save": "Lưu",
         "edit": "Lưu thay đổi",
         "cancel": "Hủy bỏ"
+    },
+    "home-page": {
+        "outstandingdoctor": "Bác sĩ nổi bật tuần qua",
+        "search": "Tìm kiếm"
     }
 }

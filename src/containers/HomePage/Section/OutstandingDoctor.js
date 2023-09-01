@@ -5,6 +5,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './OutstandingDoctor.scss';
 import * as actions from '../../../store/actions';
+import { FormattedMessage } from "react-intl";
+import { withRouter } from "react-router";
+import { path } from '../../../utils'
+import man from '../../../assets/images/doctorNOAVATAR_man.avif';
+import woman from '../../../assets/images/doctorNoAVATAR_woman.jpg';
 
 class OutstadingDoctor extends React.Component {
     constructor(props) {
@@ -24,6 +29,10 @@ class OutstadingDoctor extends React.Component {
         }
     }
 
+    handleOnDetail = (id) => {
+        this.props.history.push(path.DETAIL_DOCTOR + '/' + id);
+    }
+
     render() {
         let { settings } = this.props;
         let doctors = this.state.doctors;
@@ -34,23 +43,34 @@ class OutstadingDoctor extends React.Component {
                     <div className="envelope">
 
                         <div className="section-share">
-                            <p>Bác sĩ nổi bật tuần qua</p>
-                            <button className="btn">TÌM KIẾM</button>
+                            <p><FormattedMessage id="home-page.outstandingdoctor" /></p>
+                            <button className="btn"><FormattedMessage id="home-page.search" /></button>
                         </div>
                         <Slider {...settings}>
                             {doctors.map(item =>
                                 <div key={item.id}>
-                                    <div className="slider-item">
+                                    <div className="slider-item" onClick={() => this.handleOnDetail(item.id)}>
                                         <div className="slider-item-image">
-                                            <img alt="" src={new Buffer(item.image, 'base64'.toString('binary'))} />
+                                            {item && (
+                                                !item.image.data.length ? (
+                                                    item.gender === 'M' ? (
+                                                        <img alt="" src={man} />
+                                                    ) : (
+                                                        <img alt="" src={woman} />
+                                                    )
+                                                ) : (
+                                                    <img alt="" src={new Buffer(item.image, 'base64'.toString('binary'))} />
+
+                                                )
+                                            )}
                                         </div>
                                         <div className="slider-item-text">
                                             <p className="slider-item-text_title">
                                                 {(this.props.lang === 'vi'
                                                     ?
-                                                    item.positionData.valueVi + ' ' + item.firstName + ' ' + item.lastName
+                                                    item.positionData.valueVi + ', ' + item.firstName + ' ' + item.lastName
                                                     :
-                                                    item.positionData.valueEn + ' ' + item.lastName + ' ' + item.firstName
+                                                    item.positionData.valueEn + ', ' + item.lastName + ' ' + item.firstName
                                                 )}
                                             </p>
                                             <p>Răng miệng</p>
@@ -85,4 +105,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstadingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstadingDoctor));

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
-
+// import { history } from '../../redux';
 import * as actions from "../../store/actions";
-
 import './Login.scss';
 import { handleCheckLogin } from '../../services/userService';
 
@@ -22,14 +21,13 @@ class Login extends React.Component {
                 message: '',
             })
             let data = await handleCheckLogin(this.state.userName, this.state.password);
-            if (data && data.errCode !== 0)
+            if (!data.errCode) {
+                this.props.userLoginSuccess(data.user);
+            }
+            else {
                 this.setState({
                     message: data.message,
                 })
-            else {
-                console.log('login success')
-                this.props.userLoginSuccess(data.user);
-
             }
         } catch (e) {
             let data = e.response.data;
@@ -37,10 +35,6 @@ class Login extends React.Component {
                 message: data.message,
             })
         }
-        this.setState({
-            userName: '',
-            password: '',
-        })
     }
 
 
@@ -64,6 +58,26 @@ class Login extends React.Component {
         this.setState({
             isShow: !this.state.isShow,
         })
+    }
+
+    componentDidMount = () => {
+        // console.log('chạy vô login', this.props)
+        // let { isLoggedIn, userInfo } = this.props;
+        // if (!this.props.isLoggedIn) {
+        //     let linkToRedirect = '/home';
+        //     if (isLoggedIn) {
+        //         if (userInfo.roleId === Menu.ADMIN)
+        //             linkToRedirect = '/system/user-manage';
+        //         else if (userInfo.roleId === Menu.DOCTOR)
+        //             linkToRedirect = '/doctor/manage-schedule'
+        //     } else
+        //         linkToRedirect = 'home';
+        //     return (
+        //         <Redirect to={linkToRedirect} />
+        //     );
+        // }
+    }
+    componentDidUpdate = () => {
     }
     render() {
         return (
@@ -154,7 +168,9 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        lang: state.app.language
+        lang: state.app.language,
+        isLoggedIn: state.user.isLoggedIn,
+        userInfo: state.user.userInfo
     };
 };
 
@@ -162,7 +178,9 @@ const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
         // userLoginFail: () => dispatch(actions.userLoginFail()),
-        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
+        userLoginSuccess: (userInfo) => {
+            dispatch(actions.userLoginSuccess(userInfo));
+        }
     };
 };
 

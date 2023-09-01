@@ -2,24 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
-import { adminMenu } from './menuApp';
+import { adminMenu, doctorMenu } from './menuApp';
 import './Header.scss';
-import { LANGUAGES } from '../../utils';
+import { LANGUAGES, Menu } from '../../utils';
 import { FormattedMessage } from 'react-intl';
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            menu: []
+        }
+    }
+
     handleOnChangeLanguage = async (e) => {
         this.props.changeLanguageRedux(e.target.value);
     }
+
+    componentDidMount = async () => {
+        let roleId = this.props.userInfo.roleId;
+        let menuM = null;
+        if (roleId === Menu.ADMIN)
+            menuM = adminMenu;
+        else if (roleId === Menu.DOCTOR)
+            menuM = doctorMenu;
+        else
+            menuM = adminMenu
+        await this.setState({
+            menu: menuM
+        })
+    }
+
 
 
 
     render() {
         const { processLogout, userInfo } = this.props;
+        let { menu } = this.state;
         return (
             <div className="header-container">
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
-                    <Navigator menus={adminMenu} />
+                    <Navigator menus={menu} />
                 </div>
 
                 {/* nút logout */}
@@ -41,11 +64,12 @@ class Header extends Component {
                             {
                                 this.props.language === LANGUAGES.EN
                                     ?
-                                    <option selected value={LANGUAGES.EN}>EN</option>
+                                    <option value={LANGUAGES.EN}>EN</option>
                                     :
                                     <option value={LANGUAGES.EN}>EN</option>
                             }
                         </select>
+
                     </div>
                     <div className="btn btn-logout" onClick={processLogout}>
                         <i title='Log out' className="fas fa-sign-out-alt"></i>
@@ -67,7 +91,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        processLogout: () => dispatch(actions.processLogout()),
+        processLogout: async () => {
+            await dispatch(actions.processLogout());
+        },
         changeLanguageRedux: (language) => dispatch(actions.CHANGE_LANGUAGE_APP(language)),
     };
 };

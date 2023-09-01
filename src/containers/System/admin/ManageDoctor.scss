@@ -1,0 +1,33 @@
+.manage-doctor {
+    margin: 30px auto;
+    width: 86%;
+
+    .choose-doctor {
+        margin: 10px 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        label{
+            font-weight: bold;
+        }
+        .search-doctor {
+            width: 30%;
+        }
+
+        .description {
+            width: 70%;
+            padding-left: 5%;
+            // display: flex;
+            textarea{
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+
+button:focus {
+    box-shadow: none !important;
+
+}

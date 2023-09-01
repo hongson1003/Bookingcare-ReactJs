@@ -11,12 +11,13 @@ class userReduxManage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            email: '',
+            password: '',
             genders: [],
             positions: [],
             roles: [],
             isOpen: false,
-            email: '',
-            password: '',
+
             firstName: '',
             lastName: '',
             phoneNumber: '',
@@ -38,12 +39,11 @@ class userReduxManage extends Component {
         let genderTemp = (this.props.genders && this.props.genders.length > 0 && this.props.genders[0].keyMap) || '';
         let positionTemp = (this.props.positions && this.props.positions.length > 0 && this.props.positions[0].keyMap) || '';
         let roleTemp = (this.props.roles && this.props.roles.length > 0 && this.props.roles[0].keyMap) || '';
-        this.setState({
+        await this.setState({
             gender: genderTemp,
             position: positionTemp,
             role: roleTemp,
         })
-        console.log('state', this.state)
     }
 
     componentDidUpdate(prevProps, prevState, next) {
@@ -120,7 +120,7 @@ class userReduxManage extends Component {
         }
         if (this.state.isEditting) {
             await this.props.updateUser(user);
-            this.setState({
+            await this.setState({
                 isEditting: false,
             })
             this.clearState();
@@ -174,20 +174,19 @@ class userReduxManage extends Component {
                         <div className='loading-item'></div>
                     </div>
                 }
-                <h2 className='title'><FormattedMessage id="manage-user.title" /> <></>{this.props.name} </h2>
+                <h2 className='title'><FormattedMessage id="manage-user.title" /> <></>{(this.props.userInfo && this.props.userInfo.name)} </h2>
                 <p className='add'><FormattedMessage id="manage-user.add" /></p>
                 <div className='container'>
                     <div className='col-12'>
                         <form>
                             <div className="row">
                                 <div className="form-group col-md-3">
-                                    <label htmlFor="email"><FormattedMessage id="manage-user.email" /></label>
-
+                                    <label htmlFor="text"><FormattedMessage id="manage-user.email" /></label>
                                     {
                                         this.state.isEditting ?
-                                            <input disabled value={this.state.email} type="email" className="form-control" id="email" placeholder="Email"
-                                                onChange={(e) => this.hanndleInput(e, 'email')} /> :
-                                            <input value={this.state.email} type="email" className="form-control" id="email" placeholder="Email"
+                                            <input disabled value={this.state.email} type="text" className="form-control" id="email" placeholder="Email edit"
+                                            /> :
+                                            <input value={this.state.email} type="text" className="form-control" id="email" placeholder="Email"
                                                 onChange={(e) => this.hanndleInput(e, 'email')}
                                             />
                                     }
@@ -198,7 +197,7 @@ class userReduxManage extends Component {
                                     {
                                         this.state.isEditting ?
                                             <input disabled value={this.state.password} type="password" className="form-control" id="password" placeholder="Password"
-                                                onChange={(e) => this.hanndleInput(e, 'password')} /> :
+                                            /> :
                                             <input value={this.state.password} type="password" className="form-control" id="password" placeholder="Password"
                                                 onChange={(e) => this.hanndleInput(e, 'password')}
                                             />
@@ -358,7 +357,7 @@ const mapStateToProps = state => {
         roles: state.admin.roles,
         isLoading: state.admin.isLoading,
         user: state.admin.user,
-        name: state.user.userInfo.name,
+        userInfo: state.user.userInfo,
     };
 };
 

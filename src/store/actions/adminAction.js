@@ -1,5 +1,5 @@
 import actionTypes from "./actionTypes";
-import { getAllCode, createNewAUser, getUsers, deleteUser, editUser, getTopDoctors } from '../../services/userService';
+import { getAllCode, createNewAUser, getUsers, deleteUser, editUser, getTopDoctors, getAllDr } from '../../services/userService';
 
 
 export const fetchGenderStart = async () => {
@@ -209,5 +209,22 @@ export const fetchTopDoctors = async (limit) => {
             type: actionTypes.FETCH_TOP_DOCTOR_FAIL
         }
 
+}
+
+export const fetAllDoctors = async () => {
+    let response = await getAllDr();
+    if (!response.errCode)
+        return {
+            type: actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+            payload: response.data
+        }
+    else
+        return {
+            type: actionTypes.FETCH_ALL_DOCTOR_FAIL
+        }
+}
+
+export const fetchDetailDoctor = async (id) => {
+    
 }
 

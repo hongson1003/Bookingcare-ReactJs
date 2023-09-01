@@ -2,7 +2,7 @@ import actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isLoggedIn: false,
-    userInfo: null
+    userInfo: null,
 }
 
 const appReducer = (state = initialState, action) => {
@@ -25,6 +25,7 @@ const appReducer = (state = initialState, action) => {
                 isLoggedIn: false,
                 userInfo: null
             }
+
         default:
             return state;
     }

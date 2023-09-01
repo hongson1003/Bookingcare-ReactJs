@@ -13,7 +13,8 @@ class MenuGroup extends Component {
     render() {
         const { name, children } = this.props;
         return (
-            <li className={this.props.activeName !== name ? 'menu-group' : 'menu-group active'} onClick={() => this.handleOnClick()}>
+            <li className={(this.props.activeName[0] !== name && this.props.activeName[1] !== name) ? 'menu-group' : 'menu-group active'}
+                onClick={() => this.handleOnClick()}>
                 <div className="menu-group-name">
                     <FormattedMessage id={name} />
                 </div>
@@ -101,12 +102,10 @@ const withRouterInnerRef = (WrappedComponent) => {
 class Navigator extends Component {
     state = {
         expandedMenu: {},
-        activeName: 'menu.admin.user',
+        activeName: ['menu.admin.user', 'menu.doctor.user']
     };
     handleOnCliCkActive = (name) => {
-        this.setState({
-            activeName: name
-        })
+
     }
 
     toggle = (groupIndex, menuIndex) => {
@@ -169,6 +168,7 @@ class Navigator extends Component {
 
     componentDidMount() {
         this.checkActiveMenu();
+
     };
 
     // componentWillReceiveProps(nextProps, prevState) {

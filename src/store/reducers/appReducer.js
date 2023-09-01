@@ -13,7 +13,7 @@ const initialState = {
     systemMenuPath: '/system/user-manage',
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
-    }
+    },
 }
 
 const appReducer = (state = initialState, action) => {
@@ -32,7 +32,7 @@ const appReducer = (state = initialState, action) => {
                 }
             }
         case actionTypes.CHANGE_LANGUAGE_APP:
-            console.log(action)
+            console.log(action.payload)
             return {
                 ...state,
                 language: action.payload,

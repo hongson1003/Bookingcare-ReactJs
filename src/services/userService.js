@@ -32,5 +32,20 @@ let getAllCode = async (type) => {
 let getTopDoctors = async (limit) => {
     return await axios.get('/api/get-top-doctor');
 }
+let getAllDr = async () => {
+    return await axios.get('/api/get-all-doctor');
+}
+let insertDetailDr = async (data) => {
+    return await axios.post('/api/create-detail-doctor', { data })
+}
+let getDetailDoctor = async (id) => {
+    return await axios.get('/api/get-detail-doctor-by-id?id=' + id);
+}
 
-export { handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode, getTopDoctors };
+let updateDetailDoctor = async (data) => {
+    return await axios.put('/api/update-detail-doctor', data);
+}
+export {
+    handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
+    getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor
+};

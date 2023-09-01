@@ -5,7 +5,7 @@ import {
 
 } from '../../../assets/images';
 import './Media.scss';
-
+import video from '../../../assets/videos/SnapTik_App_7110930823922109722-HD.mp4';
 
 class Media extends React.Component {
 
@@ -17,10 +17,7 @@ class Media extends React.Component {
                         <p>Truyền thông nói về BookingCare</p>
                     </div>
                     <div className="slider-item">
-                        {/* <div className="slider-item-image khoinghiep"></div> */}
-                        <div className="slider-item-image khoinghiep">
-                            <iframe width="853" height="533" src="https://www.youtube.com/embed/fPhzPqgYNWE" title="Buoi11P2" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                        </div>
+                        <video controls src={video} poster="https://raw.githubusercontent.com/hongson1003/PostImage/main/thuthuy.jpg"></video>
                     </div>
                     <div className="slider-item">
                         <div className="slider-item-image">

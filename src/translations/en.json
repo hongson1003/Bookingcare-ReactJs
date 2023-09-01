@@ -12,7 +12,7 @@
         "welcome": "Welcome"
     },
     "home-baner": {
-        "MEDICALBACKGROUND": "MEDICAL BACKGROUND",
+        "MEDICALBACKGROUND": "MEDICAL FLATFORM",
         "FindASpecialist": "Find A Specialist",
         "COMPREHENSIVEHEALTHCARE": "COMPREHENSIVE HEALTH CARE",
         "findASpecialist": "Find A Specialist",
@@ -50,7 +50,12 @@
             "speciality": "Specialty",
             "manage-speciality": "Manage Specialty",
             "handbook": "HandBook",
-            "manage-handbook": "Manage Handbook"
+            "manage-handbook": "Manage Handbook",
+            "manage-schedule": "Manage schedule"
+        },
+        "doctor": {
+            "user": "Users",
+            "manage-schedule": "Manage schedule"
         }
     },
     "manage-user": {
@@ -77,5 +82,9 @@
         "save": "Save",
         "edit": "Save changes",
         "cancel": "Cancel"
+    },
+    "home-page": {
+        "outstandingdoctor": "Outstanding Doctors",
+        "search": "Search"
     }
 }

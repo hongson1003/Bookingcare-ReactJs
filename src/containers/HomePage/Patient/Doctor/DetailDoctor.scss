@@ -1,0 +1,57 @@
+.container-detail {
+    .content_detail {
+        padding: 10px 10% 40px;
+
+        .detail__title {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 15px;
+                height: 15px;
+            }
+
+            span {
+                color: #45C3DB
+            }
+        }
+
+        .description-doctor {
+            display: flex;
+            margin-top: 10px;
+
+            .image {
+                width: 15%;
+
+                img {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+            }
+
+            .main-descrip {
+                width: 45%;
+
+                .main-title {
+                    margin: 2px 0px 10px;
+                    font-weight: bold;
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+
+    .info-detail {
+        border-top: 1px solid rgb(187, 165, 165);
+        border-bottom: 1px solid rgb(187, 165, 165);
+        margin-bottom: 30px;
+        background-color: #F9F9F9;
+
+        div {
+            padding: 10px 10% 30px;
+
+        }
+    }
+}
