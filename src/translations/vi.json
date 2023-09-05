@@ -96,6 +96,12 @@
         "choose-date": "Chọn ngày",
         "save": "Lưu"
     },
+    "patient": {
+        "examinationSchedule": "Lịch Khám",
+        "noSchedule": "Hiện tại không có lịch khám trong ngày hôm nay",
+        "choose": "Chọn",
+        "andOrderFree": "và đặt lịch miễn phí" 
+    },
     "home-page": {
         "outstandingdoctor": "Bác sĩ nổi bật tuần qua",
         "search": "Tìm kiếm"

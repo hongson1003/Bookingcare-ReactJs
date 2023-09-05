@@ -96,6 +96,12 @@
         "choose-date": "Choose a date",
         "save": "Save"
     },
+    "patient": {
+        "examinationSchedule": "examination Schedule",
+        "noSchedule": "There are currently no appointments scheduled for today",
+        "choose": "Choose",
+        "andOrderFree": "and book for free"
+    },
     "home-page": {
         "outstandingdoctor": "Outstanding Doctors",
         "search": "Search"

@@ -15,8 +15,24 @@ let getBase64 = async (file) => {
 
     })
 }
+
+let toDateString = (ngayChuoi) => {
+    console.log(typeof ngayChuoi)
+    var parts = ngayChuoi.split('/');
+    var ngay = parseInt(parts[0], 10);
+    var thang = parseInt(parts[1], 10) - 1; // Trừ 1 vì tháng trong JavaScript bắt đầu từ 0
+    var nam = parseInt(parts[2], 10);
+
+    // Tạo đối tượng ngày tháng
+    var ngayThang = new Date(nam, thang, ngay);
+
+    // Tạo đối tượng thời gian có định dạng ISO 8601
+    var isoDate = ngayThang.toISOString();
+    return isoDate;
+}
 export {
     dataUrlToBinary,
-    getBase64
+    getBase64,
+    toDateString
 
 };

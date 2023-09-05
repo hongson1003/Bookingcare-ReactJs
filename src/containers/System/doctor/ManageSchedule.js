@@ -8,7 +8,7 @@ import DatePicker from '../../../components/Input/DatePicker';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import { toast } from 'react-toastify';
-
+import { createSchedule } from '../../../services/userService';
 class ManageSchedule extends Component {
     constructor(props) {
         super(props);
@@ -155,7 +155,7 @@ class ManageSchedule extends Component {
         })
 
     }
-    handleOnCSave = () => {
+    handleOnSave = async () => {
         let selectDate = moment(this.state.selectDate).format('DD/MM/YYYY');
         let isActives = this.state.allTime.filter(item => item.isActive === true);
         let data = null;
@@ -166,11 +166,24 @@ class ManageSchedule extends Component {
                 times: isActives
             }
         }
-        if (!data || !data.id || !data.selectDate || !data.times.length)
+        if (!data || !data.id || !data.selectDate || !data.times.length) {
+            toast.error('Tạo lịch khám cho bác sĩ thất bại');
+            return;
+        }
+        let editData = data.times.map(item => {
+            return {
+                doctorId: data.id,
+                date: data.selectDate,
+                timeType: item.keyMap,
+            }
+        })
+
+
+        let response = await createSchedule(editData);
+        if (response.errCode)
             toast.error('Tạo lịch khám cho bác sĩ thất bại');
         else {
             toast.success('Tạo lịch khám cho bác sĩ thành công')
-            console.log(data)
         }
 
     }
@@ -215,6 +228,7 @@ class ManageSchedule extends Component {
                             className="form-control input"
                             value={this.state.selectDate}
                             selected={new Date()}
+                            minDate={new Date()}
                         >
                         </DatePicker>
                     </div>
@@ -243,7 +257,7 @@ class ManageSchedule extends Component {
                                 }
                             </div>
                             <div className='col-4'>
-                                <button className='btn btn-primary' onClick={() => this.handleOnCSave()}>
+                                <button className='btn btn-primary' onClick={() => this.handleOnSave()}>
                                     <FormattedMessage id={"manage-schedule.save"} />
                                 </button>
                             </div>

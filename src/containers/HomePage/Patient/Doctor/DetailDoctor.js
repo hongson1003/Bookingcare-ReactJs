@@ -4,7 +4,7 @@ import home from '../../../../assets/images/HomePage/home.png'
 import { getDetailDoctor } from "../../../../services/userService";
 import man from '../../../../assets/images/doctorNOAVATAR_man.avif'
 import woman from '../../../../assets/images/doctorNoAVATAR_woman.jpg'
-
+import DoctorSchedule from "./DoctorSchedule";
 import './DetailDoctor.scss';
 // import { FormattedMessage } from "react-intl";
 class DetailDoctor extends React.Component {
@@ -20,7 +20,6 @@ class DetailDoctor extends React.Component {
             this.setState({
                 data: response.data,
             })
-            console.log(response.data)
         }
     }
     render() {
@@ -56,6 +55,7 @@ class DetailDoctor extends React.Component {
                                 {data.doctorData && data.doctorData.description}
                             </div>
                         </div>
+                        <DoctorSchedule id={this.props.match.params.id} />
                     </div>
                     {data.doctorData &&
                         <div className="info-detail">

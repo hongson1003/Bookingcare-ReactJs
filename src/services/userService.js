@@ -45,7 +45,15 @@ let getDetailDoctor = async (id) => {
 let updateDetailDoctor = async (data) => {
     return await axios.put('/api/update-detail-doctor', data);
 }
+
+let createSchedule = async (data) => {
+    return await axios.post('/api/create-schedule', data);
+}
+let getScheduleById = async (doctorId, date) => {
+    return await axios.get('/api/get-schedule-by-id?doctorId=' + doctorId + '&date=' + date);
+}
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
-    getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor
+    getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
+    createSchedule, getScheduleById
 };

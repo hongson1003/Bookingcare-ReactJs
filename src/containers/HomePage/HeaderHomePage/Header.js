@@ -60,17 +60,13 @@ class Header extends React.Component {
                                     <div className="baner-language baner-en"></div>
 
                                 }
-                                <select onChange={
+                                <select value={this.props.language} onChange={
                                     (e) => this.handleOnChangeLanguage(e)}
                                 >
                                     <option value={LANGUAGES.VI}>VN </option>
-                                    {
-                                        this.props.language === LANGUAGES.EN
-                                            ?
-                                            <option selected value={LANGUAGES.EN}>EN</option>
-                                            :
-                                            <option value={LANGUAGES.EN}>EN</option>
-                                    }
+                                    <option value={LANGUAGES.EN}>EN</option>
+
+
                                 </select>
                             </div>
                         </div>
