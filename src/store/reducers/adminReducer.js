@@ -11,7 +11,10 @@ const initialState = {
     users: [],
     topDoctors: [],
     allDoctor: [],
-    allTime: []
+    allTime: [],
+    allPrice: [],
+    allProvince: [],
+    allPayment: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -149,6 +152,43 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             };
+
+        case actionTypes.FETCH_PRICE_SUCCESS:
+            let temp1 = { ...state };
+            temp1.allPrice = action.payload;
+            return {
+                ...temp1
+            };
+        case actionTypes.FETCH_PRICE_FAIL:
+            console.log('Fail');
+            return {
+                ...state
+            };
+
+        case actionTypes.FETCH_PROVINCE_SUCCESS:
+            let temp2 = { ...state };
+            temp2.allProvince = action.payload;
+            return {
+                ...temp2
+            };
+        case actionTypes.FETCH_PROVINCE_FAIL:
+            console.log('Fail');
+            return {
+                ...state
+            };
+
+        case actionTypes.FETCH_PAYMENT_SUCCESS:
+            let temp3 = { ...state };
+            temp3.allPayment = action.payload;
+            return {
+                ...temp3
+            };
+        case actionTypes.FETCH_PAYMENT_FAIL:
+            console.log('Fail');
+            return {
+                ...state
+            };
+
 
 
         default:

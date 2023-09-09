@@ -84,7 +84,7 @@ class DoctorSchedule extends React.Component {
             if (new Date().getHours() < hours) //05/09/2023 09:59
                 dataCustomize.push(item);
         })
-        let nowDate = moment(new Date).format('DD/MM/YYYY');
+        let nowDate = moment(new Date()).format('DD/MM/YYYY');
         if (nowDate === this.state.selectedDate) {
             if (dataCustomize.length > 0)
                 this.setState({
@@ -127,20 +127,22 @@ class DoctorSchedule extends React.Component {
 
                     <div className="booking-calendar">
                         <div className="calendar-order">
-                            {
-                                this.state.arrSchedules && this.state.arrSchedules.length > 0 ?
-                                    this.state.arrSchedules.map((item, index) => {
-                                        return (
-                                            <button key={index} >
-                                                {this.props.language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn}
-                                            </button>
-                                        )
-                                    })
-                                    :
-                                    <p className="notice"><FormattedMessage id="patient.noSchedule" /> !</p>
-                            }
+                            <div className="schedules">
+                                {
+                                    this.state.arrSchedules && this.state.arrSchedules.length > 0 ?
+                                        this.state.arrSchedules.map((item, index) => {
+                                            return (
+                                                <button key={index} >
+                                                    {this.props.language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn}
+                                                </button>
+                                            )
+                                        })
+                                        :
+                                        <p className="notice"><FormattedMessage id="patient.noSchedule" /> !</p>
+                                }
+                            </div>
                             <div>
-                                <p className="order-free"><FormattedMessage id="patient.choose" /> <i class="fas fa-hand-point-up"></i> <FormattedMessage id="patient.andOrderFree" /></p>
+                                <p className="order-free"><FormattedMessage id="patient.choose" /> <i className="fas fa-hand-point-up"></i> <FormattedMessage id="patient.andOrderFree" /></p>
                             </div>
                         </div>
                         <div className="calendar-info"></div>

@@ -238,3 +238,44 @@ export const fetAllCodeTime = async () => {
     }
 }
 
+export const fetAllPrice = async () => {
+    let response = await getAllCode('PRICE');
+    if (!response.errCode) {
+        return {
+            type: actionTypes.FETCH_PRICE_SUCCESS,
+            payload: response.data
+        }
+    } else {
+        return {
+            type: actionTypes.FETCH_PRICE_FAIL
+        }
+    }
+}
+export const fetAllProvince = async () => {
+    let response = await getAllCode('PROVINCE');
+    if (!response.errCode) {
+        return {
+            type: actionTypes.FETCH_PROVINCE_SUCCESS,
+            payload: response.data
+        }
+    } else {
+        return {
+            type: actionTypes.FETCH_PROVINCE_FAIL
+        }
+    }
+}
+
+export const fetAllPayment = async () => {
+    let response = await getAllCode('PAYMENT');
+    if (!response.errCode) {
+        return {
+            type: actionTypes.FETCH_PAYMENT_SUCCESS,
+            payload: response.data
+        }
+    } else {
+        return {
+            type: actionTypes.FETCH_PAYMENT_FAIL
+        }
+    }
+}
+

@@ -34,9 +34,15 @@
             width: 60%;
             margin-top: 10px;
             display: flex;
+            flex-direction: column;
             justify-content: flex-start;
-            flex-wrap: wrap;
             border-right: 1px solid grey;
+
+            .schedules {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
 
             .order-free {
                 margin-top: 10px;

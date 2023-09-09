@@ -88,7 +88,13 @@
         "choose-doctor": "Choose a doctor",
         "description": "Description",
         "clear": "Make clear",
-        "save": "Save changes"
+        "save": "Save changes",
+        "choosePrice": "Choose Price",
+        "selectAPaymentMethod": "Select a payment method",
+        "chooseAProvince": "Choose a province",
+        "clinicName": "Clinic name",
+        "clinicAddress": "Clinic address",
+        "Note": "Note"
     },
     "manage-schedule": {
         "manage_schedule": "Manage Doctors",

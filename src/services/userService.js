@@ -36,7 +36,7 @@ let getAllDr = async () => {
     return await axios.get('/api/get-all-doctor');
 }
 let insertDetailDr = async (data) => {
-    return await axios.post('/api/create-detail-doctor', { data })
+    return await axios.post('/api/create-detail-doctor', data)
 }
 let getDetailDoctor = async (id) => {
     return await axios.get('/api/get-detail-doctor-by-id?id=' + id);
@@ -52,8 +52,11 @@ let createSchedule = async (data) => {
 let getScheduleById = async (doctorId, date) => {
     return await axios.get('/api/get-schedule-by-id?doctorId=' + doctorId + '&date=' + date);
 }
+let getDoctorInfo = async (doctorId) => {
+    return await axios.get('/api/get-doctor-info?doctorId=' + doctorId);
+}
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
-    createSchedule, getScheduleById
+    createSchedule, getScheduleById, getDoctorInfo
 };
