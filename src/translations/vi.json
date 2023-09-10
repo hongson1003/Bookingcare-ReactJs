@@ -106,7 +106,15 @@
         "examinationSchedule": "Lịch Khám",
         "noSchedule": "Hiện tại không có lịch khám trong ngày hôm nay",
         "choose": "Chọn",
-        "andOrderFree": "và đặt lịch miễn phí" 
+        "andOrderFree": "và đặt lịch miễn phí",
+        "examinationAddress": "Địa chỉ khám",
+        "examinationPrice": "Giá khám",
+        "seeDetails": "Xem chi tiết",
+        "hideDetails": "Ẩn chi tiết",
+        "The clinic accepts payment in cash": "Phòng khám có thanh toán bằng hình thức tiền mặt",
+        "The clinic accepts payment in the form of cash and card swipe": "Phòng khám có thanh toán bằng hình thức tiền mặt và quẹt thẻ",
+        "The clinic accepts payment by credit card": "Phòng khám có thanh toán bằng hình thức thẻ tín dụng",
+        "Detailed information is being updated": "Thông tin chi tiết đang được cập nhật"
     },
     "home-page": {
         "outstandingdoctor": "Bác sĩ nổi bật tuần qua",

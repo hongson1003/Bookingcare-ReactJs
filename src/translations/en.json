@@ -106,7 +106,15 @@
         "examinationSchedule": "examination Schedule",
         "noSchedule": "There are currently no appointments scheduled for today",
         "choose": "Choose",
-        "andOrderFree": "and book for free"
+        "andOrderFree": "and book for free",
+        "examinationAddress": "Examination address",
+        "examinationPrice": "Examination price",
+        "seeDetails": "See Details",
+        "hideDetails": "Hide details",
+        "The clinic accepts payment in cash": "The clinic accepts payment in cash",
+        "The clinic accepts payment in the form of cash and card swipe": "The clinic accepts payment in the form of cash and card swipe",
+        "The clinic accepts payment by credit card": "The clinic accepts payment by credit card",
+        "Detailed information is being updated": "Detailed information is being updated"
     },
     "home-page": {
         "outstandingdoctor": "Outstanding Doctors",

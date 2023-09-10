@@ -7,8 +7,10 @@ import './DoctorSchedule.scss';
 import { LANGUAGES } from "../../../../utils/constant";
 import { connect } from "react-redux";
 import { getScheduleById } from '../../../../services/userService';
-import _ from "lodash";
+// import _ from "lodash";
 import { FormattedMessage } from "react-intl";
+import DoctorExtraInfo from "./DoctorExtraInfo";
+
 class DoctorSchedule extends React.Component {
     constructor(props) {
         super(props);
@@ -124,7 +126,6 @@ class DoctorSchedule extends React.Component {
                         <span><i className="fa fa-calendar" aria-hidden="true"></i></span>
                         <span><FormattedMessage id="patient.examinationSchedule" /></span>
                     </div>
-
                     <div className="booking-calendar">
                         <div className="calendar-order">
                             <div className="schedules">
@@ -145,7 +146,9 @@ class DoctorSchedule extends React.Component {
                                 <p className="order-free"><FormattedMessage id="patient.choose" /> <i className="fas fa-hand-point-up"></i> <FormattedMessage id="patient.andOrderFree" /></p>
                             </div>
                         </div>
-                        <div className="calendar-info"></div>
+                        <div className="calendar-info">
+                            <DoctorExtraInfo id={+this.props.id} />
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

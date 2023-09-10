@@ -185,9 +185,15 @@ class ManageDoctor extends React.Component {
     handleGetSelectedDoctorInfo = async (selected) => {
         let label = '';
         if (this.props.lang === LANGUAGES.VI) {
-            label = this.state[selected].value.valueVi;
+            if (selected === 'selectedPrice')
+                label = new Intl.NumberFormat('en-US').format(this.state[selected].value.valueVi) + ' đ';
+            else
+                label = this.state[selected].value.valueVi;
         } else {
-            label = this.state[selected].value.valueEn;
+            if (selected === 'selectedPrice')
+                label = new Intl.NumberFormat('en-US').format(this.state[selected].value.valueEn) + ' đ';
+            else
+                label = this.state[selected].value.valueEn;
         }
         let temp = { ...this.state[selected] };
         temp.label = label;
@@ -340,7 +346,7 @@ class ManageDoctor extends React.Component {
                         value: data.paymentData
                     };
                     selectedPrice = {
-                        label: data.priceData.valueVi,
+                        label: new Intl.NumberFormat('en-US').format(data.priceData.valueVi) + ' đ',
                         value: data.priceData
                     };
                     selectedProvince = {
@@ -353,7 +359,7 @@ class ManageDoctor extends React.Component {
                         value: data.paymentData
                     };
                     selectedPrice = {
-                        label: data.priceData.valueEn,
+                        label: new Intl.NumberFormat('en-US').format(data.priceData.valueEn) + ' USD',
                         value: data.priceData
                     };
                     selectedProvince = {

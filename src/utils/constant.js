@@ -32,3 +32,9 @@ export const Menu = {
     DOCTOR: 'R2',
     PATIENT: 'R3',
 }
+
+export const Payment = {
+    CAST: 'PAY1',
+    CREDIT_CARD: 'PAY2',
+    ALL: 'PAY3',
+}

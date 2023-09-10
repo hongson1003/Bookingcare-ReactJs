@@ -29,6 +29,7 @@
     }
 
     .booking-calendar {
+        display: flex;
 
         .calendar-order {
             width: 60%;
@@ -69,6 +70,14 @@
 
         .calendar-info {
             width: 40%;
+            padding-top: 20px;
+            padding-left: 20px;
+
+            .address {
+                color: #666;
+                font-size: 15px;
+                font-weight: 600;
+            }
         }
     }
 }
