@@ -17,7 +17,7 @@ class Media extends React.Component {
                         <p>Truyền thông nói về BookingCare</p>
                     </div>
                     <div className="slider-item">
-                        <video controls src={video} poster="https://raw.githubusercontent.com/hongson1003/PostImage/main/thuthuy.jpg"></video>
+                        <video controls src={video} poster="https://raw.githubusercontent.com/hongson1003/PostImage/main/nhacchualanhvetthuong.jpg"></video>
                     </div>
                     <div className="slider-item">
                         <div className="slider-item-image">

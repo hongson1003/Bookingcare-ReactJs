@@ -10,6 +10,8 @@ import { getScheduleById } from '../../../../services/userService';
 // import _ from "lodash";
 import { FormattedMessage } from "react-intl";
 import DoctorExtraInfo from "./DoctorExtraInfo";
+import ModalDoctorSchedule from "./Modal/ModalDoctorSchedule";
+import * as actions from '../../../../store/actions';
 
 class DoctorSchedule extends React.Component {
     constructor(props) {
@@ -105,6 +107,10 @@ class DoctorSchedule extends React.Component {
         })
         await this.handleGetSchedule(+this.props.id, this.state.selectedDate);
     }
+
+    handleOnClickSchedule = async (item) => {
+        await this.props.turnOnModal(item.id);
+    }
     render() {
         return (
             <React.Fragment>
@@ -133,7 +139,7 @@ class DoctorSchedule extends React.Component {
                                     this.state.arrSchedules && this.state.arrSchedules.length > 0 ?
                                         this.state.arrSchedules.map((item, index) => {
                                             return (
-                                                <button key={index} >
+                                                <button key={index} onClick={() => this.handleOnClickSchedule(item)}>
                                                     {this.props.language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn}
                                                 </button>
                                             )
@@ -151,6 +157,7 @@ class DoctorSchedule extends React.Component {
                         </div>
                     </div>
                 </div>
+                <ModalDoctorSchedule id={+this.props.id} />
             </React.Fragment>
         )
     }
@@ -158,8 +165,15 @@ class DoctorSchedule extends React.Component {
 const mapStatetoProps = (state) => {
     return {
         language: state.app.language,
+        idModal: state.app.idModal,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        turnOnModal: async (id) => await dispatch(actions.turnOnModal(id)),
+        turnOffModal: () => dispatch(actions.turnOffModalAction()),
     }
 }
 
 
-export default connect(mapStatetoProps)(DoctorSchedule);
+export default connect(mapStatetoProps, mapDispatchToProps)(DoctorSchedule);

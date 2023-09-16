@@ -55,8 +55,13 @@ let getScheduleById = async (doctorId, date) => {
 let getDoctorInfo = async (doctorId) => {
     return await axios.get('/api/get-doctor-info?doctorId=' + doctorId);
 }
+
+let getDoctorInfoSchedule = async (doctorId, idModal) => {
+    return await axios.get('/api/get-doctor-info-schedule?doctorId=' + doctorId + '&idModal=' + idModal);
+}
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
-    createSchedule, getScheduleById, getDoctorInfo
+    createSchedule, getScheduleById, getDoctorInfo,
+    getDoctorInfoSchedule
 };

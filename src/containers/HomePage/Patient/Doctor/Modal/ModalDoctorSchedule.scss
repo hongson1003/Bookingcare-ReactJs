@@ -1,0 +1,21 @@
+.modal-schedule{
+    padding: 20px;
+    .modal-schedule_header{
+        background-color: #366DAD;
+        color: white;
+        font-weight: 1000;
+        font-style: italic;
+        text-decoration: underline;
+    }
+    .modal-schedule-body{
+        padding: 20px;
+        .main-orders{
+            label{
+                font-weight: bold;
+            }
+            textarea{
+                resize: none;
+            }
+        }
+    }
+}

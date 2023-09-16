@@ -134,8 +134,8 @@ class ManageSchedule extends Component {
         })
         console.log(this.state)
     };
-    handleOnChangeDate = (e) => {
-        this.setState({
+    handleOnChangeDate = async (e) => {
+        await this.setState({
             selectDate: e[0],
         })
     }
@@ -178,7 +178,7 @@ class ManageSchedule extends Component {
             }
         })
 
-
+        console.log(editData);
         let response = await createSchedule(editData);
         if (response.errCode)
             toast.error('Tạo lịch khám cho bác sĩ thất bại');

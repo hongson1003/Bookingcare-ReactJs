@@ -14,3 +14,15 @@ export const CHANGE_LANGUAGE_APP = (language) => {
         payload: language,
     }
 }
+export const turnOnModal = (data) => {
+    return {
+        type: actionTypes.TURN_ON_MODAL,
+        payload: data,
+    }
+}
+export const turnOffModalAction = () => {
+    return {
+        type: actionTypes.TURN_OFF_MODAL
+    }
+}
+

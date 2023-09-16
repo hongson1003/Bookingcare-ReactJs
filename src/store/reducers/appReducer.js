@@ -14,6 +14,8 @@ const initialState = {
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
     },
+    modal: false,
+    idModal: -1,
 }
 
 const appReducer = (state = initialState, action) => {
@@ -35,6 +37,18 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 language: action.payload,
+            }
+        case actionTypes.TURN_ON_MODAL:
+            let tempppp = { ...state };
+            tempppp.modal = true;
+            tempppp.idModal = action.payload;
+            return {
+                ...tempppp
+            }
+        case actionTypes.TURN_OFF_MODAL:
+            return {
+                ...state,
+                modal: false,
             }
         default:
             return state;

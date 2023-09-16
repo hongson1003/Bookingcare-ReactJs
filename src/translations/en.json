@@ -114,7 +114,12 @@
         "The clinic accepts payment in cash": "The clinic accepts payment in cash",
         "The clinic accepts payment in the form of cash and card swipe": "The clinic accepts payment in the form of cash and card swipe",
         "The clinic accepts payment by credit card": "The clinic accepts payment by credit card",
-        "Detailed information is being updated": "Detailed information is being updated"
+        "Detailed information is being updated": "Detailed information is being updated",
+        "order-schedule": {
+            "title": "Medical Appointment Scheduling Information",
+            "order": "Book",
+            "cancel": "Cancel"
+        }
     },
     "home-page": {
         "outstandingdoctor": "Outstanding Doctors",

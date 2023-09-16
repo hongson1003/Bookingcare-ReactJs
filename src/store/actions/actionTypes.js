@@ -61,6 +61,9 @@ const actionTypes = Object.freeze({
 
     FETCH_PAYMENT_SUCCESS: 'FETCH_PAYMENT_SUCCESS',
     FETCH_PAYMENT_FAIL: 'FETCH_PAYMENT_FAIL',
+
+    TURN_ON_MODAL: 'TURN_ON_MODAL',
+    TURN_OFF_MODAL: 'TURN_OFF_MODAL',
 })
 
 export default actionTypes;
