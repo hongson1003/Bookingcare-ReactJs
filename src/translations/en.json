@@ -119,7 +119,10 @@
             "title": "Medical Appointment Scheduling Information",
             "order": "Book",
             "cancel": "Cancel"
-        }
+        },
+        "Appointment confirmed successfully": "Appointment confirmed successfully",
+        "This appointment has been confirmed": "This appointment has been confirmed !!!",
+        "No appointment found": "No appointment found. Please make an appointment"
     },
     "home-page": {
         "outstandingdoctor": "Outstanding Doctors",

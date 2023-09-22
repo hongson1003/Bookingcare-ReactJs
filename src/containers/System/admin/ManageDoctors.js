@@ -302,6 +302,11 @@ class ManageDoctor extends React.Component {
         }
     }
     handleOnUpdate = async () => {
+        if (!this.state.selectedProvince.value || !this.state.selectedPayment.value || !this.state.selectedPrice.value) {
+            toast.error('Vui lòng nhập đầy đủ thông tin !!!')
+            return;
+        }
+
         let data = {
             id: this.state.selectedOption.value.id,
             description: this.state.description,

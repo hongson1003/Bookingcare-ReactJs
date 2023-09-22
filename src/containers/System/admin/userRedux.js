@@ -17,7 +17,6 @@ class userReduxManage extends Component {
             positions: [],
             roles: [],
             isOpen: false,
-
             firstName: '',
             lastName: '',
             phoneNumber: '',

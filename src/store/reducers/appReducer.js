@@ -15,7 +15,7 @@ const initialState = {
         ...initContentOfConfirmModal
     },
     modal: false,
-    idModal: -1,
+    dataSchedule: {},
 }
 
 const appReducer = (state = initialState, action) => {
@@ -41,7 +41,7 @@ const appReducer = (state = initialState, action) => {
         case actionTypes.TURN_ON_MODAL:
             let tempppp = { ...state };
             tempppp.modal = true;
-            tempppp.idModal = action.payload;
+            tempppp.dataSchedule = action.payload;
             return {
                 ...tempppp
             }

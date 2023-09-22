@@ -15,8 +15,7 @@ class DoctorInfo extends React.Component {
 
 
     componentDidMount = async () => {
-        console.log('props', this.props)
-        let response = await getDoctorInfoSchedule(this.props.id, this.props.idModal);
+        let response = await getDoctorInfoSchedule(this.props.doctorId, this.props.idSchedule);
         this.setState({
             data: response.data,
         })
@@ -28,7 +27,6 @@ class DoctorInfo extends React.Component {
 
     render() {
         let data = this.state.data;
-        console.log(data)
         let img = '';
         if (data && data.image)
             img = new Buffer(data.image, 'base64').toString('binary');

@@ -119,7 +119,10 @@
             "title": "Thông Tin Đặt Lịch Khám Bệnh",
             "order": "Đặt lịch",
             "cancel": "Hủy bỏ"
-        }
+        },
+        "Appointment confirmed successfully": "Xác nhận lịch hẹn thành công",
+        "This appointment has been confirmed": "Lịch hẹn này đã được xác nhận rồi !!!",
+        "No appointment found": "Không tìm thấy lịch hẹn, Vui lòng đặt lịch khám bệnh"
     },
     "home-page": {
         "outstandingdoctor": "Bác sĩ nổi bật tuần qua",

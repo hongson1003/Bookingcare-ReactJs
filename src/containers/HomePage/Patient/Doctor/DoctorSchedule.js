@@ -109,7 +109,7 @@ class DoctorSchedule extends React.Component {
     }
 
     handleOnClickSchedule = async (item) => {
-        await this.props.turnOnModal(item.id);
+        await this.props.turnOnModal(item);
     }
     render() {
         return (
@@ -157,7 +157,7 @@ class DoctorSchedule extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ModalDoctorSchedule id={+this.props.id} />
+                <ModalDoctorSchedule doctorId={+this.props.id} />
             </React.Fragment>
         )
     }

@@ -13,7 +13,8 @@ import Login from './Auth/Login';
 import System from '../routes/System';
 import NotFoundComponent from './NotFoundComponent';
 import DetailDoctor from './HomePage/Patient/Doctor/DetailDoctor';
-import Doctor from '../routes/Doctor'
+import Doctor from '../routes/Doctor';
+import VerifyBooking from './HomePage/Patient/Verify/VerifyBooking';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -61,8 +62,7 @@ class App extends Component {
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.SYSTEM} component={((System))} />
                                 <Route path={'/doctor'} component={(Doctor)}></Route>
-
-
+                                <Route path={path.VERIFY_EMAIL} component={VerifyBooking}></Route>
 
 
                                 <Route path={path.DETAIL_DOCTOR + '/:id'} component={DetailDoctor} />

@@ -26,6 +26,13 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...copy
             }
+        case 'FETCH_STOP':
+            let copyTop = state;
+            copyTop.isLoading = false;
+            return {
+                ...copyTop
+            }
+
         case actionTypes.FETCH_GENDER_SUCCESS:
             let copyState1 = state;
             copyState1.genders = action.payload.data;
@@ -188,9 +195,6 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             };
-
-
-
         default:
             return state;
     }
