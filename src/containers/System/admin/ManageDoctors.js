@@ -258,7 +258,6 @@ class ManageDoctor extends React.Component {
 
 
     handleEditorChange = ({ html, text }) => {
-        console.log('html: ', html, 'text: ', text)
         this.setState({
             contentHTML: html,
             contentText: text

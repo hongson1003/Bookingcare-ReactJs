@@ -64,7 +64,6 @@ class App extends Component {
                                 <Route path={'/doctor'} component={(Doctor)}></Route>
                                 <Route path={path.VERIFY_EMAIL} component={VerifyBooking}></Route>
 
-
                                 <Route path={path.DETAIL_DOCTOR + '/:id'} component={DetailDoctor} />
                                 <Route component={NotFoundComponent} />
                             </Switch>
