@@ -111,31 +111,39 @@ class Navigator extends Component {
         })
     }
     componentDidMount = async () => {
-        let path = this.props.location.pathname.split('/').at(-1);
-        console.log(path)
+        let path = this.props.location.pathname.split('/');
         await this.setState({
-            activeName: this.buildActiveFromLink(path)
+            activeName: this.buildActiveFromLink(path[1], path[2])
         })
     }
 
-    buildActiveFromLink = (link) => {
-        switch (link) {
-            case 'system':
-            case 'user-redux':
-            case 'manage-doctor':
-                return 'menu.admin.user';
-            case 'manage-clinic':
-                return 'menu.admin.clinic'
-            case 'manage-speciality':
-                return 'menu.admin.speciality'
-            case 'doctor':
-            case 'manage-schedule':
-                return 'menu.doctor.user';
-            default:
-                return ''
+    buildActiveFromLink = (role, link) => {
+        if (role === 'system') {
+            switch (link) {
+                case 'user-redux':
+                case 'manage-doctor':
+                case 'manage-schedule':
+                    return 'menu.admin.user';
+                case 'manage-clinic':
+                    return 'menu.admin.clinic'
+                case 'manage-speciality':
+                    return 'menu.admin.speciality'
+                default:
+                    return 'menu.admin.user'
+            }
+        } else if (role === 'doctor') {
+            switch (link) {
+                case 'doctor':
+                case 'manage-schedule':
+                    return 'menu.doctor.user';
+                default:
+                    return 'menu.doctor.user'
+            }
         }
 
+
     }
+
 
     isMenuHasSubMenuActive = (location, subMenus, link) => {
         if (subMenus) {

@@ -18,7 +18,7 @@ class System extends Component {
                             {/* <Route path="/system/user-manage" component={UserManage} /> */}
                             <Route path="/system/user-redux" component={userRedux} />
                             <Route path="/system/manage-doctor" component={ManageDoctor} />
-                            <Route path="/doctor/manage-schedule" component={ManageSchedule} />
+                            <Route path="/system/manage-schedule" component={ManageSchedule} />
                             {/* /system/manage-clinic */}
                             <Route path="/system/manage-speciality" component={manageSpecialty} />
 

@@ -1,11 +1,13 @@
 import React from "react";
-import Select from 'react-select';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import './manageSpecialty.scss';
 import { getBase64 } from "../../../utils/CommonUtils";
 import { FormattedMessage } from "react-intl";
+import { createNewSpecialty } from "../../../services/userService";
+import { toast } from "react-toastify";
+
 const mdParser = new MarkdownIt(/* Markdown-it this.state.doctors */);
 
 class manageSpecialty extends React.Component {
@@ -13,9 +15,9 @@ class manageSpecialty extends React.Component {
         super(props);
         this.state = {
             image: '',
-            contentText: '',
-            contentHTML: '',
-            subject: ''
+            descriptionText: '',
+            descriptionHTML: '',
+            name: '',
         }
     }
     componentDidMount = () => {
@@ -42,34 +44,54 @@ class manageSpecialty extends React.Component {
 
     handleEditorChange = ({ html, text }) => {
         this.setState({
-            contentHTML: html,
-            contentText: text
+            descriptionHTML: html,
+            descriptionText: text
         })
     }
 
-    handleOnClick = () => {
+    handleOnClick = async () => {
         console.log(this.state);
+        let response = await createNewSpecialty(this.state);
+        if (response.errCode === 0) {
+            toast.success('Tạo mới chuyên khoa thành công');
+            this.clearState();
+        } else {
+            toast.error('Tạo mới chuyên khoa thất bại !!!');
+        }
+    }
+
+    clearState = () => {
+        this.setState({
+            image: '',
+            descriptionText: '',
+            descriptionHTML: '',
+            name: '',
+        })
     }
     render() {
         return (
             <div className="manage_specialty container">
-                <h2 className="text-center mt-4">Quản lý chuyên khoa</h2>
+                <h2 className="text-center mt-4"><FormattedMessage id="manage-specialty.SPECIALTY MANAGEMENT" /></h2>
                 <div className="row">
                     <div className="col-6">
                         <label>
-                            Chọn chuyên khoa
+                            <FormattedMessage id="manage-specialty.Choose a specialty" />
                         </label> <br></br>
-                        <input className="form -control" onChange={(e) => this.hanndleInput(e, 'subject')}></input>
+                        <input value={this.state.name} className="form -control" onChange={(e) => this.hanndleInput(e, 'name')}></input>
                     </div>
                     <div className="col-6">
-                        <label>Ảnh chuyên khoa</label> <br></br>
-                        <input className="input-image" type="file" onChange={(e) => this.handleImage(e)} />
+                        <label><FormattedMessage id="manage-specialty.Specialized photo" /></label> <br></br>
+                        {this.state.image ?
+                            <input className="input-image" type="file" onChange={(e) => this.handleImage(e)} /> :
+                            <input value={''} className="input-image" type="file" onChange={(e) => this.handleImage(e)} />
+                        }
+
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-12">
-                        <MdEditor value={this.state.contentText} style={{ height: '400px', marginTop: '20px' }} renderHTML={text => mdParser.render(text)}
+                        <MdEditor value={this.state.descriptionText} style={{ height: '400px', marginTop: '20px' }} renderHTML={text => mdParser.render(text)}
                             onChange={this.handleEditorChange} />
                     </div>
                 </div>

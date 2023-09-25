@@ -9,7 +9,8 @@
         "ChooseHospitalClinic": "Chọn bệnh viện phòng khám",
         "ChooseAGoodDoctor": "Chọn bác sĩ giỏi",
         "GeneralHealthCheck": "Khám sức khỏe tổng quát",
-        "welcome": "Xin chào"
+        "welcome": "Xin chào",
+        "view-more": "Xem thêm"
     },
     "home-baner": {
         "MEDICALBACKGROUND": "NỀN TẢNG Y TẾ",
@@ -101,6 +102,11 @@
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày",
         "save": "Lưu"
+    },
+    "manage-specialty": {
+        "Choose a specialty": "Chọn chuyên khoa",
+        "Specialized photo": "Ảnh chuyên khoa",
+        "SPECIALTY MANAGEMENT": "QUẢN LÝ CHUYÊN KHOA"
     },
     "patient": {
         "examinationSchedule": "Lịch Khám",

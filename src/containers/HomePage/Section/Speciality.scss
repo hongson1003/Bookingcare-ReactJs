@@ -1,9 +1,19 @@
 .my-carousel {
     .speciality {
         background-color: #F5F5F5 !important;
-
+        .view-more{
+            font-weight: 660;
+        }
         .slider-item {
             padding: 0px 5px;
+            .name{
+                &:hover{
+                    color:rgb(65, 215, 215);
+                }
+            }
         }
+    }
+    .slick-disabled{
+        display: none !important;
     }
 }

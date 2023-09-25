@@ -4,121 +4,56 @@ import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-    coxuongkhop, thankinh, tieuhoa, timmach, taimuihong, cotsong
-    , yhoccotruyen, chamcuu
-} from '../../../assets/images';
+
 import './Speciality.scss';
+import { FormattedMessage } from "react-intl";
+import { getAlSpecialties } from "../../../services/userService";
 class Speciality extends React.Component {
-
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            specialties: [],
+        }
+    }
+    componentDidMount = async () => {
+        let response = await getAlSpecialties('ALL');
+        if (response.errCode === 0) {
+            this.setState({
+                specialties: response.data,
+            })
+        }
+    }
     render() {
         let { settings } = this.props;
+        let { specialties } = this.state;
+
         return (
             <div className="section-home speciality">
                 <div className="envelope">
-
                     <div className="section-share">
                         <p>Chuyên gia phổ biến</p>
-                        <button className="btn">XEM THÊM</button>
+                        <button className="btn view-more"><FormattedMessage id="home-header.view-more" /></button>
                     </div>
                     <Slider {...settings}>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={coxuongkhop} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Cơ xương khớp
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={thankinh} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Thần kinh
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={tieuhoa} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Tiêu hóa
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={timmach} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">
-                                        Tim mạch
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={taimuihong} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Tai mũi họng</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={cotsong} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Cột sống</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={yhoccotruyen} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Y học cổ truyền</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="slider-item">
-                                <div className="slider-item-image">
-                                    <img alt="" src={chamcuu} />
-                                </div>
-                                <div className="slider-item-text">
-                                    <p className="slider-item-text_title">Châm cứu</p>
-                                </div>
-                            </div>
-                        </div>
+                        {specialties && specialties.length > 0 &&
+                            specialties.map(item => {
+                                return (
+                                    <div key={item.id}>
+                                        <div className="slider-item">
+                                            <div className="slider-item-image">
+                                                <img alt="" src={item.image} />
+                                            </div>
+                                            <div className="slider-item-text">
+                                                <p className="name" dangerouslySetInnerHTML={{ __html: item.name }}></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </Slider>
-                </div>
-            </div>
+                </div >
+            </div >
 
         );
     }

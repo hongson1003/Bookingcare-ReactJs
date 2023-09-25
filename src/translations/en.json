@@ -9,7 +9,8 @@
         "ChooseHospitalClinic": "Choose Hospital Clinic",
         "ChooseAGoodDoctor": "Choose A Good Doctor",
         "GeneralHealthCheck": "General Health Check",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "view-more": "See more"
     },
     "home-baner": {
         "MEDICALBACKGROUND": "MEDICAL FLATFORM",
@@ -101,6 +102,11 @@
         "choose-doctor": "Choose a doctor",
         "choose-date": "Choose a date",
         "save": "Save"
+    },
+    "manage-specialty": {
+        "Choose a specialty": "Choose a specialty",
+        "Specialized photo": "Specialized photo",
+        "SPECIALTY MANAGEMENT": "SPECIALTY MANAGEMENT"
     },
     "patient": {
         "examinationSchedule": "examination Schedule",

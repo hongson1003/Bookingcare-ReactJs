@@ -59,9 +59,16 @@ let getDoctorInfo = async (doctorId) => {
 let getDoctorInfoSchedule = async (doctorId, idModal) => {
     return await axios.get('/api/get-doctor-info-schedule?doctorId=' + doctorId + '&idModal=' + idModal);
 }
+let createNewSpecialty = async (data) => {
+    return await axios.post('/api/create-new-specialty', data);
+}
+let getAlSpecialties = async (id) => {
+    return await axios.get('/api/get-all-specialties?id=' + id);
+}
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
     createSchedule, getScheduleById, getDoctorInfo,
-    getDoctorInfoSchedule
+    getDoctorInfoSchedule, createNewSpecialty,
+    getAlSpecialties
 };
