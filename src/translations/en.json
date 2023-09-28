@@ -45,18 +45,18 @@
             "manage-doctor": "Manage doctors",
             "manage-admin": "Manage admins",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
-            "manage-clinic": "Manage clinic",
+            "crud-redux": "Manage Users",
+            "manage-clinic": "Manage Clinic",
             "clinic": "Clinic",
             "speciality": "Specialty",
-            "manage-speciality": "Manage Specialty",
+            "manage-speciality": "Manage Specialties",
             "handbook": "HandBook",
             "manage-handbook": "Manage Handbook",
-            "manage-schedule": "Manage schedule"
+            "manage-schedule": "Manage Schedules"
         },
         "doctor": {
             "user": "Users",
-            "manage-schedule": "Manage schedule"
+            "manage-schedule": "Manage schedules"
         }
     },
     "manage-user": {
@@ -106,7 +106,10 @@
     "manage-specialty": {
         "Choose a specialty": "Choose a specialty",
         "Specialized photo": "Specialized photo",
-        "SPECIALTY MANAGEMENT": "SPECIALTY MANAGEMENT"
+        "SPECIALTY MANAGEMENT": "SPECIALTY MANAGEMENT",
+        "View User List": "View User List",
+        "create": "Create new",
+        "save": "Update changes"
     },
     "patient": {
         "examinationSchedule": "examination Schedule",

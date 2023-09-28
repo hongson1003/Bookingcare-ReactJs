@@ -65,10 +65,20 @@ let createNewSpecialty = async (data) => {
 let getAlSpecialties = async (id) => {
     return await axios.get('/api/get-all-specialties?id=' + id);
 }
+let updateSpecialty = async (data) => {
+    return await axios.put('/api/update-specialty', data);
+}
+let deleteSpecialty = async (id) => {
+    return await axios.delete('/api/delete-specialty', {
+        data: {
+            id
+        },
+    });
+}
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
     createSchedule, getScheduleById, getDoctorInfo,
     getDoctorInfoSchedule, createNewSpecialty,
-    getAlSpecialties
+    getAlSpecialties, updateSpecialty, deleteSpecialty
 };

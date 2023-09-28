@@ -5,7 +5,8 @@ export const path = {
     LOG_OUT: '/logout',
     SYSTEM: '/system',
     DETAIL_DOCTOR: '/doctors',
-    VERIFY_EMAIL: '/verify/:token&:doctorId'
+    VERIFY_EMAIL: '/verify/:token&:doctorId',
+    DETAIL_SPECIALTY: '/specialty',
 };
 
 export const LANGUAGES = {

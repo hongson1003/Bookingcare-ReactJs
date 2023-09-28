@@ -8,11 +8,126 @@
     label{
         font-weight: 700;
     }
-    .input-image{
-        border: none;
+    .group-image{
+        display: flex;
+        gap: 15px   ;
+        .input-image{
+            label{
+                p{
+                    margin-bottom: 10px;
+                }
+                cursor: pointer;
+                i{
+                    font-size: 20px;
+                    text-indent: 20px;
+                    color: #0071ba;
+                }
+            }
+            
+        }
+        .display-image{
+            width: 50px;
+            height: 34px;
+            background-size: cover;
+            cursor: pointer;
+        }
     }
+    
     input{
         display: block;
         width: 100%;
+    }
+    .bottom-reason{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        .view-list-user{
+            margin: 10px;
+            font-weight: 800;
+            &:hover + .down-scroll{
+                background-color: rgb(27, 180, 27) !important;   
+            }
+            &:hover + .down-scroll img{
+                animation: run-down 0.5s infinite;
+            }
+        }
+        .active{
+            background-color: rgb(27, 180, 27) !important;
+        }
+        .down-scroll{
+            border-radius: 50%;
+            background-color: rgb(121, 183, 121);
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+                background-color: rgb(27, 180, 27);
+                
+            }
+            &:hover img{
+                animation: run-down 0.5s infinite;
+            }
+
+            img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    @keyframes run-down {
+       from {
+        transform: translateY(-30px);
+       }
+       to{
+        transform: translateY(30px);
+       }
+    }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 70%;
+        margin: auto;
+        margin-top: 30px;
+        .specialty-image{
+            width: 120px;
+            height: 70px;
+        }
+
+      }
+      
+      #customers td, #customers th {
+        padding: 8px;
+        font-size: 20px;
+        text-align: center;
+        button{
+            margin: 10px;
+        }
+        &:nth-child(2){
+            font-weight: bold;
+        }
+        &:last-child{
+            width: 18%;
+        }
+      }
+      
+      #customers tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+      
+      #customers tr:hover {
+        background-color: #ddd;
+    }
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+      .hidden-list{
+        display: block;
+        margin: 30px auto;
     }
 }

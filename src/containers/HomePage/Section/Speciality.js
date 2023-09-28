@@ -4,7 +4,7 @@ import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { withRouter } from "react-router-dom";
 import './Speciality.scss';
 import { FormattedMessage } from "react-intl";
 import { getAlSpecialties } from "../../../services/userService";
@@ -23,6 +23,10 @@ class Speciality extends React.Component {
             })
         }
     }
+    handleRedirectDetail = (item) => {
+        console.log(this.props);
+        this.props.history.push('/specialty/' + item.id);
+    }
     render() {
         let { settings } = this.props;
         let { specialties } = this.state;
@@ -38,7 +42,7 @@ class Speciality extends React.Component {
                         {specialties && specialties.length > 0 &&
                             specialties.map(item => {
                                 return (
-                                    <div key={item.id}>
+                                    <div key={item.id} onClick={() => this.handleRedirectDetail(item)}>
                                         <div className="slider-item">
                                             <div className="slider-item-image">
                                                 <img alt="" src={item.image} />
@@ -74,4 +78,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Speciality);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Speciality));

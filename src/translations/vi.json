@@ -45,7 +45,7 @@
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
+            "crud-redux": "Quản lý người dùng",
             "manage-clinic": "Quản lý phòng khám",
             "clinic": "Phòng khám",
             "speciality": "Chuyên khoa",
@@ -106,7 +106,10 @@
     "manage-specialty": {
         "Choose a specialty": "Chọn chuyên khoa",
         "Specialized photo": "Ảnh chuyên khoa",
-        "SPECIALTY MANAGEMENT": "QUẢN LÝ CHUYÊN KHOA"
+        "SPECIALTY MANAGEMENT": "QUẢN LÝ CHUYÊN KHOA",
+        "View User List": "Xem danh sách người dùng",
+        "create": "Tạo mới",
+        "save": "Cập nhật thay đổi"
     },
     "patient": {
         "examinationSchedule": "Lịch Khám",
