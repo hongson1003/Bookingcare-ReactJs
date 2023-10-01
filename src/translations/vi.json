@@ -82,7 +82,9 @@
         "image": "Ảnh đại diện",
         "save": "Lưu",
         "edit": "Lưu thay đổi",
-        "cancel": "Hủy bỏ"
+        "cancel": "Hủy bỏ",
+        "specialty": "Chuyên khoa",
+        "clinic": "Phòng khám"
     },
     "manage-doctor": {
         "manage_doctor": "Quản lý bác sĩ",

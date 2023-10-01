@@ -41,7 +41,7 @@ const appReducer = (state = initialState, action) => {
         case actionTypes.TURN_ON_MODAL:
             let tempppp = { ...state };
             tempppp.modal = true;
-            tempppp.dataSchedule = action.payload;
+            tempppp.dataSchedule = { doctorId: action.payload.doctorId, ...action.payload.item };
             return {
                 ...tempppp
             }

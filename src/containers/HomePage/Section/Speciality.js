@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { withRouter } from "react-router-dom";
 import './Speciality.scss';
 import { FormattedMessage } from "react-intl";
-import { getAlSpecialties } from "../../../services/userService";
+import { getAllSpecialties } from "../../../services/userService";
 class Speciality extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ class Speciality extends React.Component {
         }
     }
     componentDidMount = async () => {
-        let response = await getAlSpecialties('ALL');
+        let response = await getAllSpecialties('ALL');
         if (response.errCode === 0) {
             this.setState({
                 specialties: response.data,
@@ -30,8 +30,8 @@ class Speciality extends React.Component {
     render() {
         let { settings } = this.props;
         let { specialties } = this.state;
-
         return (
+            specialties && specialties.length > 0 &&
             <div className="section-home speciality">
                 <div className="envelope">
                     <div className="section-share">

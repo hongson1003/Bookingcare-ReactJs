@@ -33,7 +33,7 @@ class DoctorInfo extends React.Component {
         return (
             <div className="data-info">
                 <div className="data-avatar">
-                    {data.image && <img src={img} alt="" />}
+                    {img && <img src={img} alt="" />}
                 </div>
                 {data.doctorData && data.doctorData.description &&
                     <div className="data-description">
@@ -44,7 +44,6 @@ class DoctorInfo extends React.Component {
                                     data.doctorSchedule.timeTypeData.ValueVi + ' - ' + this.toCaptilize(moment(data.doctorSchedule.date).format('dddd DD-MM-YYYY')) :
                                     data.doctorSchedule.timeTypeData.ValueEn + ' - ' + this.toCaptilize(moment(data.doctorSchedule.date).locale('en').format('ddd MM-DD-YYYY'))}
                             </p>
-                            {/* <p>14:30 - 14:45 - Thứ 7 - 16/09/2023</p> */}
                             <p>
                                 {this.props.language === LANGUAGES.VI ?
                                     'Giá tiền: ' + new Intl.NumberFormat().format(data.doctorInfo.priceData.ValueVi) + ' đ' :

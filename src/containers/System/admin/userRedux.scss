@@ -7,17 +7,16 @@
 }
 
 .loading {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     background-color: rgba(207, 197, 197, 0.5);
-    z-index: 10000000;
+    z-index: 100000000000000;
     display: flex;
     justify-content: center;
     align-items: center;
-
     .loading-item {
         position: absolute;
         width: 70px;
@@ -32,8 +31,11 @@
         z-index: 103;
     }
     .content-loading{
+        transform: translateY(40px);
+        margin-top: 20px;
         position: absolute;
         z-index: 103;
+        text-align: center;
         color: #C42381;
         font-weight: bold;
         font-size: 27px;

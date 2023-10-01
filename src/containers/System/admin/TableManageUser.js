@@ -40,6 +40,7 @@ class TableManageUser extends React.Component {
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Address</th>
+                                    <th>Avatar</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,7 @@ class TableManageUser extends React.Component {
                                         <td>{item.email}</td>
                                         <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>
+                                        <td >{item.image && <img className='td-image' alt='' src={new Buffer(item.image, 'base64').toString('binary')} />}</td>
                                         <td>{item.address}</td>
                                         <td>
                                             <button className='user-edit user-btn btn'>

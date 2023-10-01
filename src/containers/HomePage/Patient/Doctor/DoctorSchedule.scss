@@ -1,73 +1,12 @@
 .doctor-schedule-container {
     margin-top: 30px;
 
-    select {
-        border: none;
-        min-width: 120px;
-        color: #337AB7;
-        font-weight: bold;
-        text-transform: capitalize;
-        border-bottom: 1px solid #999999;
-        min-height: 30px;
-
-        &:focus {
-            outline: none
-        }
-    }
-
-    .calendar {
-        margin-top: 15px;
-
-        span:first-child {
-            margin-right: 10px;
-        }
-
-        span:last-child {
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-    }
-
     .booking-calendar {
         display: flex;
-
-        .calendar-order {
+        .schedules-main{
             width: 60%;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
             border-right: 1px solid grey;
-
-            .schedules {
-                display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .order-free {
-                margin-top: 10px;
-            }
-
-            .notice {
-                font-style: italic;
-            }
-
-            button {
-                width: 140px;
-                height: 40px;
-                background-color: #fff8ae;
-                border: none;
-                font-weight: 600;
-                margin: 8px 20px;
-                margin-left: 0;
-
-                &:hover {
-                    border: 3px solid #45c3d2;
-                }
-            }
         }
-
         .calendar-info {
             width: 40%;
             padding-top: 20px;

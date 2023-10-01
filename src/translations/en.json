@@ -82,7 +82,9 @@
         "image": "Avatar",
         "save": "Save",
         "edit": "Save changes",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "specialty": "Specialty",
+        "clinic": "Clinic"
     },
     "manage-doctor": {
         "manage_doctor": "Manage Doctors",

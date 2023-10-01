@@ -7,7 +7,17 @@ let createBookingService = async (data) => {
 let postVerifyBooking = async (data) => {
     return await axios.post('/api/verify/appointment', data);
 }
+
+let getAllDoctorWithSepecialties = async (id) => {
+    return await axios.get('/api/get-all-doctor-with-specialties?id=' + id);
+}
+let getMenuSearch = async () => {
+    return await axios.get('/api/get-all-menu-specialties');
+}
+
 export {
     createBookingService,
-    postVerifyBooking
+    postVerifyBooking,
+    getAllDoctorWithSepecialties,
+    getMenuSearch
 }

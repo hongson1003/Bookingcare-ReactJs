@@ -62,7 +62,7 @@ let getDoctorInfoSchedule = async (doctorId, idModal) => {
 let createNewSpecialty = async (data) => {
     return await axios.post('/api/create-new-specialty', data);
 }
-let getAlSpecialties = async (id) => {
+let getAllSpecialties = async (id) => {
     return await axios.get('/api/get-all-specialties?id=' + id);
 }
 let updateSpecialty = async (data) => {
@@ -80,5 +80,5 @@ export {
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
     createSchedule, getScheduleById, getDoctorInfo,
     getDoctorInfoSchedule, createNewSpecialty,
-    getAlSpecialties, updateSpecialty, deleteSpecialty
+    getAllSpecialties, updateSpecialty, deleteSpecialty
 };

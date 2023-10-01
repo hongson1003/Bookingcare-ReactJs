@@ -5,11 +5,11 @@ import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import './ManageDoctor.scss';
 import Select from 'react-select';
-import * as actions from '../../../store/actions'
-import { LANGUAGES } from '../../../utils'
-import { insertDetailDr } from '../../../services/userService'
+import * as actions from '../../../store/actions';
+import { LANGUAGES } from '../../../utils';
+import { insertDetailDr } from '../../../services/userService';
 import { toast } from "react-toastify";
-import { getDetailDoctor, updateDetailDoctor, getDoctorInfo } from '../../../services/userService';
+import { getDetailDoctor, updateDetailDoctor, getDoctorInfo, getAllSpecialties } from '../../../services/userService';
 import { FormattedMessage } from "react-intl";
 const mdParser = new MarkdownIt(/* Markdown-it this.state.doctors */);
 
@@ -34,6 +34,10 @@ class ManageDoctor extends React.Component {
             payments: [],
             prices: [],
             provinces: [],
+            specialties: [],
+            selectedSpecialty: '',
+            clinics: [],
+            selectedClinic: '',
         };
 
     }
@@ -51,10 +55,7 @@ class ManageDoctor extends React.Component {
         }
         await this.props.getAllDoctors();
         await this.props.getDoctorInfor();
-        // await this.setState({
-        //     doctorInfo: this.props.doctorInfo,
-        // })
-
+        await this.handleGetSpecialties();
     }
     componentDidUpdate = async (prevp) => {
         if (prevp.doctors !== this.props.doctors) {
@@ -91,6 +92,9 @@ class ManageDoctor extends React.Component {
         if (prevp.doctorInfo.prices !== this.props.doctorInfo.prices) {
             this.handleGetAllCodeDoctorInfo('prices');
         }
+        // if (prevp.doctorInfo.specialties !== this.state.specialties) {
+        //     this.handleGetSpecialties('specialties');
+        // }
         if (prevp.lang !== this.props.lang) {
             let drs = this.props.doctors;
             if (drs && drs.length > 0) {
@@ -182,6 +186,12 @@ class ManageDoctor extends React.Component {
 
     }
 
+    handleCreateSelectOptionFromDB = async (e, name) => {
+        this.setState({
+            [name]: e,
+        })
+    }
+
     handleGetSelectedDoctorInfo = async (selected) => {
         let label = '';
         if (this.props.lang === LANGUAGES.VI) {
@@ -210,7 +220,10 @@ class ManageDoctor extends React.Component {
 
 
     handleOnClick = async () => {
-        console.log(this.state)
+        if (!this.state.selectedProvince.value || !this.state.selectedPayment.value || !this.state.selectedPrice.value) {
+            toast.error('Vui lòng nhập đầy đủ thông tin !!!')
+            return;
+        }
         let obj = {
             doctorId: this.state.selectedOption.value.id,
             contentHTML: this.state.contentHTML,
@@ -222,8 +235,8 @@ class ManageDoctor extends React.Component {
             nameClinic: this.state.nameClinic,
             addressClinic: this.state.addressClinic,
             note: this.state.note,
+            specialtyId: this.state.selectedSpecialty.value.id,
         };
-        console.log(obj);
         let response = await insertDetailDr(obj);
         if (!response.errCode) {
             toast.success('Đã thêm thông tin chi tiết cho bác sĩ')
@@ -288,7 +301,7 @@ class ManageDoctor extends React.Component {
         if (!response.errCode) {
             let data = response.data;
             if (data && data.doctorData) {
-                this.setState({
+                await this.setState({
                     description: data.doctorData.description,
                     contentHTML: data.doctorData.contentHTML,
                     contentText: data.doctorData.contentText,
@@ -305,7 +318,6 @@ class ManageDoctor extends React.Component {
             toast.error('Vui lòng nhập đầy đủ thông tin !!!')
             return;
         }
-
         let data = {
             id: this.state.selectedOption.value.id,
             description: this.state.description,
@@ -317,9 +329,9 @@ class ManageDoctor extends React.Component {
             nameClinic: this.state.nameClinic,
             addressClinic: this.state.addressClinic,
             note: this.state.note,
+            specialtyId: this.state.selectedSpecialty.value.id,
         }
         let response = await updateDetailDoctor({ data });
-        console.log(response)
         if (!response.errCode) {
             this.setState({
                 isEditting: 'none',
@@ -338,12 +350,11 @@ class ManageDoctor extends React.Component {
         let response = await getDoctorInfo(id);
         if (!response.errCode) {
             let data = response.data;
-            console.log('data', data)
             if (data) {
                 let selectedPayment = '';
                 let selectedPrice = '';
                 let selectedProvince = '';
-
+                let selectedSpecialty = '';
                 if (this.props.lang === LANGUAGES.VI) {
                     selectedPayment = {
                         label: data.paymentData.valueVi,
@@ -357,6 +368,11 @@ class ManageDoctor extends React.Component {
                         label: data.provinceData.valueVi,
                         value: data.provinceData
                     };
+                    selectedSpecialty = {
+                        label: data.specialtyData.name,
+                        value: data.specialtyData
+                    };
+
                 } else {
                     selectedPayment = {
                         label: data.paymentData.valueEn,
@@ -370,6 +386,10 @@ class ManageDoctor extends React.Component {
                         label: data.provinceData.valueEn,
                         value: data.provinceData
                     };
+                    selectedSpecialty = {
+                        label: data.specialtyData.name,
+                        value: data.specialtyData
+                    };
                 }
                 this.setState({
                     selectedProvince: selectedProvince,
@@ -378,13 +398,34 @@ class ManageDoctor extends React.Component {
                     nameClinic: data.nameClinic,
                     addressClinic: data.addressClinic,
                     note: data.note,
+                    selectedSpecialty: selectedSpecialty
                 })
             }
         }
     }
 
+    handleGetSpecialties = async () => {
+        let response = await getAllSpecialties('ALL');
+        if (response.errCode === 0) {
+            let data = response.data;
+            let customzData = [];
+            data.forEach(item => {
+                let label = item.name;
+                let value = item;
+                customzData.push({
+                    label: label,
+                    value: value,
+                })
+            })
+            await this.setState({
+                specialties: customzData,
+            })
+        }
+
+    }
+
     render() {
-        const { selectedOption, selectedPayment, selectedPrice, selectedProvince } = this.state;
+        const { selectedOption, selectedPayment, selectedPrice, selectedProvince, specialties, selectedSpecialty } = this.state;
         return (
             <div className="manage-doctor">
                 <h2 className="text-center">
@@ -457,6 +498,22 @@ class ManageDoctor extends React.Component {
                         <label id="note"><FormattedMessage id="manage-doctor.Note" /></label>
                         <input value={this.state.note} id="note" className="form-control"
                             onChange={(e) => this.handleOnChangeText(e, 'note')} />
+                    </div>
+                </div>
+                <div>
+                    <div className='row  mb-5'>
+                        <div className='col-4'>
+                            <label htmlFor="clinic"><FormattedMessage id="manage-user.clinic" /></label>
+                        </div>
+                        <div className='col-4'>
+                            <label htmlFor="specialty"><FormattedMessage id="manage-user.specialty" /></label>
+                            <Select
+                                value={selectedSpecialty}
+                                onChange={(e) => this.handleCreateSelectOptionFromDB(e, 'selectedSpecialty')}
+                                options={specialties}
+                                placeholder="Chọn chuyên khoa"
+                            />
+                        </div>
                     </div>
                 </div>
                 <MdEditor value={this.state.contentText} style={{ height: '400px', marginTop: '20px' }} renderHTML={text => mdParser.render(text)}

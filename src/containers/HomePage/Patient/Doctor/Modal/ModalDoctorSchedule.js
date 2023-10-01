@@ -61,7 +61,7 @@ class ModalDoctorSchedule extends React.Component {
                 date = this.props.dataSchedule.timeTypeData.valueEn + ', ' + this.toCaptilize((moment(new Date(this.props.dataSchedule.date)).locale('en').format('ddd MM/DD/YYYY')));
             await this.setState({
                 doctorId: this.props.doctorId,
-                idSchedule: this.props.dataSchedule.id,
+                idSchedule: this.props.dataSchedule.scheduleId,
                 timeType: this.props.dataSchedule.timeType,
                 date: date,
                 timeTypeData: this.props.dataSchedule.timeTypeData,
@@ -98,8 +98,9 @@ class ModalDoctorSchedule extends React.Component {
         this.props.stopLoading();
         if (response.errCode === 0) {
             toast.success('Bạn đã tạo lịch khám thành công');
-            this.handleClearState();
             this.props.turnOffModal();
+
+            this.handleClearState();
         } else if (response.errCode === 2) {
             toast.warning('Lịch khám này đã được đặt, vui lòng kiểm tra lại');
         } else {
@@ -129,7 +130,7 @@ class ModalDoctorSchedule extends React.Component {
                     <ModalHeader className={'modal-schedule_header'} toggle={this.toggle}><FormattedMessage id="patient.order-schedule.title" /></ModalHeader>
                     <ModalBody className="modal-schedule-body">
                         <DoctorInfo
-                            doctorId={this.props.doctorId}
+                            doctorId={this.props.dataSchedule.doctorId}
                             idSchedule={this.props.dataSchedule.id}
                         />
                         <div className="main-orders">
@@ -186,7 +187,6 @@ class ModalDoctorSchedule extends React.Component {
                                 </div>
 
                             </div>
-
 
                         </div>
                     </ModalBody>

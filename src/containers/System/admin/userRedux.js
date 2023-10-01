@@ -28,6 +28,9 @@ class userReduxManage extends Component {
             edittingId: '',
             avatar: '',
             image: '',
+            clinics: [],
+            specialties: [],
+            specialty: '',
         }
     }
 
@@ -137,7 +140,6 @@ class userReduxManage extends Component {
         if (item.image) {
             imageBase64 = new Buffer(item.image, 'base64'.toString('binary'));
         }
-        console.log(item);
         await this.setState({
             edittingId: item.id,
             email: item.email,
@@ -163,8 +165,9 @@ class userReduxManage extends Component {
         this.clearState();
     }
 
+
     render() {
-        let genders = this.state.genders;
+        let { genders } = this.state;
         return (
             <div className="className-redux-body">
                 {
@@ -286,7 +289,7 @@ class userReduxManage extends Component {
                                     </select>
                                 </div>
                                 <div className="form-group col-md-3">
-                                    <label><FormattedMessage id="manage-user.image" /></label>
+                                    <label htmlFor='preview'><FormattedMessage id="manage-user.image" /></label>
                                     <div className='preview-img'>
                                         <div>
                                             <input type="file" id="image" hidden onChange={(e) => this.handleImage(e)} />
@@ -304,14 +307,9 @@ class userReduxManage extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="form-group">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
-                                    <label className="form-check-label" htmlFor="gridCheck">
-                                        Check me out
-                                    </label>
-                                </div>
-                            </div>
+
+
+
                             {
                                 !this.state.isEditting ?
                                     <button type='button' className="btn btn-primary" onClick={this.handleOnOnSubmit}><FormattedMessage id="manage-user.save" /></button>

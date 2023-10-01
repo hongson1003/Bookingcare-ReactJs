@@ -3,18 +3,15 @@ import moment from "moment/moment";
 /* eslint-disable no-unused-vars */
 import localization from 'moment/locale/vi';
 /* eslint-enable no-unused-vars */
-import './DoctorSchedule.scss';
 import { LANGUAGES } from "../../../../utils/constant";
 import { connect } from "react-redux";
 import { getScheduleById } from '../../../../services/userService';
 // import _ from "lodash";
 import { FormattedMessage } from "react-intl";
-import DoctorExtraInfo from "./DoctorExtraInfo";
-import ModalDoctorSchedule from "./Modal/ModalDoctorSchedule";
 import * as actions from '../../../../store/actions';
-import Schedules from "./Schedules";
+import './Schedule.scss'
 
-class DoctorSchedule extends React.Component {
+class Schedules extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,6 +41,7 @@ class DoctorSchedule extends React.Component {
     }
 
     handleSelect = async (start, end, status) => {
+
         let arr = [];
         for (let i = start; i < end; i++) {
             arr.push(this.handleDays(moment(new Date()).add(i, 'days')));
@@ -110,24 +108,47 @@ class DoctorSchedule extends React.Component {
     }
 
     handleOnClickSchedule = async (item) => {
-        await this.props.turnOnModal(item);
+        await this.props.turnOnModal(this.props.id, item);
     }
     render() {
         return (
             <React.Fragment>
-                <div className="doctor-schedule-container">
-                    <div className="booking-calendar">
-                        <div className="schedules-main">
-                            <Schedules
-                                id={+this.props.id}
-                            />
-                        </div>
-                        <div className="calendar-info">
-                            <DoctorExtraInfo id={+this.props.id} />
-                        </div>
+                <div className="calendar-order">
+                    {
+                        this.state.arrDays && this.state.arrDays.length > 0 &&
+                        <select value={this.state.selectedDate} onChange={(e) => this.handleOnChangeSelect(e)}>
+                            {
+                                this.state.arrDays.map((item, index) => {
+                                    return (
+                                        <option key={index} value={item.value}>{item.label}</option>
+                                    )
+                                })
+                            }
+
+                        </select>
+                    }
+                    <div className="calendar">
+                        <span><i className="fa fa-calendar" aria-hidden="true"></i></span>
+                        <span><FormattedMessage id="patient.examinationSchedule" /></span>
+                    </div>
+                    <div className="schedules">
+                        {
+                            this.state.arrSchedules && this.state.arrSchedules.length > 0 ?
+                                this.state.arrSchedules.map((item, index) => {
+                                    return (
+                                        <button key={index} onClick={() => this.handleOnClickSchedule(item)}>
+                                            {this.props.language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn}
+                                        </button>
+                                    )
+                                })
+                                :
+                                <p className="notice"><FormattedMessage id="patient.noSchedule" /> !</p>
+                        }
+                    </div>
+                    <div>
+                        <p className="order-free"><FormattedMessage id="patient.choose" /> <i className="fas fa-hand-point-up"></i> <FormattedMessage id="patient.andOrderFree" /></p>
                     </div>
                 </div>
-                <ModalDoctorSchedule />
             </React.Fragment>
         )
     }
@@ -140,10 +161,10 @@ const mapStatetoProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        turnOnModal: async (id) => await dispatch(actions.turnOnModal(id)),
+        turnOnModal: async (doctorId, item) => await dispatch(actions.turnOnModal(doctorId, item)),
         turnOffModal: () => dispatch(actions.turnOffModalAction()),
     }
 }
 
 
-export default connect(mapStatetoProps, mapDispatchToProps)(DoctorSchedule);
+export default connect(mapStatetoProps, mapDispatchToProps)(Schedules);

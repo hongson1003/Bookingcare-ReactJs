@@ -9,8 +9,7 @@ import { FormattedMessage } from "react-intl";
 import { createNewSpecialty } from "../../../services/userService";
 import { toast } from "react-toastify";
 import down_scroll from '../../../assets/images/down-scroll.png';
-import { getAlSpecialties, updateSpecialty, deleteSpecialty } from "../../../services/userService";
-
+import { getAllSpecialties, updateSpecialty, deleteSpecialty } from "../../../services/userService";
 
 const mdParser = new MarkdownIt(/* Markdown-it this.state.doctors */);
 
@@ -34,7 +33,7 @@ class ManageSpecialty extends React.Component {
         await this.handleGetSpecialties();
     }
     handleGetSpecialties = async () => {
-        let response = await getAlSpecialties('ALL');
+        let response = await getAllSpecialties('ALL');
         if (response.errCode === 0) {
             this.setState({
                 specialties: response.data,

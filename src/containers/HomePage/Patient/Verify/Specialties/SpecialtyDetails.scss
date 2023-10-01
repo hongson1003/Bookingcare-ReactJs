@@ -1,0 +1,111 @@
+.specialty-detail{
+    position: relative;
+    .main-top{
+        background-repeat: no-repeat;
+        background-size: cover;
+        .box{
+            overflow: hidden;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.75));
+            box-sizing: border-box;
+            .main-content{
+                padding: 20px;
+                padding-left: 10%;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                h3{
+                    margin-top: 10px;
+                    font-weight: 700;
+                }
+                .read{
+                    display: inline-block;
+                    margin-top: 5px;
+                    font-weight: 545;
+                    color: #4B8CD6;
+                    cursor: pointer;
+                    &:hover{
+                        color:rgb(42, 105, 105);
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    .unshow{
+        .main-content{
+            height: 200px;
+            .content{
+                overflow: hidden;
+                max-height: 100px;
+                max-width: 80%;
+            }
+        }
+    }
+    .main-detail{
+        background-color: #EEEEEE;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5px;
+        .box{
+            margin-top: 20px;
+            width: 80%;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            display: flex;
+            padding: 20px;
+            box-shadow: 
+            1px 1px 2px grey,
+            -1px -1px 2px grey;
+            .box_item-1{
+                width: 10%;
+                .avatar{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    margin-bottom: 10px;
+                }
+                span{
+                    color: #4B8CD6;
+                    cursor: pointer;
+                }
+            }
+            .box_item-2{
+                width: 40%;
+                border-right: 1px solid grey;
+                padding: 0px 10px;
+                box-sizing: border-box;
+                .name{
+                    font-weight: 700;
+                    font-size: 16px;
+
+                }
+                p:last-child{
+                    margin-top: 5px;
+                    i{
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .box_item-3{
+                width: 50%;
+                padding: 0px 20px 0px;
+                .schedules-main{                        
+                    .calendar-info{
+                        margin-top: 20px;
+
+                    }
+                }
+
+            }
+            &:last-child{
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .oops{
+        font-style: italic;
+        font-weight: 800;
+    }
+    
+ 
+}

@@ -3,30 +3,86 @@ import './HeaderHomePage.scss';
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { CHANGE_LANGUAGE_APP } from "../../../store/actions/appActions";
-
+import './Baner.scss';
+import { getMenuSearch } from "../../../services/patientService";
+import Search from "../../../components/Search/Search";
+import unidecode from 'unidecode';
 class Banner extends React.Component {
-    handleOnChangeLanguage = async (e) => {
-        this.props.changeLanguageRedux(e.target.value);
+    constructor(props) {
+        super(props);
+        this.state = {
+            listItem: [],
+            show: false,
+            arr: []
+        }
     }
+    componentDidMount = async () => {
+        let rp = await getMenuSearch();
+        if (rp.errCode === 0) {
+            await this.setState({
+                listItem: rp.data,
+                arr: rp.data,
+            })
+        }
+
+    }
+    componentDidUpdate = (prev, pres) => {
+    }
+    handleOnClick = (e) => {
+        if (this.state.show === false) {
+            if (document.getElementsByClassName('baner-search')[0].contains(e.target)) {
+                this.setState({
+                    show: !this.state.show
+                })
+            }
+        } else {
+            if (!document.getElementsByClassName('baner-search')[0].contains(e.target)) {
+                this.setState({
+                    show: !this.state.show
+                })
+            }
+
+        }
+    }
+
+    handleOnChange = (e) => {
+        // xử lý regex
+        let tempArr = this.state.listItem.map(item => {
+            return unidecode(item.name.toLowerCase());
+        })
+        let preArr = [];
+        tempArr.forEach((item, index) => {
+            if (item.search(unidecode(e.target.value.toLowerCase())) !== -1) {
+                preArr.push(this.state.listItem[index]);
+            }
+        })
+        this.setState({
+            arr: preArr
+        })
+    }
+
+
+
     render() {
         return (
             <React.Fragment>
-                <div className="container-baner">
+                <div className="container-baner" onClick={this.handleOnClick}>
                     <div className="baner-content">
                         <div className="baner-opacity"></div>
-                        <div className="baner-main">
+                        <div className="baner-main" onClick={this.handleOnClick}>
                             <p className="baner-title">
                                 <span><FormattedMessage id="home-baner.MEDICALBACKGROUND" /></span>
                                 <br />
                                 <span><FormattedMessage id="home-baner.COMPREHENSIVEHEALTHCARE" /></span>
                             </p>
-                            <div className="baner-search">
-                                <i className="fas fa-search"></i>
-                                {
-                                    this.props.language === 'vi' ?
-                                        <input placeholder="Tìm chuyên khoa" /> :
-                                        <input placeholder="Find a Specialist" />
-                                }
+                            <div className="main-search">
+                                <Search
+                                    show={this.state.show}
+                                    arr={this.state.arr}
+                                    heighLine={'50px'}
+                                    handleOnChange={this.handleOnChange}
+                                />
+
                             </div>
                             <div className="baner-services">
                                 <div className="baner-item">

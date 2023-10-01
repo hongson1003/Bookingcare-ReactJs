@@ -46,7 +46,6 @@ class DetailDoctor extends React.Component {
                                         <img alt="" src={data.image} />
                                     )
                                 )}
-
                             </div>
                             <div className="main-descrip">
                                 <p className="main-title">

@@ -14,10 +14,10 @@ export const CHANGE_LANGUAGE_APP = (language) => {
         payload: language,
     }
 }
-export const turnOnModal = (data) => {
+export const turnOnModal = (doctorId, item) => {
     return {
         type: actionTypes.TURN_ON_MODAL,
-        payload: data,
+        payload: { doctorId, item },
     }
 }
 export const turnOffModalAction = () => {
