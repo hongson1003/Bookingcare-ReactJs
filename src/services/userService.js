@@ -75,10 +75,34 @@ let deleteSpecialty = async (id) => {
         },
     });
 }
+
+let getAllClinics = async (id) => {
+    return await axios.get('/api/get-all-clinics?id=' + id);
+}
+let updateClinic = async (data) => {
+    return await axios.put('/api/update-clinic', data);
+}
+let createNewClinic = async (data) => {
+    return await axios.post('/api/create-new-clinic', data);
+}
+let deleteClinic = async (id) => {
+    return await axios.delete('/api/delete-clinic', {
+        data: {
+            id
+        },
+    });
+}
+
+let getAllPatientsForDoctorById = async (id) => {
+    return await axios.get('/api/get-all-patient-booking?id=' + id);
+}
+
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
     createSchedule, getScheduleById, getDoctorInfo,
     getDoctorInfoSchedule, createNewSpecialty,
-    getAllSpecialties, updateSpecialty, deleteSpecialty
+    getAllSpecialties, updateSpecialty, deleteSpecialty,
+    getAllClinics, updateClinic, createNewClinic, deleteClinic,
+    getAllPatientsForDoctorById
 };

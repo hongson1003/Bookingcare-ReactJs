@@ -132,7 +132,6 @@ class ManageSchedule extends Component {
         await this.setState({
             selectedOption: selected,
         })
-        console.log(this.state)
     };
     handleOnChangeDate = async (e) => {
         await this.setState({
@@ -193,7 +192,7 @@ class ManageSchedule extends Component {
     render() {
         const { selectedOption, allTime } = this.state;
         return (
-            <div className='container manage-schedule'>
+            <div className='container manage-schedule-system'>
                 <div className='row pt-4 mb-3'>
                     <div className='col-12'>
                         <h2 className='text-center'>

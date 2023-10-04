@@ -18,6 +18,7 @@ class VerifyBooking extends React.Component {
     componentDidMount = async () => {
         let token = this.props.match.params.token.split('=')[1];
         let doctorId = this.props.match.params.doctorId.split('=')[1];
+        console.log(doctorId, token)
         let response = await postVerifyBooking({
             doctorId: +doctorId,
             token: token,

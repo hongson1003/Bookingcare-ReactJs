@@ -14,10 +14,14 @@ let getAllDoctorWithSepecialties = async (id) => {
 let getMenuSearch = async () => {
     return await axios.get('/api/get-all-menu-specialties');
 }
+let getAllClinics = async (id) => {
+    return await axios.get('/api/get-all-clinics?id=' + id);
+}
 
 export {
     createBookingService,
     postVerifyBooking,
     getAllDoctorWithSepecialties,
-    getMenuSearch
+    getMenuSearch,
+    getAllClinics
 }

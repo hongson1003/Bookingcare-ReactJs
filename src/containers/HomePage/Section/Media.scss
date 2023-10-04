@@ -7,9 +7,9 @@
         .slider-item {
             position: relative;
             float: left;
-            width: 45%;
-            padding-bottom: 80px;
-
+            width: 50%;
+            height: 300px;
+            padding: 0px 20px;
             video {
                 width: 100%;
                 height: 300px;
@@ -20,20 +20,6 @@
             }
 
             .slider-item-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 25px;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 100% 316px;
-                margin: 0;
-
-                iframe {
-                    width: 100%;
-                    height: 100%;
-                }
 
                 & div {
                     cursor: pointer;

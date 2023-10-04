@@ -106,12 +106,23 @@
         "save": "Lưu"
     },
     "manage-specialty": {
-        "Choose a specialty": "Chọn chuyên khoa",
+        "Choose a specialty": "Tên chuyên khoa",
         "Specialized photo": "Ảnh chuyên khoa",
         "SPECIALTY MANAGEMENT": "QUẢN LÝ CHUYÊN KHOA",
         "View User List": "Xem danh sách người dùng",
         "create": "Tạo mới",
         "save": "Cập nhật thay đổi"
+    },
+    "manage-clinic": {
+        "title": "QUẢN LÝ PHÒNG KHÁM",
+        "chooseClinic": "Tên phòng khám",
+        "avatarClinic": "Ảnh phòng khám",
+        "name": "Tên phòng khám",
+        "address": "Địa chỉ",
+        "description-picture": "Mô tả phòng khám (có ảnh và thông tin)",
+        "create": "Tạo mới",
+        "View User List": "Xem danh sách phòng khám",
+        "save": "Lưu thay đổi"
     },
     "patient": {
         "examinationSchedule": "Lịch Khám",

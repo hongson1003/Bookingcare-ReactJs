@@ -44,7 +44,6 @@ class ModalDoctorSchedule extends React.Component {
     }
     componentDidMount = async () => {
         this.props.getGendersStart();
-
     }
     componentDidUpdate = async (prevProps) => {
         // luôn luôn phải có điều kiện vì nó update liên tục
@@ -60,7 +59,7 @@ class ModalDoctorSchedule extends React.Component {
             else
                 date = this.props.dataSchedule.timeTypeData.valueEn + ', ' + this.toCaptilize((moment(new Date(this.props.dataSchedule.date)).locale('en').format('ddd MM/DD/YYYY')));
             await this.setState({
-                doctorId: this.props.doctorId,
+                doctorId: this.props.dataSchedule.doctorId,
                 idSchedule: this.props.dataSchedule.scheduleId,
                 timeType: this.props.dataSchedule.timeType,
                 date: date,
@@ -94,6 +93,7 @@ class ModalDoctorSchedule extends React.Component {
             language: this.props.language,
         }
         await this.props.getLoading();
+        console.log(data)
         let response = await createBookingService(data);
         this.props.stopLoading();
         if (response.errCode === 0) {

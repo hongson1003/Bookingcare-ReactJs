@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
-import ManageSchedule from '../containers/System/doctor/ManageSchedule';
+import ManageSchedule from '../containers/Doctor/ManageSchedule';
 import Header from '../containers/Header/Header';
 class Doctor extends Component {
     render() {
@@ -9,14 +9,10 @@ class Doctor extends Component {
         return (
             <React.Fragment>
                 {isLoggedIn && <Header />}
-                <div className="Doctor-container">
-                    <div className="Doctor-list">
-                        <Switch>
-                            <Route path="/doctor/manage-schedule" component={ManageSchedule} />
-                            <Route component={() => { return (<Redirect to={'/doctor/manage-schedule'} />) }} />
-                        </Switch>
-                    </div>
-                </div>
+                <Switch>
+                    <Route path="/doctor/manage-schedule" component={ManageSchedule} />
+                    <Route component={() => { return (<Redirect to={'/doctor/manage-schedule'} />) }} />
+                </Switch>
             </React.Fragment>
         );
     }

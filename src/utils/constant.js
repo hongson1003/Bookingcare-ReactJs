@@ -7,6 +7,7 @@ export const path = {
     DETAIL_DOCTOR: '/doctors',
     VERIFY_EMAIL: '/verify/:token&:doctorId',
     DETAIL_SPECIALTY: '/specialty',
+    DETAIL_CLINIC: '/clinic',
 };
 
 export const LANGUAGES = {

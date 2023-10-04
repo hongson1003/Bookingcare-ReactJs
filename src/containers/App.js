@@ -15,7 +15,8 @@ import NotFoundComponent from './NotFoundComponent';
 import DetailDoctor from './HomePage/Patient/Doctor/DetailDoctor';
 import Doctor from '../routes/Doctor';
 import VerifyBooking from './HomePage/Patient/Verify/VerifyBooking';
-import SpecialtyDetails from './HomePage/Patient/Verify/Specialties/SpecialtyDetails';
+import SpecialtyDetails from './HomePage/Patient/Specialty/SpecialtyDetails';
+import ClinicDetail from './HomePage/Patient/Clinic/ClinicDetail';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -66,6 +67,8 @@ class App extends Component {
                                 <Route path={path.VERIFY_EMAIL} component={VerifyBooking}></Route>
                                 <Route path={path.DETAIL_DOCTOR + '/:id'} component={DetailDoctor} />
                                 <Route path={path.DETAIL_SPECIALTY + '/:id'} component={SpecialtyDetails} />
+                                <Route path={path.DETAIL_CLINIC + '/:id'} component={ClinicDetail} />
+
                                 <Route component={NotFoundComponent} />
                             </Switch>
                         </div>

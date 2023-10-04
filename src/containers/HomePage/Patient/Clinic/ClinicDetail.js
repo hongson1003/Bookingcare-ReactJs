@@ -1,71 +1,100 @@
 import React from "react";
-import Header from "../../../HeaderHomePage/Header";
-import './SpecialtyDetails.scss';
-import { getAllSpecialties } from "../../../../../services/userService";
-import Schedules from "../../Doctor/Schedules";
-import ModalDoctorSchedule from "../../Doctor/Modal/ModalDoctorSchedule";
-import DoctorExtraInfo from "../../Doctor/DoctorExtraInfo";
-import { getAllDoctorWithSepecialties } from "../../../../../services/patientService";
+import Header from "../../HeaderHomePage/Header";
+import './ClinicDetail.scss';
+import { getAllSpecialties } from "../../../../services/userService";
+import Schedules from '../Doctor/Schedules';
+import ModalDoctorSchedule from '../Doctor/Modal/ModalDoctorSchedule';
+import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
+import { getAllDoctorWithSepecialties } from "../../../../services/patientService";
 import { connect } from "react-redux";
-import * as actions from '../../../../../store/actions';
-class SpecialtyDetails extends React.Component {
+import * as actions from '../../../../store/actions';
+import { getAllClinics } from "../../../../services/patientService";
+
+class ClinicDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            image: '',
-            descriptionText: '',
-            descriptionHTML: '',
             name: '',
-            show: false,
-
-            listDoctors: [],
-            doctorId: '',
-            idSchedule: '',
-
+            address: '',
+            descriptionHTML: '',
+            descriptionText: '',
+            descriptionTitleHTML: '',
+            descriptionTitleText: '',
+            image: '',
         }
     }
+
     componentDidMount = async () => {
-        let id = this.props.location.pathname.split('/').at(-1);
-        let response = await getAllSpecialties(+id);
-        let arrResponse = await getAllDoctorWithSepecialties(id);
+        let id = this.props.history.location.pathname.split('/').at(-1);
+        let response = await getAllClinics(+id);
         if (response.errCode === 0) {
             let data = response.data[0];
             this.setState({
-                image: data.image,
-                descriptionText: data.descriptionText,
-                descriptionHTML: data.descriptionHTML,
                 name: data.name,
-                listDoctors: arrResponse.data,
+                address: data.address,
+                descriptionHTML: data.descriptionHTML,
+                descriptionText: data.descriptionText,
+                descriptionTitleHTML: data.descriptionTitleHTML,
+                descriptionTitleText: data.descriptionTitleText,
+                image: data.image
             })
         }
     }
-    handleOnViewMore = () => {
-        this.setState({
-            show: !this.state.show
-        })
-    }
 
-    handleRedirectDoctorDetail = (id) => {
-        this.props.history.push('/doctors/' + id);
-    }
-
-    handleGetId = (doctorId, idSchedule) => {
-        this.setState({
-            doctorId: doctorId,
-            idSchedule: idSchedule,
-        })
-    }
 
     render() {
-        let { image, descriptionHTML, show, listDoctors } = this.state;
+        let { descriptionTitleHTML, image } = this.state;
+        let imgLink = '';
+        let descrip = '';
+        if (descriptionTitleHTML) {
+            let lineText = descriptionTitleHTML.split('\n');
+            imgLink = lineText[0];
+            console.log(imgLink)
+            for (let i = 1; i < lineText.length; i++)
+                descrip += lineText[i];
+        }
         return (
             <>
                 <Header />
-                <div className="specialty-detail">
-                    <ModalDoctorSchedule
-                        doctorId={60}
-                    />
-                    <div className="main-top" style={{ backgroundImage: `url(${image})` }}>
+                <div className="clinic-detail">
+                    <ModalDoctorSchedule />
+                    <div className="main-picture">
+                        {(imgLink.indexOf('src=""') === -1 && imgLink.indexOf('src') !== -1) ?
+                            <div className="img" dangerouslySetInnerHTML={{ __html: imgLink }} >
+                            </div> :
+                            <img alt="" style={{ display: 'block', width: '100%', 'objectFit': 'cover' }} className="img" src="https://cdn.bookingcare.vn/fr/w800/2018/03/19/153047bookingcare-images.jpg" />
+                        }
+                        <div className="logo">
+                            <div className="logo-up">
+                                <img src={image} />
+                                <div>
+                                    <p>{this.state.name}</p>
+                                    <p>{this.state.address}</p>
+                                </div>
+                            </div>
+                            <div className="menu">
+                                <ul>
+                                    <li>GIỚI THIỆU</li>
+                                    <li>THẾ MẠNG CHUYÊN MÔN</li>
+                                    <li>TRANG THIẾT BỊ</li>
+                                    <li>VỊ TRÍ</li>
+                                    <li>QUY TRÌNH KHÁM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="main-content">
+                        <div className="content-outstanding">
+                            BookingCare là Nền tảng Y tế chăm sóc sức khỏe toàn diện hàng đầu Việt Nam kết nối người dùng với trên 200 bệnh viện - phòng khám uy tín, hơn 1,500 bác sĩ chuyên khoa giỏi và hàng nghìn dịch vụ, sản phẩm y tế chất lượng cao.
+                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: descrip }} className="descrip"></div>
+                        <div className="description-general" dangerouslySetInnerHTML={{ __html: this.state.descriptionHTML }}></div>
+                    </div>
+
+                </div>
+                <div>
+
+                    {/* <div className="main-top" style={{ backgroundImage: `url(${image})` }}>
                         <div className={show === true ? 'box' : 'box unshow'}>
                             <div className="main-content">
                                 <h3>{this.state.name}</h3>
@@ -116,7 +145,7 @@ class SpecialtyDetails extends React.Component {
                                 </div>
                         }
 
-                    </div>
+                    </div> */}
                 </div >
 
             </>
@@ -145,4 +174,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpecialtyDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ClinicDetail);
