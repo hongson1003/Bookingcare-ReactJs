@@ -20,10 +20,6 @@ class Search extends Component {
             })
         }
     }
-    handleOnChange = (e) => {
-        this.props.handleOnChange(e);
-    }
-
     render() {
         let { arr } = this.state;
         return (

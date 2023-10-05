@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './ManageSchedule.scss';
+import './ManagePatient.scss';
 import * as actions from '../../store/actions';
 import DatePicker from '../../components/Input/DatePicker';
 import { FormattedMessage } from 'react-intl';
 import { getAllPatientsForDoctorById } from '../../services/userService';
-class ManageSchedule extends Component {
+class ManagePatient extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -59,7 +59,7 @@ class ManageSchedule extends Component {
                 <div className='row pt-4 mb-3'>
                     <div className='col-12'>
                         <h2 className='text-center'>
-                            <FormattedMessage id={"manage-schedule.manage_schedule"} />
+                            <FormattedMessage id={"manage-patient.title"} />
                         </h2>
                     </div>
                 </div>
@@ -78,9 +78,17 @@ class ManageSchedule extends Component {
                         </DatePicker>
                     </div>
                 </div>
+                {patients && patients.length > 0 ?
 
-                {patients && patients.length > 0 &&
-                    <div className='row mt-5'>
+                    <div className='row mt-5 mb-3'>
+                        <div className='col-12 mb-3 text-center font-weight-bold'>
+                            <p>
+                                Chào bác sĩ, đây là lịch khám của bác sĩ trong ngày hôm nay, chúc bác sĩ có một ngày làm việc tốt lành
+                                &nbsp;
+                                <img alt='' style={{ width: '20px', height: ' 20px' }} src='https://raw.githubusercontent.com/hongson1003/PostImage/main/icon-vui.png' />
+                            </p>
+                        </div>
+
                         <div className='col-12 table'>
                             <table>
                                 <thead>
@@ -104,7 +112,7 @@ class ManageSchedule extends Component {
                                             <td>{item.bookingData.email}</td>
                                             <td>{item.bookingData.genderData.valueVi}</td>
                                             <td>{item.bookingData.phoneNumber}</td>
-                                            <td>{item.timeType.valueVi}</td>
+                                            <td className='font-weight-bold'>{item.timeType.valueVi}</td>
                                             <td>
                                                 <button className='btn btn-primary'>Xác nhận</button>
                                                 <button className='btn btn-info'>Gửi hóa đơn</button>
@@ -115,8 +123,8 @@ class ManageSchedule extends Component {
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-
+                    </div> :
+                    <h2 className='mt-5 text-center'>KHÔNG CÓ LỊCH KHÁM BỆNH TRONG NGÀY</h2>
 
 
                 }
@@ -143,4 +151,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagePatient);

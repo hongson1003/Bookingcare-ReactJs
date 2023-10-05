@@ -56,7 +56,8 @@
         },
         "doctor": {
             "user": "Người dùng",
-            "manage-schedule": "Quản lý lịch khám bệnh"
+            "manage-schedule": "Quản lý lịch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân"
         }
     },
     "manage-user": {
@@ -104,6 +105,9 @@
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày",
         "save": "Lưu"
+    },
+    "manage-patient": {
+        "title": "QUẢN LÝ LỊCH KHÁM BỆNH"
     },
     "manage-specialty": {
         "Choose a specialty": "Tên chuyên khoa",

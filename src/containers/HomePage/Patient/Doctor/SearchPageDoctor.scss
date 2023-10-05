@@ -1,0 +1,70 @@
+.main-doctors{
+    position: relative;
+    .header{
+       width: 100%;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        background-color: #fff;
+    .header-top{
+        display: flex;
+        align-items: center;
+        box-shadow: 2px 2px 2px grey;
+        height: 50px;
+        padding-left: 15px;
+        .left-arrow{
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+        span{
+            font-weight: 530;
+            font-size: 20px;
+        }
+    }
+    .header-down{
+        .center-input{
+            padding: 10px 15px;
+        }
+        div{
+            padding-left: 15px;
+        }
+    }
+}
+    .main-content{
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        padding-left: 15px;
+        .item {
+            overflow: hidden;
+            z-index: 1;
+            padding-top: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: flex-start;
+            .img-doctor{
+                margin-right: 10px;
+                width: 50px;
+                object-fit: contain;
+                border-radius: 50%;
+            }
+            .specialtyName{
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+                cursor: pointer;
+            }
+            span{
+                cursor: pointer;
+            }
+            &  + div{
+                border-top: 1px solid rgba(128, 128, 128, 0.336);
+    
+            }
+        }
+    }
+   
+}
+    
+    

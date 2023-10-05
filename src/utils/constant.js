@@ -8,6 +8,8 @@ export const path = {
     VERIFY_EMAIL: '/verify/:token&:doctorId',
     DETAIL_SPECIALTY: '/specialty',
     DETAIL_CLINIC: '/clinic',
+    SPECIALTY: '/specialty',
+    DOCTORS: '/doctors',
 };
 
 export const LANGUAGES = {

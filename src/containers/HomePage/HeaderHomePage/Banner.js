@@ -46,12 +46,14 @@ class Banner extends React.Component {
     }
 
     handleOnChange = (e) => {
+        console.log('hi')
         // xử lý regex
         let tempArr = this.state.listItem.map(item => {
             return unidecode(item.name.toLowerCase());
         })
         let preArr = [];
         tempArr.forEach((item, index) => {
+            console.log(item)
             if (item.search(unidecode(e.target.value.toLowerCase())) !== -1) {
                 preArr.push(this.state.listItem[index]);
             }

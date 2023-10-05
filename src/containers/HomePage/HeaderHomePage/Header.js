@@ -14,6 +14,13 @@ class Header extends React.Component {
             this.props.history.push('/home');
         }
     }
+    handleSearchSpecialty = () => {
+        this.props.history.push('/specialty');
+
+    }
+    handleSearchDoctor = () => {
+        this.props.history.push('/doctors');
+    }
     render() {
         return (
             <React.Fragment>
@@ -27,7 +34,7 @@ class Header extends React.Component {
                         </div>
                         <div className="w-50 header-box">
 
-                            <div className="header-item">
+                            <div className="header-item" onClick={this.handleSearchSpecialty}>
                                 <p><FormattedMessage id="home-header.speciality" /></p>
                                 <p><FormattedMessage id="home-header.SearchBySpecialist" /></p>
                             </div>
@@ -35,7 +42,7 @@ class Header extends React.Component {
                                 <p><FormattedMessage id="home-header.healthFacilities" /></p>
                                 <p><FormattedMessage id="home-header.ChooseHospitalClinic" /></p>
                             </div>
-                            <div className="header-item">
+                            <div className="header-item" onClick={this.handleSearchDoctor}>
                                 <p><FormattedMessage id="home-header.doctor" /></p>
                                 <p><FormattedMessage id="home-header.ChooseAGoodDoctor" /></p>
                             </div>

@@ -65,6 +65,7 @@ let createNewSpecialty = async (data) => {
 let getAllSpecialties = async (id) => {
     return await axios.get('/api/get-all-specialties?id=' + id);
 }
+
 let updateSpecialty = async (data) => {
     return await axios.put('/api/update-specialty', data);
 }
@@ -97,6 +98,10 @@ let getAllPatientsForDoctorById = async (id) => {
     return await axios.get('/api/get-all-patient-booking?id=' + id);
 }
 
+let getAllDoctor = async () => {
+    return await axios.get('/api/get-all-doctor-with-name-image');
+}
+
 export {
     handleCheckLogin, getUsers, createNewAUser, deleteUser, editUser, getAllCode,
     getTopDoctors, getAllDr, insertDetailDr, getDetailDoctor, updateDetailDoctor,
@@ -104,5 +109,6 @@ export {
     getDoctorInfoSchedule, createNewSpecialty,
     getAllSpecialties, updateSpecialty, deleteSpecialty,
     getAllClinics, updateClinic, createNewClinic, deleteClinic,
-    getAllPatientsForDoctorById
+    getAllPatientsForDoctorById,
+    getAllDoctor
 };

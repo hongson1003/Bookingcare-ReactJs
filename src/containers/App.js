@@ -17,6 +17,8 @@ import Doctor from '../routes/Doctor';
 import VerifyBooking from './HomePage/Patient/Verify/VerifyBooking';
 import SpecialtyDetails from './HomePage/Patient/Specialty/SpecialtyDetails';
 import ClinicDetail from './HomePage/Patient/Clinic/ClinicDetail';
+import SearchPageSpecialty from './HomePage/Patient/Specialty/SearchPageSpecialty';
+import SearchPageDoctor from './HomePage/Patient/Doctor/SearchPageDoctor';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -65,9 +67,11 @@ class App extends Component {
                                 <Route path={path.SYSTEM} component={((System))} />
                                 <Route path={'/doctor'} component={(Doctor)}></Route>
                                 <Route path={path.VERIFY_EMAIL} component={VerifyBooking}></Route>
-                                <Route path={path.DETAIL_DOCTOR + '/:id'} component={DetailDoctor} />
+                                <Route path={path.DETAIL_DOCTOR + '/:id'} exact component={DetailDoctor} />
                                 <Route path={path.DETAIL_SPECIALTY + '/:id'} component={SpecialtyDetails} />
                                 <Route path={path.DETAIL_CLINIC + '/:id'} component={ClinicDetail} />
+                                <Route path={path.SPECIALTY} component={SearchPageSpecialty} />
+                                <Route path={path.DETAIL_DOCTOR} component={SearchPageDoctor} />
 
                                 <Route component={NotFoundComponent} />
                             </Switch>

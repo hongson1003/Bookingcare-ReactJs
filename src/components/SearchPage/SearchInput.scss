@@ -1,0 +1,41 @@
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: #fff;
+    .header-top{
+        display: flex;
+        align-items: center;
+        box-shadow: 2px 2px 2px grey;
+        height: 50px;
+
+        .left-arrow{
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+        span{
+            font-weight: 530;
+            font-size: 20px;
+        }
+    }
+    .center-input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f5f5;
+        input{
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 30px;
+            padding: 2px 10px;
+            border: 1px solid gray;
+            box-sizing: border-box;
+            &:focus{
+                box-shadow: none;
+                outline: none;
+            }
+        }
+    }
+}
