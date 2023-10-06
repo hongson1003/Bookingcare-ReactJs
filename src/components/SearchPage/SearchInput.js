@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import left from '../../assets/images/left.png';
 import './SearchInput.scss';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 class SearchInput extends Component {

@@ -64,6 +64,9 @@ const actionTypes = Object.freeze({
 
     TURN_ON_MODAL: 'TURN_ON_MODAL',
     TURN_OFF_MODAL: 'TURN_OFF_MODAL',
+
+    TURN_ON_CONFIRM: 'TURN_ON_CONFIRM',
+    TURN_OFF_CONFIRM: 'TURN_OFF_CONFIRM'
 })
 
 export default actionTypes;

@@ -8,7 +8,6 @@ import { LANGUAGES } from "../../../../utils/constant";
 import { connect } from "react-redux";
 import { getScheduleById } from '../../../../services/userService';
 // import _ from "lodash";
-import { FormattedMessage } from "react-intl";
 import DoctorExtraInfo from "./DoctorExtraInfo";
 import ModalDoctorSchedule from "./Modal/ModalDoctorSchedule";
 import * as actions from '../../../../store/actions';
@@ -140,7 +139,7 @@ const mapStatetoProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        turnOnModal: async (id) => await dispatch(actions.turnOnModal(id)),
+        turnOnModal: async (item) => await dispatch(actions.turnOnModal(item)),
         turnOffModal: () => dispatch(actions.turnOffModalAction()),
     }
 }

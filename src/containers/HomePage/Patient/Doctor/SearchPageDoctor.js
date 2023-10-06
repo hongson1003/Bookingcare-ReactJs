@@ -1,6 +1,5 @@
 import React from "react";
 import SearchInput from "../../../../components/SearchPage/SearchInput";
-import { getAllSpecialties } from '../../../../services/userService';
 import './SearchPageDoctor.scss';
 import left from '../../../../assets/images/left.png';
 import unidecode from "unidecode";
@@ -67,7 +66,7 @@ class SearchPageDoctor extends React.Component {
             <div className="main-doctors">
                 <div className='header'>
                     <div className='header-top'>
-                        <img onClick={this.handlRedirect} className='left-arrow' src={left} />
+                        <img alt="" onClick={this.handlRedirect} className='left-arrow' src={left} />
                         <span>{name}</span>
                     </div>
                     <div className='header-down'>
@@ -86,7 +85,7 @@ class SearchPageDoctor extends React.Component {
                         arr.map(item => (
                             <div className='item' key={item.id}>
                                 {
-                                    item.image && <img className='img-doctor' src={new Buffer(item.image, 'base64').toString('binary')} />
+                                    item.image && <img alt="" className='img-doctor' src={new Buffer(item.image, 'base64').toString('binary')} />
                                 }
                                 <div >
                                     <p className="specialtyName" onClick={() => this.handleRedirectSpecialty(item.id)}>{`${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`}</p>

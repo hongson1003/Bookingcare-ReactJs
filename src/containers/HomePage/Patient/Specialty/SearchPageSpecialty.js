@@ -18,7 +18,7 @@ class SearchPageSpecialty extends React.Component {
         this.handleGetSpecialties('ALL');
     }
     componentDidUpdate = async () => {
-        // this.handleGetSpecialties('ALL');
+
     }
 
     handleGetSpecialties = async (id) => {
@@ -62,7 +62,7 @@ class SearchPageSpecialty extends React.Component {
             <div className="main-specialties">
                 <div className='header'>
                     <div className='header-top'>
-                        <img onClick={this.handlRedirect} className='left-arrow' src={left} />
+                        <img alt="" onClick={this.handlRedirect} className='left-arrow' src={left} />
                         <span>{name}</span>
                     </div>
                     <div className='header-down'>
@@ -80,7 +80,7 @@ class SearchPageSpecialty extends React.Component {
                     {arr && arr.length > 0 &&
                         arr.map(item => (
                             <div className='item' key={item.id}>
-                                <img className='img-specialty' src={item.image} />
+                                <img alt="" className='img-specialty' src={item.image} />
                                 <span onClick={() => this.handleRedirectSpecialty(item.id)}>{item.name}</span>
                             </div>
                         ))

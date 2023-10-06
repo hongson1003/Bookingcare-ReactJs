@@ -24,6 +24,8 @@ class ModalDoctorSchedule extends React.Component {
             doctorId: '',
             idSchedule: '',
             timeType: '',
+            dateFormat: '',
+            date: '',
         }
         this.toggle = this.toggle.bind(this);
     }
@@ -53,6 +55,7 @@ class ModalDoctorSchedule extends React.Component {
                 gender: this.props.genders[0].keyMap,
             })
         if (prevProps.modal !== this.props.modal) {
+            console.log(this.props)
             let date = '';
             if (this.props.language === LANGUAGES.VI)
                 date = this.props.dataSchedule.timeTypeData.valueVi + ', ' + this.toCaptilize((moment(new Date(this.props.dataSchedule.date)).format('dddd DD/MM/YYYY')));
@@ -62,7 +65,7 @@ class ModalDoctorSchedule extends React.Component {
                 doctorId: this.props.dataSchedule.doctorId,
                 idSchedule: this.props.dataSchedule.scheduleId,
                 timeType: this.props.dataSchedule.timeType,
-                date: date,
+                dateFormat: date,
                 timeTypeData: this.props.dataSchedule.timeTypeData,
                 doctorData: this.props.dataSchedule.doctorSchedule
             })
@@ -86,12 +89,14 @@ class ModalDoctorSchedule extends React.Component {
             yearBirthday: this.state.yearBirthday,
             reason: this.state.reason,
             doctorId: this.state.doctorId,
-            idSchedule: this.state.idSchedule,
             timeType: this.state.timeType,
             doctor: this.state.doctorData,
-            date: this.state.date,
+            date: this.props.dataSchedule.date,
+            dateFormat: this.state.dateFormat,
             language: this.props.language,
         }
+        console.log(data)
+
         await this.props.getLoading();
         console.log(data)
         let response = await createBookingService(data);

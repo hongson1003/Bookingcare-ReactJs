@@ -7,6 +7,8 @@ import './Baner.scss';
 import { getMenuSearch } from "../../../services/patientService";
 import Search from "../../../components/Search/Search";
 import unidecode from 'unidecode';
+import { path } from "../../../utils";
+import { withRouter } from "react-router";
 class Banner extends React.Component {
     constructor(props) {
         super(props);
@@ -63,6 +65,10 @@ class Banner extends React.Component {
         })
     }
 
+    handleRedirect = (link) => {
+        this.props.history.push(link);
+    }
+
 
 
     render() {
@@ -87,7 +93,7 @@ class Banner extends React.Component {
 
                             </div>
                             <div className="baner-services">
-                                <div className="baner-item">
+                                <div className="baner-item" onClick={() => this.handleRedirect(path.SPECIALTY)}>
                                     <div>
                                         <i className="fas fa-hospital"></i>
                                     </div>
@@ -181,4 +187,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Banner);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Banner));

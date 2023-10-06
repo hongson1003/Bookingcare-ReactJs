@@ -94,12 +94,16 @@ let deleteClinic = async (id) => {
     });
 }
 
-let getAllPatientsForDoctorById = async (id) => {
-    return await axios.get('/api/get-all-patient-booking?id=' + id);
-}
+let getAllPatientsForDoctorByIdDate = async (id, date) => {
+    return await axios.get(`/api/get-all-patient-booking?id=${id}&date=${date}`);
+}   
 
 let getAllDoctor = async () => {
     return await axios.get('/api/get-all-doctor-with-name-image');
+}
+
+let sendResultToPatient = async (data) => {
+    return await axios.post('/api/send-bill', data);
 }
 
 export {
@@ -109,6 +113,7 @@ export {
     getDoctorInfoSchedule, createNewSpecialty,
     getAllSpecialties, updateSpecialty, deleteSpecialty,
     getAllClinics, updateClinic, createNewClinic, deleteClinic,
-    getAllPatientsForDoctorById,
-    getAllDoctor
+    getAllPatientsForDoctorByIdDate,
+    getAllDoctor,
+    sendResultToPatient
 };

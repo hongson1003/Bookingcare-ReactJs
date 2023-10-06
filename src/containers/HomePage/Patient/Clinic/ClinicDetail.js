@@ -1,13 +1,8 @@
 import React from "react";
 import Header from "../../HeaderHomePage/Header";
 import './ClinicDetail.scss';
-import { getAllSpecialties } from "../../../../services/userService";
-import Schedules from '../Doctor/Schedules';
 import ModalDoctorSchedule from '../Doctor/Modal/ModalDoctorSchedule';
-import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
-import { getAllDoctorWithSepecialties } from "../../../../services/patientService";
 import { connect } from "react-redux";
-import * as actions from '../../../../store/actions';
 import { getAllClinics } from "../../../../services/patientService";
 
 class ClinicDetail extends React.Component {
@@ -66,7 +61,7 @@ class ClinicDetail extends React.Component {
                         }
                         <div className="logo">
                             <div className="logo-up">
-                                <img src={image} />
+                                <img alt="" src={image} />
                                 <div>
                                     <p>{this.state.name}</p>
                                     <p>{this.state.address}</p>

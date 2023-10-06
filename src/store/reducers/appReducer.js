@@ -16,6 +16,8 @@ const initialState = {
     },
     modal: false,
     dataSchedule: {},
+    confirm: false,
+    dataPatient: {}
 }
 
 const appReducer = (state = initialState, action) => {
@@ -49,6 +51,21 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 modal: false,
+            }
+
+
+        case actionTypes.TURN_ON_CONFIRM:
+            let confirmOn = { ...state };
+            confirmOn.confirm = true;
+            confirmOn.dataPatient = action.payload;
+            return {
+                ...confirmOn
+            }
+        case actionTypes.TURN_OFF_CONFIRM:
+            console.log('off')
+            return {
+                ...state,
+                confirm: false,
             }
         default:
             return state;

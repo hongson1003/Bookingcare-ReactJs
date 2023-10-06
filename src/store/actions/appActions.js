@@ -26,3 +26,15 @@ export const turnOffModalAction = () => {
     }
 }
 
+export const turnOnConfirm = (item) => {
+    return {
+        type: actionTypes.TURN_ON_CONFIRM,
+        payload: item,
+    }
+}
+export const turnOffConfirm = () => {
+    return {
+        type: actionTypes.TURN_OFF_CONFIRM
+    }
+}
+

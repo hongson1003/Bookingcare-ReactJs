@@ -24,6 +24,7 @@ class DetailDoctor extends React.Component {
     }
     render() {
         let data = this.state.data;
+        console.log(data)
         return (
             <React.Fragment>
                 <Header />
@@ -31,7 +32,7 @@ class DetailDoctor extends React.Component {
                     <div className="content_detail">
                         <p className="detail__title">
                             <img alt="" src={home}></img>
-                            <span>&ensp;/ Khám chuyên khoa&ensp;/Sức khỏe tâm thần Tư vấn, trị liệu Tâm lý</span>
+                            <span>&ensp;/ Khám chuyên khoa&ensp;/ {data.doctorInfo && data.doctorInfo.specialtyData.name}</span>
                         </p>
                         <div className="description-doctor">
                             <div className="image">

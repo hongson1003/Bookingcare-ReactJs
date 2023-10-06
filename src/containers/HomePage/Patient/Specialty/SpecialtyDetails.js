@@ -7,7 +7,6 @@ import ModalDoctorSchedule from '../Doctor/Modal/ModalDoctorSchedule';
 import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
 import { getAllDoctorWithSepecialties } from "../../../../services/patientService";
 import { connect } from "react-redux";
-import * as actions from '../../../../store/actions';
 class SpecialtyDetails extends React.Component {
     constructor(props) {
         super(props);
