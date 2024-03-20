@@ -2,7 +2,7 @@ import React from "react";
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
-import './ManageSpecialty.scss';
+import './manageSpecialty.scss';
 import Lightbox from 'react-image-lightbox';
 import { getBase64 } from "../../../utils/CommonUtils";
 import { FormattedMessage } from "react-intl";
